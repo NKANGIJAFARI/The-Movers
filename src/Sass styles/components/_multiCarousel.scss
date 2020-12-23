@@ -1,0 +1,70 @@
+.MultiCarouselWrapper {
+  padding: 3rem 2rem 3rem 2rem;
+
+  @include respond(tab-port) {
+    padding: 1rem 0.5rem 3.5rem 0.5rem;
+  }
+}
+.MultiCarousel {
+  float: left;
+  overflow: hidden;
+  // padding: 1rem;
+  width: 100%;
+  position: relative;
+
+  &__inner {
+    transition: 2s ease all;
+    float: left;
+  }
+
+  &__item {
+    float: left;
+    padding-left: 1rem;
+  }
+
+  &__button {
+    position: absolute;
+    font-size: 2rem;
+    border-radius: 0%;
+    top: calc(50% - 2rem);
+    text-align: center;
+    background-color: $color-white;
+    color: $color-black;
+
+    &-1 {
+      left: 1rem;
+      width: 3.7rem;
+      height: 3.7rem;
+    }
+    &-2 {
+      right: 1rem;
+      width: 3.7rem;
+      height: 3.7rem;
+    }
+    &-span {
+      @include absoluteCenter;
+      font-size: 5rem;
+    }
+  }
+
+  & .leftLst.over,
+  &.rightLst.over {
+    pointer-events: none;
+    background: #ccc;
+  }
+}
+
+.MultiCarousel .leftLst.over,
+.MultiCarousel .rightLst.over {
+  pointer-events: none;
+  background: #ccc;
+}
+
+// Form styles
+
+.form-control {
+  font-size: 1.7rem;
+}
+
+// .posts__form {
+// }

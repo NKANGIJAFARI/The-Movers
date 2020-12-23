@@ -1,0 +1,171 @@
+.section {
+  overflow: hidden;
+  width: 100%;
+}
+.section__posts {
+  position: relative;
+  margin-top: -160px;
+  z-index: 0;
+  font-size: 1.6rem;
+  padding: 3.5rem 3rem 3rem 3rem;
+  width: 100%;
+  text-align: center;
+  transition: all 1.4s;
+
+  @include respond(tab-port) {
+    padding: 0rem 1.5rem 1.5rem 1.5rem;
+  }
+  &:hover {
+  }
+}
+
+.section__featured {
+  padding: 7rem 10rem;
+  // background-color: brown;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  // background: linear-gradient(2deg, rgba(2, 252, 98, 0.186) 15%, #87cefa 100%);
+  transition: all 1.4s;
+
+  z-index: 2;
+  @include respond(tab-port) {
+    padding: 5rem 6rem;
+  }
+  @include respond(phone-large) {
+    padding: 6rem 1rem;
+  }
+  @include respond(phone) {
+    padding: 6rem 0.4rem;
+  }
+  // @include respond(tab-port) {
+  //   padding: 3rem 5rem;
+  // }
+  &:hover {
+    // background-color: #87cefa;
+  }
+  //background: black;
+  // background-image: linear-gradient(to right, rgb(39, 39, 39), grey);
+  // background: linear-gradient(
+  //   0deg,
+  //   rgba(128, 128, 128, 0.1858513669139531) 43%,
+  //   rgba(191, 220, 252, 0.50517909800639) 85%
+  // );
+}
+
+.section__appInfo {
+  background: #e3f2fd;
+  // background: linear-gradient(2deg, #87cefa 15%, rgba(2, 252, 98, 0.186) 100%);
+  transition: all 1.2s;
+  padding: 10rem 5rem;
+  transform: skewY(5deg);
+  &:hover {
+    // background-color: #87cefa;
+  }
+}
+
+.section__testimonials {
+  // background: $color-faded-white;
+  // background-color: rgb(13, 163, 223);
+  padding: 7rem 5rem 7rem 5rem;
+  // background: linear-gradient(2deg, rgba(2, 252, 98, 0.186) 0%, #87cefa 100%);
+
+  transition: all 1.4s;
+
+  &:hover {
+    // background-color: #87cefa;
+  }
+
+  @include respond(phone) {
+    padding: 2rem 0.5rem;
+  }
+
+  @include respond(phone-large) {
+    padding: 4rem 0.5rem;
+  }
+  @include respond(tab-port) {
+    overflow: hidden;
+  }
+}
+
+.section__appDescription {
+  background-color: #e3f2fd;
+  position: relative;
+  padding: 6rem 10rem;
+  // box-shadow: inset -5px -5px 10px #adadad, inset 5px 5px 10px $color-white;
+
+  border-top-right-radius: 130px;
+  border-top-left-radius: 130px;
+  border-bottom-right-radius: 130px;
+  border-bottom-left-radius: 130px;
+
+  background: gradient(
+    120deg,
+    #23d5ab,
+    #23a6d5,
+    #23d5ab,
+    #23a6d5,
+    #23d5ab,
+    #23a6d5
+  );
+  background-size: 400% 400%;
+  animation: gradient ease infinite;
+  animation-duration: 50s;
+
+  @include respond(tab-port) {
+    padding: 5rem;
+  }
+
+  @include respond(phone) {
+    padding: 5rem 2rem;
+  }
+}
+
+.hide {
+  display: block;
+}
+
+// For message modal
+
+.sendMessageForm {
+  position: relative;
+  width: 100%;
+}
+/* .sendMessageForm input {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: medium none;
+  color: #4c4c4c;
+  font-size: 1.5rem;
+  min-height: 4rem;
+  width: 100%;
+  padding: 0 2rem;
+} */
+.sendMessageForm input:focus {
+  outline: none;
+}
+.msg_send_btn {
+  background: #05728f none repeat scroll 0 0;
+  border: medium none;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.7rem;
+  height: 33px;
+  position: absolute;
+  right: 0;
+  top: 0.3rem;
+  width: 3.3rem;
+  margin-right: 0.3rem;
+}
+
+.messageModal .form__input {
+  background-color: #333;
+  color: #fff;
+}
+
+.messageModal .form__input::placeholder {
+  background-color: #333;
+  color: #fff;
+}

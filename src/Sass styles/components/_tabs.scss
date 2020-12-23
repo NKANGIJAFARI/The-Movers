@@ -1,0 +1,112 @@
+/* Style tab links */
+.desc {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+
+  @include respond(tab-port) {
+    &:not(:last-child) {
+      margin-bottom: 7.5rem;
+    }
+  }
+
+  &__reverse {
+    @include respond(phone-large) {
+      flex-direction: column-reverse;
+    }
+  }
+
+  &__heading {
+  }
+  &__paragraph {
+    margin-bottom: 0;
+  }
+  &__imageWrap {
+    width: 100%;
+    text-align: center;
+
+    &--searchPic {
+      padding: 4rem;
+      @include respond(phone-large) {
+        padding-top: 4rem;
+      }
+    }
+
+    & img {
+      width: 90%;
+    }
+  }
+}
+.imageSide {
+  width: 90em;
+}
+.tablink {
+  background-color: $color-white;
+  color: $color-black;
+  border: none;
+  border-radius: 7px;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 16px;
+  font-size: 17px;
+  width: 20rem;
+  outline: none;
+  box-shadow: inset -5px -5px 10px $color-primary,
+    inset 5px 5px 10px $color-white;
+
+  &:not(:last-child) {
+    margin-right: 1rem;
+  }
+
+  &.active {
+    background-color: $color-grey-dark;
+    outline: none;
+  }
+}
+
+.tablink:hover {
+  box-shadow: none;
+  outline: none;
+  background-color: $color-grey-dark;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: $color-primary;
+  display: none;
+  padding: 1.5rem 1rem;
+  animation-name: fadeIn;
+  animation-duration: 1.5s;
+  animation-delay: 0s;
+}
+
+.tabcontent.active {
+  display: block;
+}
+
+.doneDeal {
+  padding: 6rem 0rem;
+
+  &__imageside {
+    & img {
+      width: 80%;
+
+      @include respond(tab-land) {
+        width: 70%;
+      }
+    }
+    @include respond(tab-land) {
+      margin-bottom: 10rem;
+    }
+  }
+
+  &__formside {
+    @include respond(tab-port) {
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__heading {
+    font-size: 1.9rem;
+  }
+}

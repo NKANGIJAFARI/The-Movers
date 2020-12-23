@@ -1,0 +1,94 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: inherit;
+}
+
+html {
+  // This defines what 1rem is
+  font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+
+  @include respond(phone) {
+    // width < 900?
+    font-size: 37.75%; //1 rem = 6px, 6/16 = 50%
+  }
+  @include respond(phone-large) {
+    // width < 900?
+    font-size: 43.75%; //1 rem = 7px, 7/16 = 50%
+  }
+  @include respond(tab-port) {
+    // width < 900?
+    font-size: 50%; //1 rem = 8px, 8/16 = 50%
+  }
+
+  @include respond(tab-land) {
+    // width < 1200?
+    font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; //1rem = 12, 12/16
+  }
+}
+
+body {
+  background-color: white;
+  box-sizing: border-box;
+  font-size: 1.8rem;
+  background-color: #87cefa;
+  overflow-x: hidden;
+}
+
+body,
+div,
+ul,
+li,
+h1,
+img,
+header,
+p,
+nav,
+main,
+footer,
+.row {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}
+
+// html {
+//   // This defines what 1rem is
+//   font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+
+//   @include respond(tab-land) {
+//     // width < 1200?
+//     font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
+//   }
+
+//   @if $breakpoint == phone-large {
+//     @media only screen and (max-width: 47.9em) {
+//       @content;
+//     } //760px
+//   }
+
+//   @include respond(tab-port) {
+//     // width < 900?
+//     font-size: 50%; //1 rem = 8px, 8/16 = 50%
+//   }
+
+//   @include respond(big-desktop) {
+//     font-size: 75%; //1rem = 12, 12/16
+//   }
+// }

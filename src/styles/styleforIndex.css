@@ -1,0 +1,192 @@
+/* @import "~bootstrap/scss/bootstrap"; */
+
+/* .downloadAppsHeader {
+  position: relative;
+  top: 0;
+  z-index: 1080;
+  text-align: center;
+  margin: 0;
+  display: inline-block;
+}
+.downloadAppsHeader p {
+  margin: 0;
+}
+.downloadAppsHeader img {
+  width: 10rem;
+  display: inline-block;
+} */
+
+/* .headingDescription {
+  color: rgba(25, 129, 226, 0.911);
+  text-shadow: lightseagreen 0.2rem;
+  font-size: 2.5rem;
+} */
+/* background: rgb(27, 8, 8);
+  background: linear-gradient(
+    0deg,
+    rgba(27, 8, 8, 1) 4%,
+    rgba(255, 221, 221, 0) 35%,
+    rgba(227, 242, 253, 1) 100%
+  ); */
+/* .formWrapper {
+  position: relative;
+  top: 12%;
+  left: 0%;
+  transform: translateX(-50%, 0);
+  z-index: 0;
+  font-size: 1.5rem;
+  background-color: #f6f4f2;
+  padding: 0;
+  margin: 0;
+
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+} */
+
+/* .rentSaleOption{
+    color:red;
+    font-size: 1.5rem;
+    border-radius: 0 0 0 .6rem;
+    border: .2rem lightblue solid;
+    padding:0 .5rem;
+    position: absolute;
+    top: 0;
+    right:0;
+} */
+
+.explanation {
+  color: white;
+  margin: 0;
+}
+.appInformation {
+  /* background-color: #007bff; */
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(#007bff, 0.8),
+      rgba(#ffff, 0.8)
+    ),
+    url(../images/bg-images1.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  color: white;
+  text-align: center;
+  padding: 7rem 0;
+}
+.appInformation h2 {
+  margin-top: 0;
+  margin-bottom: 3rem;
+}
+.appInformation p {
+  margin: 1.4rem 0;
+}
+
+.allpostings {
+}
+.newPosts {
+  background-color: grey;
+  padding: 0;
+}
+
+.newPosts .heading {
+  display: block;
+  width: 100%;
+  color: white;
+}
+
+/* Styles for the featured post */
+/* .featuredPropertyImages {
+  padding: 0 5rem 0 5rem;
+  text-align: center;
+}
+.featuredPropertyImages .carouselSelectors {
+  text-align: center;
+  background-color: black;
+}
+
+.featuredPropertyImages .carousel-item {
+}
+.featuredPropertyImages .carousel-item img {
+  height: 30rem;
+}
+
+.featuredPropertyImages .propertyImagesCarouselWrapper {
+  width: 60%;
+  margin-left: auto;
+}
+
+.featuredPropertyImages .carouselSelectors img {
+  width: 8rem;
+  height: 4.5rem;
+  margin: 0.2rem;
+  display: inline-block;
+  overflow-x: scroll;
+}
+
+.detailsWrapper li {
+  list-style-type: none;
+}
+
+.details {
+  display: inline-block;
+} */
+
+/* End */
+/* 
+.appPhone {
+  width: 100%;
+  position: sticky;
+  top: 3rem;
+  z-index: -2;
+}*/
+
+/* .stickyphone1 {
+  position: sticky;
+  background-color: #007bff;
+  top: 9.2rem;
+  padding: 0;
+  z-index: -2;
+} */
+
+.stickyphone2 {
+  position: sticky;
+  top: 9.2rem;
+  z-index: -1;
+}
+
+#newsletter {
+  border-radius: 0.7rem;
+  padding: 0.4rem;
+}
+
+/* .loggedIn{
+    display:none;
+}
+.loggedOut{
+    display:none;
+} */
+
+.hide {
+  display: none;
+}
+
+@media only screen and(max-width:670px) {
+  .testimonial2 img {
+    width: 7.5rem;
+    top: 1.9rem;
+    right: 0px;
+    display: inline-block;
+    border-radius: 50%;
+    border: 0.3rem solid grey;
+    box-shadow: inset 2;
+    position: absolute;
+  }
+}
+
+.container2 img {
+  width: 6rem;
+  position: absolute;
+
+  text-align: center;
+}

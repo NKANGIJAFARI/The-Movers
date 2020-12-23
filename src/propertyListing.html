@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Property Listings</title>
+
+  <script src="https://use.fontawesome.com/f6bf8ec87a.js" defer></script>
+
+  </head>
+  <body class="body">
+
+ <!-- NAVIGATION BAR BELOW-->
+ <nav class=" py-0 navbar navbar-expand-lg navbar-light sticky-top" style='background-color: #e3f2fd'> 
+  <div class="container-fluid nav">
+    <a class="navbar-brand"><h2 class="logo">TheMovers</h2></a>
+
+
+
+<!--DOWNLOAD APP ICONS IN THE HEADING-->
+  <div class="downloadAppsHeader">
+    <!-- <p class="appsDescription">Download App on</p> -->
+    <a href="#"><img src="images/applestore2.png" alt="applestore"></a>
+    <a href="#"><img src="images/playstore.png"alt="playstore"></a>
+  </div>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive">
+      MENU
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+     
+      <ul class="navbar-nav  ml-auto ">
+         <li class="nav-item">
+          <a  class="nav-link " href="index.html">Home</a>
+        </li>
+       
+         <li class="nav-item">
+          <a  class="nav-link" href="propertyListing.html">Postings</a>
+        </li>
+        <li class="nav-item owner" style="display: none">
+          <a  class=" nav-link " href="postProperty.html">PostProperty</a>
+        </li>
+       
+        <li class="nav-item inActiveUser" style="display: none;">
+          <a  class="nav-link " href="signInPage.html">Sign In/Up</a>
+        </li>
+
+        <li class="activeUser nav-item messageIcon" style="display: none;">
+          <a class="nav-link" href="chatroom.html">
+            <p>Messages</p>
+            <img src="./images/message.png" alt="Messages" class="messageIconImg">
+              <span class="badge badge-danger">4</span>
+          </a>
+        </li>
+        
+        <li class="activeUser nav-item messageIcon" style="display: none;">
+          <a class="nav-link" href="#">
+            <p>Notifications</p> 
+            <img src="./images/notificationIcon.png" class="">
+              <span class="badge badge-danger">11</span>
+          </a>
+        </li>
+
+        <li class="activeUser nav-item dropdown" style="display: none;">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <img class="profilePicImg" alt="Profile Pic">
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+            aria-labelledby="navbarDropdownMenuLink-55">
+            <a class="dropdown-item" href="userProfile.html">My Profile</a>
+            <a class="dropdown-item" href="UpdateProfile.html">Update Profile</a>
+            <a  class="dropdown-item logOutBtn" href="#">SignOut</a>
+          </div>
+        </li>
+   
+      </ul>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse"
+        data-target="#navbarResponsive">
+        <span style="color: white; font-size: 38px;">X</span>
+    </button>
+    </div>
+</nav>
+
+  <!-- DIV TO DISPLAY WHEN PAGE HAS NOT LOADED THE PROPERTIES -->
+  <div class="failedPropertyLoad" style="display: none">
+    <!-- <h2>Properties didnt load, need a page refresh<h2>
+    <button class="refreshBtn">REFRESH PAGE</button> -->
+    <img src="./images/static-ip-no-internet.jpg" alt="">
+  </div>
+
+
+  <!-- Message sending modal -->
+  <!-- <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="messageModalLongTitle">Message to: <span id="landlordEmail"></span></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+          <div class="sendMessageFormWrapper">
+            <form class="type_msg sendMessageForm">
+            <div class="input_msg_write">
+              <input type="text" id="new-msg-input" class="new-chat" placeholder="Type a message" />
+       
+            </div>
+                   <button class="msg_send_button" type="submit">
+                Submit
+    
+              </button>
+          </form>
+        </div>
+  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="button button-secondary" data-dismiss="modal">Cancel</button>
+          <a href="./chatroom.html" type="button" class="button button-primary">Go To Chats</a>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+
+
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Open modal for @fat</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button> -->
+
+<div class="modal fade " id="messageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content messageModal text-center justify-content-center">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Message to: 
+          <span class="messageReceiver"></span>
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="sendMessageForm type_msg">
+            <!-- <label for="message-text" class="col-form-label">Message:</label> -->
+            <textarea id="new-msg-input" rows="4" class=" form-control form__input new-chat" placeholder="Type your message here..."></textarea>
+            <!-- <input type="text" id="new-msg-input" class=" form-control new-chat" placeholder="Type a message"> -->
+
+          <div class="form-group text-right">
+            <button type="submit" class="btn btn-primary btn-large msg_send_button">Send message</button>
+            <button type="button" class="btn btn-danger btn-large" data-dismiss="modal">Cancel</button>
+          </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+  <!-- Main content below -->
+  <!--  had "d-flex" as a class and removed, if it breaks add it to wrrappera s a class. -->
+<div class="wrapper propertyListWrapper">
+   	<nav id="sidebar" class="sidebarFixed active">
+   		<div class="sidebar-header">
+   			<h5>Filter Properties</h5>
+       </div>
+       
+         <div>
+            <p class="labelBlock">Property Category</p>
+            <input name="propertyCategory" type="radio" class="propertyCategory" id="forRent" value="For-Rent">
+            <label for="forRent">For Rent</label>
+            <input name="propertyCategory" type="radio" class="propertyCategory" id="forSale" value="For-Sale">
+            <label for="forSale">For Sale</label>
+          </div> 
+         <form id="priceForm">
+          <div>
+            <label class="labelBlock" for="price">Price Range</label>
+            <input type="number" id="minPrice" class="priceRange" name="price" placeholder="Min">
+            <input type="number" id="maxPrice" class="priceRange" name="price" placeholder="Max">
+            <button type="submit" class="priceRangebutton">GO</button>
+          </div>
+         </form>
+          <div>
+            <p class="labelBlock">Property Specifications</p>
+            <input name="withBathroom" type="radio" id="forRent" value="forRent">
+            <label  for="yes">Yes</label>
+            <input name="withBathroom" type="radio" id="forSale" value="forSale">
+            <label  for="no">No</label>
+            <input name="withBathroom" type="radio" id="any" value="any">
+            <label  for="any">Any</label>
+          </div>
+        
+          <div>
+            <label class="labelBlock" for="propertyUsage">Property Usage</label>
+            <select id="propertyUsage">
+              <option selected value="Any">Any</option>
+              <option value="Residential">Residential</option>
+              <option value="Commercial">Commercial</option>>
+            </select>
+          </div>
+          <div>
+            <label class="labelBlock" for="propertyType">Property Type</label>
+            <select name="propertyType" id="propertyType">
+              <option selected value="Any">Any</option>
+              <option value="singleRoom">Single Room</option>
+              <option value="doubleRoom">Double rooms</option>
+              <option value="selfContained">Self Contained</option>
+              <option value="bungalow">Bungalow</option>
+              <option value="Apartment">Apartment</option>
+              <option value="countryHouse">Country House</option>
+              <option value="villa">Villa</option>
+              <option value="Mansion">Mansion</option>
+            </select>
+          </div>
+        
+          <div>
+            <label class="labelBlock" for="propertyLocation">Preffered Location</label>
+            <select name="propertyLocation" id="propertyLocation">
+              <option selected value="Any">Any</option>
+              <option value="Kawempe">Kawempe</option>
+              <option value="Makindye">Makindye</option>
+              <option value="Namasuba">Namasuba</option>
+              <option value="Bugolobi">Bugolobi</option>
+              <option value="Munyonyo">Munyonyo</option>
+              <option value="Nakawa">Nakawa</option>
+            </select>
+          </div>
+          <div>
+   
+   	</nav>
+   	
+  <div class="content">
+  <button type="button" id="sidebarCollapse" class="btn btn-info filterBtn" style="display:none" >
+    <i class="fa fa-align-justify"></i> <span class="hideFilter">Show Filters</span>
+  </button>  	
+    
+<!--HOUSE POSTINGS BELOW-->
+  <div class="container-fluid text-center ">
+    <div class="row postedProperties">
+      <!-- All the posted properties will go here -->
+
+      <div class="spinner-border text-primary spin" role="status" style="width: 8rem; height: 8rem;">
+        <span class="sr-only">Loading...</span>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+  </div>
+
+
+
+<!--Footer details below-->
+<div class="container-fluid footer">
+  <div class="row text-center  ">
+    <div class="footer__contentWrap col-lg-3 col-md-3 col-sm-6">
+      <h3 class="footerLogo footer__logo">The Movers</h3>
+      <br>
+      <p class="siteDescription footer__desc">
+        Your solution in finding your next home; Due to a busy town, 
+        finding a house seems expensive, tiresome and insecure due to the 
+        many third parties associated with the process. With the innovation
+        of The Movers, you contact the Landlord directly.
+      </p>
+    </div>
+ 
+  <div class=" footer__contentWrap  col-lg-3 col-md-3 col-sm-6">
+    <h3 class="footer__heading heading"> Contact Us</h3>
+    <br>
+    <p class="footer__paragraph footer__para">+256702139042</p>
+    <p class="footer__paragraph footer__para" >info@themovers.com</p>
+    <p  class="footer__paragraph footer__para">Facebook: TheMovers</p>
+    <p  class="footer__paragraph footer__para">We shall always be there to answer your questions
+      and also assist you in any way possible. 
+    </p>
+    <br>
+    <a href="#termsAndConditions" class="footer__link">Frequently Asked Questions</a>
+  </div>
+
+
+  <div class="col-lg-3 col-md-3 col-sm-6 footerContent footer__contentWrap ">
+    <h3 class="heading footer__heading">Download Apps</h3>
+    <br>
+    
+    <img src="images/playstore.png"  class="mb-4 footer__appLogo" alt="android logo">
+    <img src="images/applestore.png" class="mb-4 footer__appLogo" alt="Apple store">
+    <br><br>
+    <p class="paragraph footer__para">
+      Enjoy our well equiped applications on all phones.
+    </p>
+    
+  </div>
+  
+  <div class="col-lg-3 col-md-3 col-sm-6 footer__contentWrap ">
+    <div class="importantlinks">
+      <h3 class="heading footer__heading">Important Links</h3>
+      <br>
+      <a href="#newPostings" class="footer__link">New Postings</a><br>
+      <a href="#newPostings" class="footer__link">Mostly Visited</a><br>
+      <a href="#newPostings" class="footer__link">Kampala Surburbs</a><br>
+      <a href="#newPostings" class="footer__link">Mostly Visited</a>
+    </div>
+    <br>
+    <div>
+      <form >
+        <label for="newsletter">Register for News and Updates:</label>
+        <input type="email" id="newsletter" placeholder="  Enter Your Email">
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+<!--AFTER FOORTER DETAILS-->
+<div class="lastFooter container-fluid justify-content-center">
+  <div class="row text-center py-2"> 
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <p>©2020 <span>TheMovers</span></p>
+    </div>
+    <div class="col-lg-4 col-md-6">
+      <p>Built with <img width="20px" src="images/heart.gif"> by Nkangi Jafari</span></p>
+    </div>
+    <div class="col-lg-4 col-md-6">
+      <p>Get Social with TheMovers</span></p>
+    </div>
+  </div>
+</div> 
+
+
+
+    
+  </body>
+</html>

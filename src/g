@@ -1,0 +1,83 @@
+   <!-- NAVIGATION BAR BELOW-->
+   <nav class=" py-0 navbar navbar-expand-lg navbar-light sticky-top" style='background-color: #e3f2fd'> 
+    <div class="container-fluid ">
+      <a class="navbar-brand"><h2 class="logo">TheMovers</h2></a>
+       <!--DOWNLOAD APP ICONS IN THE HEADING-->
+   <!-- <div class="downloadAppsHeader">
+    <p class="appsDescription">Download App on</p>
+    <a href="#"><img src="images/applestore2.png" alt="applestore"></a>
+    <a href="#"><img src="images/playstore.png"alt="playstore"></a>
+  </div>    -->
+
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav  ml-auto ">
+          <li class="inActiveUser nav-item">
+            <a  class=" nav-link " href="index.html">Home</a>
+          </li>
+          <li class="inActiveUser nav-item">
+            <a  class=" nav-link " href="signInPage.html">Sign In/Up</a>
+          </li>
+          <li class="inActiveUser nav-item">
+            <a  class=" nav-link" href="userProfile.html">My Profile</a>
+          </li>
+          <li class="activeUser nav-item logOutBtn">
+            <a  class="nav-link" href="#">Log Out</a>
+          </li>
+          <li class="activeUser nav-item logOutBtn">
+            <a  class="nav-link" href="postProperty.html">PostProperty</a>
+          </li>
+        </ul>
+      </div>
+
+        <li class="nav-item messageIcon">
+          <a class="nav-link" href="chatroom.html">
+            <img src="./images/message.png" alt="Messages" class="messageIconImg">
+              <span class="badge badge-danger">4</span>
+          </a>
+        </li>
+        
+        <li class="nav-item messageIcon">
+          <a class="nav-link" href="#">
+            <img src="./images/notificationIcon.png" class="">
+              <span class="badge badge-danger">11</span>
+            </img>
+          </a>
+        </li>
+
+      <div>        
+          <img src="./images/jafari.jpg" data-toggle="modal" class="profilePicImg" data-target="#profileModal" alt="DP">
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive">
+      MENU
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    </div> 
+  </nav>
+  <!-- Modal -->
+<div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Profile Name</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          
+          <div class="form-group">
+            <label for="exampleFormControlFile1">Update Profile Picture</label>
+            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

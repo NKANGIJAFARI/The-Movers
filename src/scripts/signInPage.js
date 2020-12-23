@@ -1,0 +1,65 @@
+import 'bootstrap/dist/js/bootstrap.min.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap';
+import '../styles/signInPage.css';
+
+import '../Sass styles/main.scss'
+
+import firebase from './firebaseConfig';
+import {db, auth} from './firebaseConfig';
+
+const signUpForm = document.querySelector(".signUpForm");
+const signInForm = document.querySelector(".signInForm");
+
+    //A function to enable you signUp in the application
+    signUpForm.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        const email = signUpForm['signup-email'].value;
+        const password = signUpForm['signup-password'].value;
+       // const confirmPassword = signUpForm['confirm-password'].value;
+
+
+       auth.createUserWithEmailAndPassword(email, password).then((credentials)=> {
+        return db.collection('users').doc(credentials.user.uid).set({
+            Name: signUpForm['name'].value,
+            PhoneNumber: signUpForm['signup-phoneNumber'].value.trim(),
+            RegisterAs: signUpForm['registerAs'].value.trim(),
+            email: email,
+            userId : credentials.user.uid,
+        });
+      }).then(()=>{
+        signUpForm.reset();
+        window.location = "index.html";
+        //popup a message to upload a picture
+      }).catch(err=> console.log(err, err.message));
+    });
+
+        //Below is the signIn
+        signInForm.addEventListener('submit', (e)=>{
+            e.preventDefault();
+            const email = signInForm["signInEmail"].value;
+            const password = signInForm["signInPassword"].value;
+            auth.signInWithEmailAndPassword(email, password).then(()=>{
+                signInForm.reset();
+                window.location = "index.html";
+                console.log(`User ${email} is signed in`);
+            }).catch(err=> console.log(err));
+        });
+    
+
+const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const signUpWrapper = document.getElementById('signUpWrapper');
+
+signUpButton.addEventListener('click', () => {
+    signUpWrapper.classList.add("right-panel-active");
+    signUpWrapper.style.width ="90%";
+});
+
+signInButton.addEventListener('click', () => {
+    signUpWrapper.classList.remove("right-panel-active");
+    signUpWrapper.style.width = "85%"
+    if (window.screen.width < 1024) {
+        signUpWrapper.style.width = "70%"
+      }
+});

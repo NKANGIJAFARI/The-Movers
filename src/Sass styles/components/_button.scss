@@ -1,0 +1,113 @@
+.button {
+  &,
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 20px;
+    transition: all 0.2s;
+    position: relative;
+    font-size: $default-font;
+    border: none;
+    cursor: pointer;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-white, 0.2);
+    color: $color-white;
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-black;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &--small {
+    padding: 0.7rem 1.7rem;
+  }
+
+  &--main {
+    color: $color-white;
+    padding: 1rem 1.7rem;
+    background: $color-primary;
+    background: linear-gradient(
+      135deg,
+      ($color-primary) 37%,
+      rgba(255, 0, 165, 1) 87%
+    );
+
+    &::after {
+      background: $color-primary;
+      background: linear-gradient(
+        135deg,
+        ($color-primary) 37%,
+        rgba(255, 0, 165, 1) 87%
+      );
+      color: $color-white;
+    }
+  }
+
+  &::after {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
+  &--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards;
+  }
+}
+
+.button--text {
+  &:link,
+  &:visited {
+    font-size: $default-font;
+    background-color: rgba($color-white, 0.5);
+    color: $color-primary;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $color-primary;
+    border-radius: 0;
+    transition: all 0.7s;
+  }
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    transform: translateY(-2px);
+    border-radius: 6px;
+  }
+
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+    transform: translateY(0);
+    border-radius: 6px;
+  }
+}

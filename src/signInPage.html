@@ -1,0 +1,166 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SigIn/Up Page</title>
+</head>
+<body>
+
+
+ <!-- NAVIGATION BAR BELOW-->
+ <nav class=" py-0 navbar navbar-expand-lg navbar-light sticky-top" style='background-color: #e3f2fd'> 
+    <div class="container-fluid">
+      <a class="navbar-brand"><h2 class="logo">TheMovers</h2></a>
+  
+  
+  
+  <!--DOWNLOAD APP ICONS IN THE HEADING-->
+    <div class="downloadAppsHeader">
+      <!-- <p class="appsDescription">Download App on</p> -->
+      <a href="#"><img src="images/applestore2.png" alt="applestore"></a>
+      <a href="#"><img src="images/playstore.png"alt="playstore"></a>
+    </div>
+  
+      <button class="navbar-toggler" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive">
+      MENU
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+       
+        <ul class="navbar-nav  ml-auto ">
+           <li class="nav-item">
+            <a  class="nav-link " href="index.html">Home</a>
+          </li>
+         
+           <li class="nav-item">
+            <a  class="nav-link" href="propertyListing.html">Postings</a>
+          </li>
+          <li class="nav-item owner" style="display: none">
+            <a  class=" nav-link " href="postProperty.html">PostProperty</a>
+          </li>
+         
+          <li class="nav-item inActiveUser" style="display: none;">
+            <a  class="nav-link " href="signInPage.html">Sign In/Up</a>
+          </li>
+  
+          <li class="activeUser nav-item messageIcon" style="display: none;">
+            <a class="nav-link" href="chatroom.html">
+              <img src="./images/message.png" alt="Messages" class="messageIconImg">
+                <span class="badge badge-danger">4</span>
+            </a>
+          </li>
+          
+          <li class="activeUser nav-item messageIcon" style="display: none;">
+            <a class="nav-link" href="#">
+              <img src="./images/notificationIcon.png" class="">
+                <span class="badge badge-danger">11</span>
+            </a>
+          </li>
+  
+          <li class="activeUser nav-item dropdown" style="display: none;">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <img class="profilePicImg" alt="Profile Pic">
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+              aria-labelledby="navbarDropdownMenuLink-55">
+              <a class="dropdown-item" href="userProfile.html">My Profile</a>
+              <a class="dropdown-item" href="UpdateProfile.html">Update Profile</a>
+              <a  class="dropdown-item logOutBtn" href="#">SignOut</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+  </nav>
+
+    <div class="container wrapper" id="signUpWrapper">
+        <div class="form-container sign-up-container">
+            <form class="signUpForm form">
+                <h4 class="u-margin-bottom-medium">REGISTER</h4>
+                <div class="form-row text-center">
+                    <div class="form-group form__group col-md-6">
+                        <input type="text" class="input form__input" id="name" placeholder="Full Name">
+                        <label class="signUpLabels form__label" for="name">Full Name</label>
+                    </div>
+                    <div class="form-group form__group col-md-6 text-center">
+                        <!-- <label class="signUpLabels form__label" for="confirm-password">Register As:</label> -->
+                        <select class="form-control registerAs" id="registerAs" placeholder="Client js">
+                            <option selected disabled>Register As:</option>
+                            <option value="client">Client</option>
+                            <option value="owner">Property Owner</option>
+                        </select>
+                    </div>
+                    <div class="form-group form__group col-md-6">
+                        <input type="email" class="input form__input" id="signup-email" placeholder="Email Address">
+                        <label  class="signUpLabels form__label" for="signup-email">Email</label>
+                    </div>
+                    <div class="form-group form__group col-md-6">
+                        <input type="tel" class="input form__input" id="signup-phoneNumber" placeholder="Phone Number">
+                        <label  class="signUpLabels form__label" for="signup-phoneNumber">Phone Number</label>
+                    </div>
+                    <div class="form-group form__group col-md-6">
+                        <input type="password" class="input form__input" id="signup-password" placeholder="Create Password">
+                        <label class="signUpLabels form__label"  for="signUpPassword">Password</label>
+                    </div>
+                    <div class="form-group form__group col-md-6">
+                        <input type="password" class="input form__input" id="confirm-password" placeholder="Confirm password">
+                        <label class="signUpLabels form__label" for="confirm-password">Confirm Password</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <input type="checkbox" name="terms" id="terms" class=" text-left" required value="terms">
+                    <label class="form__label" for="terms">I agree to the <a href="#">Terms and Conditions</a></label>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary pageButton">Sign Up</button>
+                </div>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form class="signInForm px-10">
+                <h4 class="u-margin-bottom-medium">Sign In</h4>
+                <div class="input-group form__group">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">@</div>
+                    </div>
+                    <input type="text" class="form__input" id="signInEmail" placeholder="Username or Email">
+                    <label class="signUpLabels form__label" for="signInEmail">Enter Email Address</label>  
+                </div>
+
+
+                <div class="input-group form__group">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">@</div>
+                    </div>
+                    <input type="password" class="form__input" id="signInPassword" placeholder="Enter Password">
+                    <label for="signInPassword">Password</label>
+                </div>
+    
+                    
+    
+                <button type="submit" class="btn btn-primary pageButton">LogIn</button>
+                <div class="form-group">
+                    <p><a href="#">Forgot password?</a></p>
+                </div>
+        </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost pageButton" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button class="ghost  pageButton" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

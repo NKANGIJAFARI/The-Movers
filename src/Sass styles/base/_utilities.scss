@@ -1,0 +1,81 @@
+//Margin Utilities
+.u-center-text {
+  text-align: center !important;
+}
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem !important;
+}
+.u-margin-bottom-medium {
+  margin-bottom: 4rem !important;
+
+  //   @include respond(tab-port) {
+  //     margin-bottom: 3rem !important;
+  //   }
+}
+
+.u-margin-bottom-big {
+  margin-bottom: 5rem !important;
+
+  //   @include respond(tab-port) {
+  //     margin-bottom: 5rem !important;
+  //   }
+}
+.u-margin-top-small {
+  margin-top: 2.5rem !important;
+
+  //   @include respond(tab-port) {
+  //     margin-bottom: 5rem !important;
+  //   }
+}
+.u-margin-top-medium {
+  margin-top: 4rem !important;
+}
+
+.u-margin-top-big {
+  margin-top: 8rem !important;
+}
+.u-margin-top-huge {
+  margin-top: 10rem !important;
+}
+.u-margin-left-large {
+  margin-left: 6rem !important;
+}
+.u-margin-left-medium {
+  margin-left: 4rem !important;
+}
+.u-margin-left-large {
+  margin-left: 2rem !important;
+}
+
+.u-margin-right-large {
+  margin-right: 6rem !important;
+}
+.u-margin-right-medium {
+  margin-right: 4rem !important;
+}
+.u-margin-right-large {
+  margin-right: 2rem !important;
+}
+//Animation Utilities
+.fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+.slideInRight {
+  -webkit-animation-name: slideInRight;
+  animation-name: slideInRight;
+}
+
+//Height and width
+
+.hw {
+  height: 100%;
+  // width: 100%;
+}

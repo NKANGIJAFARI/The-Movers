@@ -1,0 +1,45 @@
+@import './abstracts/functions';
+@import './abstracts/mixins';
+@import './abstracts/variables';
+
+@import './base/base';
+@import './base/animations';
+@import './base/typography';
+@import './base/utilities';
+
+@import './pages/home';
+@import './pages/propertyListing';
+@import './pages/postAd';
+@import './pages/profile';
+@import './pages/editPost';
+
+@import './components/button';
+@import './components/multiCarousel';
+@import './components/propertyCard';
+@import './components/featuredProperty';
+@import './components/testimonial';
+@import './components/appInfo';
+@import './components/form';
+@import './components/profileInfo.scss';
+@import './components/carousel';
+@import './components/scrollEffects';
+@import './components/tabs';
+
+@import './Layout/navigation';
+@import './Layout/header';
+
+@import './Layout/footer';
+@import './pages/chatsPage';
+
+// @import 'components/bg-video';
+// @import 'components/button';
+// @import 'components/card';
+// @import 'components/composition';
+// @import 'components/feature-box';
+// @import 'components/form';
+// @import 'components/popup';
+// @import 'components/story';
+// @import 'layout/footer';
+// @import 'layout/grid';
+// @import 'layout/header';
+// @import 'layout/navigation';

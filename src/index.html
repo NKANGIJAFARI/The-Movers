@@ -1,0 +1,982 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="https://use.fontawesome.com/f6bf8ec87a.js" S></script>
+
+</head>
+
+<body>
+  <!--Place the navigation below-->
+ <!-- NAVIGATION BAR BELOW-->
+<nav class=" py-0 navbar navbar-expand-lg navbar-light sticky-top" style='background-color: #e3f2fd'> 
+  <div class="container-fluid">
+    <a class="navbar-brand"><h2 class="logo">TheMovers</h2></a>
+
+
+
+<!--DOWNLOAD APP ICONS IN THE HEADING-->
+  <div class="downloadAppsHeader">
+    <!-- <p class="appsDescription">Download App on</p> -->
+    <a href="#"><img src="images/applestore2.png" alt="applestore"></a>
+    <a href="#"><img src="images/playstore.png"alt="playstore"></a>
+  </div>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+    data-target="#navbarResponsive">
+    MENU
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+     
+      <ul class="navbar-nav  ml-auto ">
+         <li class="nav-item">
+          <a  class="nav-link " href="index.html">Home</a>
+        </li>
+       
+         <li class="nav-item">
+          <a  class="nav-link" href="propertyListing.html">Postings</a>
+        </li>
+        <li class="nav-item owner" style="display: none">
+          <a  class=" nav-link " href="postProperty.html">PostProperty</a>
+        </li>
+       
+        <li class="nav-item inActiveUser" style="display: none;">
+          <a  class="nav-link " href="signInPage.html">Sign In/Up</a>
+        </li>
+
+        <li class="activeUser nav-item messageIcon" style="display: none;">
+          <a class="nav-link" href="chatroom.html">
+            <!-- <span class="nav-link-span">Messages</span> -->
+            <img src="./images/message.png" alt="Messages" class="messageIconImg">
+              <span class="badge badge-danger">4</span>
+          </a>
+        </li>
+        
+        <li class="activeUser nav-item messageIcon" style="display: none;">
+          <a class="nav-link" href="#">
+            <!-- <span class="nav-link-span">Notifications</span> -->
+            <img src="./images/notificationIcon.png" class="">
+              <span class="badge badge-danger">11</span>
+          </a>
+        </li>
+
+        <li class="activeUser nav-item dropdown" style="display: none;">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <img class="profilePicImg" alt="Profile Pic">
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+            aria-labelledby="navbarDropdownMenuLink-55">
+            <a class="dropdown-item" href="userProfile.html">My Profile</a>
+            <a class="dropdown-item" href="UpdateProfile.html">Update Profile</a>
+            <a  class="dropdown-item logOutBtn" href="#">SignOut</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+</nav>
+
+
+
+
+  <!-- message sending modal -->
+<!-- <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="messageModalLongTitle">Message to: <span id="landlordEmail"></span></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <div class="sendMessageFormWrapper">
+          <form class="type_msg sendMessageForm">
+          <div class="input_msg_write">
+            <input type="text" id="new-msg-input" class="new-chat" placeholder="Type a message" />
+            <button class="msg_send_button" type="submit">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="button button-secondary" data-dismiss="modal">Cancel</button>
+        <a href="./chatroom.html" type="button" class="button button-primary">Go To Chats</a>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="modal fade " id="messageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content messageModal text-center justify-content-center">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Message to: 
+          <span class="messageReceiver"></span>
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="sendMessageForm type_msg">
+            <!-- <label for="message-text" class="col-form-label">Message:</label> -->
+            <textarea id="new-msg-input" rows="4" class=" form-control form__input new-chat" placeholder="Type your message here..." required></textarea>
+            <!-- <input type="text" id="new-msg-input" class=" form-control new-chat" placeholder="Type a message"> -->
+
+          <div class="form-group text-right">
+            <button type="submit" class="btn btn-primary btn-large msg_send_button">Send message</button>
+            <button type="button" class="btn btn-danger btn-large" data-dismiss="modal">Cancel</button>
+          </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<main>
+       <!--SLIDERS AFTER THE NAVIGATION-->
+<section class="section section__slider">
+  <div class="container-fluid header">
+    <div id="myCarousel" class="slideContainer header__carousel carousel slide carousel-fade pt-3 pb-2" data-ride="carousel">
+      <div class="header__carousel--inner carousel-inner">
+        <div class="header__carousel--item  carousel-item active">
+          <div class="hw header__carousel--mask carousel-mask flex-center">
+            <div class="header__container container">
+              <div class="hw row align-items-center">
+  
+                <img class="header__carousel--img header__carousel--img-1" src="./images/houses images/housebg1.png" alt="">
+                <img class="header__carousel--img header__carousel--img-2" src="./images/houses images/housebg4.png" alt="">
+  
+                <div class=" col-md-12 col-12 order-md-1 order-2 text-center">
+                  <h4 class="heading heading--3 heading__white header__carousel--heading u-margin-bottom-big">We are the solution to your next home</h4>
+                  <p class="paragraph paragraph--white header__carousel--paragraph u-margin-bottom-big">Lorem ipsum dolor sit amet. Reprehenderit, qui blanditiis quidem rerum <br>
+                    necessitatibus praesentium voluptatum deleniti atque corrupti.
+                  </p>
+                  <a class="button button--main header__carousel--button" href="/propertyListing.html">VIEW PROPERTY LIST</a> 
+                  <!-- <picture class="footer__logo">
+                    <source srcset=""
+                    <source srcset="./images/houses images/housebg2.png 1x, ./images/houses images/housebg2.png 2x"
+                            media="(max-width: 37.5em)">
+                    <img srcset="./images/houses images/housebg2.png 1x, ./images/houses images/housebg2.png 2x" alt="Full logo" src="img/logo-green-2x.png">
+                </picture> -->
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="header__carousel--item  carousel-item">
+          <div class="hw header__carousel--mask mask flex-center">
+            <div class="header__container container">
+              <div class="hw row align-items-center  justify-content-center">
+  
+                <img class="header__carousel--img header__carousel--img-1" src="./images/houses images/housebg2.png" alt="">
+                <img class="header__carousel--img header__carousel--img-2" src="./images/houses images/housebg3.png" alt="">
+                
+                <div class="col-md-12 col-12 order-md-1 order-2 text-center">
+                  <h4 class="heading heading--3 heading__white header__carousel--heading u-margin-bottom-big">Search Through The Biggest Property Database</h4>
+                  <p class="paragraph paragraph--white header__carousel--paragraph  u-margin-bottom-big">Lorem ipsum dolor sit amet. Reprehenderit, qui blanditiis quidem rerum <br>
+                    necessitatibus praesentium voluptatum deleniti atque corrupti.</p>
+                  <a class="button button--main header__carousel--button" href="#">BUY A PROPERTY</a> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+  
+        <div class="header__carousel--item  carousel-item">
+          <div class="hw header__carousel--mask mask flex-center">
+            <div class="header__container container">
+              <div class="hw row align-items-center  justify-content-center">
+  
+                <img class="header__carousel--img header__carousel--img-1" src="./images/houses images/housebg5.png" alt="">
+                <img class="header__carousel--img header__carousel--img-2" src="./images/houses images/housebg6.png" alt="">
+                
+                <div class="col-md-12 col-12 order-md-1 order-2 text-center">
+                  <h4 class="heading heading--3 heading__white header__carousel--heading u-margin-bottom-big">Find Your Next Home Simply and Secure</h4>
+                  <p class="paragraph paragraph--white header__carousel--paragraph  u-margin-bottom-big">Lorem ipsum dolor sit amet. Reprehenderit, qui blanditiis quidem rerum <br>
+                    necessitatibus praesentium voluptatum deleniti atque corrupti.</p>
+                  <a class="button button--main header__carousel--button" href="#">RENT A HOUSE NOW</a> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+  
+      <a class="carousel-control-prev" href="#myCarousel" 
+      role="button" data-slide="prev"> 
+      <span class="carousel-control-prev-icon" aria-hidden="true">
+      </span> <span class="sr-only">Previous</span>
+    </a> 
+  
+    <a class="carousel-control-next" href="#myCarousel" 
+    role="button" data-slide="next"> 
+    <span class="carousel-control-next-icon" aria-hidden="true">
+    </span> <span class="sr-only">Next</span> </a>
+    </div>
+   </div>
+</section>  
+
+  <!--Multi Carousel slide and rent/sale option-->
+<section class=" section section__posts justify-content-center">
+  <div class="container-fluid">
+    <!-- <div class="row">
+      <div class="col-lg-12  newPosts mb-4">
+        <h2 class="heading"> Latest Property Posts</h2>
+      </div>
+    </div> -->
+
+  
+    <div class="row MultiCarouselWrapper justify-content-center">
+      <div class="spinner-border text-primary spin allpostings__spin" role="status" style="width: 8rem; height: 8rem;">
+        <span class="sr-only">Loading...</span>
+      </div>
+
+      <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">
+            <div class="MultiCarousel-inner MultiCarousel__inner">
+              <!-- All the posts from the database will go inside here -->
+
+            </div>
+            <button class="button button-primary leftLst MultiCarousel__button MultiCarousel__button-1 justify-content-center align-items-center flex-center ">
+              <span class="MultiCarousel__button-span">&lt;</span>
+            </button>
+            <button class="button button-primary rightLst MultiCarousel__button MultiCarousel__button-2">
+              <span class="MultiCarousel__button-span">&gt;</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="row" >
+      <div class="col-lg-12 justify-content-center houselistingsbutton ">
+        <button class="button button--main button-small" href="/propertyListing.html" class="active" role="button" aria-pressed="true">View all properties</button>
+      </div>
+    </div>
+
+    
+    <!-- <div class="row justify-content-center">
+      <div class="col-xs-4 col-sm-4 col-lg-3 col-md-3 p-1"> 
+        <form class="posts__form buyRent">
+          <div class="form-group ">
+            <select class="form-control selectRentBuy" id="rentSale">
+              <option selected>Choose to Rent/Buy</option>
+              <option value="rent">Rent</option>
+              <option value="buy">Buy</option>
+            </select>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-xs-4 col-sm-4 col-lg-3 col-md-3 p-1"> 
+        <form class="options m-0 p-0">
+          <div class="form-group">
+            <select class="form-control select priceSelect" id="rentSale">
+              <option>Preffered Price range</option>
+              <option id="800001" value="800001">800,001 +</option>
+              <option value="500001">500,001 - 800,000</option>
+              <option value="300001">300,001 - 500,000</option>
+              <option value="150001">150,001 - 300,000</option>
+              <option value="0">Below 150,000</option>
+            </select>
+          </div>
+        </form>   
+      </div> 
+    </div> -->
+
+    </div>  
+</section>
+
+  <!-- Featured Property below -->
+  <section class="section section__featured text-center">
+    <div class="container-fluid featured">
+      <div class="row text-center">
+        <h1 class="heading featured__heading heading--3 u-margin-bottom-big">
+          Featured Property
+        </h1>
+      </div>
+
+
+      <div class="row featured__row ">
+        <div class="col-lg-5 col-md-12 col-sm-12">
+          <div class="featured__details--wrapper">
+            <div class="featured__details">
+              
+            </div> 
+          </div>
+        </div>
+        <div class="col-lg-7 col-md-12 col-sm-12 ">
+          <div class="propertyImagesCarouselWrapper">
+            <div id="propertyImagesCarousel" class="carousel slide featured__carousel" data-ride="carousel">
+              <div class="carousel-inner featured__carousel--inner ">
+                  <!-- Insert The carousel of the images of the featured property here -->
+
+                <div> 
+                    <a class="carousel-control-prev" href="#propertyImagesCarousel" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#propertyImagesCarousel" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                </div>
+              </div> 
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-lg-12 text-center u-margin-top-small">
+        <a href="" class="button   button--text button--small featured__button">Buy Now</a>
+        <a href="" class="button  button--text  button--small featured__button">Add to favourites</a>
+      </div>
+    </div>
+    </div>
+</section>
+
+  
+
+  <!--Below is how to use the app.-->
+  <section class="section section__appInfo">
+    <div class="container text-center appInfo">
+      <!-- Better remove the class on the container -->
+      <div class="row">
+
+        <!-- Below shall be shown to only Landlords -->
+          <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 useAppInfo appInfo-details owner" style="display: none" >
+            <h2 class="heading appInfo__details--h">Download APP TO:</h2>
+            <p class="paragraph appInfo__details--p">Post into the biggest property database</p>
+            <p class="paragraph appInfo__details--p">To easily find legit tenants/ Buyers</p>
+            <p class="paragraph appInfo__details--p">Get Easy communication to your Tenants/ Clients</p>            
+            <a href="#appstore"><img src="images/applestore.png" alt="applestore" class="appInfo__details--appdownloadImg"></a>
+            <a href="#Android"><img src="images/playstore.png" alt="playstore" class="appInfo__details--appdownloadImg"></a>
+          </div>
+        <!-- Ends here for landlords -->
+
+        <!-- Below shall be shown to only clients -->
+          <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 useAppInfo appInfo-details client " style="display: none">
+            <h2 class="heading appInfo__details--h">Download APP TO:</h2>
+            <p class="paragraph appInfo__details--p">Search from the biggest property database</p>
+            <p class="paragraph appInfo__details--p">Search for Services in your/preffered Locations</p>
+            <p class="paragraph appInfo__details--p">Get Easy communication between property deals</p>
+            <p class="paragraph appInfo__details--p">Easily save your preffered property for future searches</p>
+            
+            <a href="#appstore"><img src="images/applestore.png" alt="applestore" class="appInfo__details--appdownloadImg"></a>
+            <a href="#Android"><img src="images/playstore.png" alt="playstore" class="appInfo__details--appdownloadImg"></a>
+          </div>
+
+          <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 useAppInfo appInfo-details onlyOffLine " style="display: none">
+            <h2 class="heading appInfo__details--h">Download APP TO:</h2>
+            <p class="paragraph appInfo__details--p">Search/ Post from/ to the biggest property database</p>
+            <p class="paragraph appInfo__details--p">Search/ Post for Services in your/preffered Locations</p>
+            <p class="paragraph appInfo__details--p">Get Easy communication between property deals</p>
+            <p class="paragraph appInfo__details--p">Easily save your preffered property for future searches</p>
+            <p class="paragraph appInfo__details--p">Manage and save property details and information</p>
+            <a href="#appstore"><img src="images/applestore.png" alt="applestore" class="appInfo__details--appdownloadImg"></a>
+            <a href="#Android"><img src="images/playstore.png" alt="playstore" class="appInfo__details--appdownloadImg"></a>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <img src="images/PNG ORIGINALS/tabphone1.png" alt="" class="appInfo__displayPic">
+          </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!--Below is the Testimonial-->
+  <section class="section section__testimonials">
+    <div class="container  testimonial-wrapper">
+      <div class="row align-items-center">
+        <div class="col-lg-6 col-md-12 text-center">
+        <div class="testimonial text-center" id="testimonial">
+          <div class="holderCircle testimonial__holderCircle">
+            <div class="testimonial__round round"></div>
+            <div class="testimonial__dotCircle dotCircle">
+
+                <span class="itemDot itemDot1" data-tab="1">
+                  <img src="images/jafari.jpg" alt="">
+                  <span class="forActive"></span>
+                </span>
+            
+                <span class="itemDot itemDot2" data-tab="2">
+                  <img src="images/jafari.jpg" alt="">
+                  <span class="forActive"></span>
+                </span>
+
+                <span class="itemDot itemDot3" data-tab="3">
+                  <img src="images/jafari.jpg" alt="">
+                  <span class="forActive"></span>
+                </span>
+
+                <span class="itemDot itemDot4" data-tab="4">
+                  <img src="images/jafari.jpg" alt="">
+                  <span class="forActive"></span>
+                </span>
+
+                <span class="itemDot itemDot5" data-tab="5">
+                  <img src="images/jafari.jpg" alt="">
+                  <span class="forActive"></span>
+                </span>
+
+                <span class="itemDot  itemDot6" data-tab="6">
+                  <img src="images/jafari.jpg" alt="">
+                  <span class="forActive"></span>
+                </span>
+
+            </div>
+            <div class="contentCircle justify-content-center align-content-center">
+                <div class="CirItem title-box active CirItem1">
+                  <div class="CirItem__details">
+                    <h4 class="title"><span>Nkangi Jafari</span></h4>
+                    <h6>CEO. Jefsites.com</h6>
+                    <p><em>"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."</em></p>
+                  </div>
+                  <img src="images/jafari.jpg" alt="">
+                </div>
+
+                <div class="CirItem title-box CirItem2">
+                  <div class="CirItem__details">
+                    <h4 class="title"><span>Nkangi Jafari</span></h4>
+                    <h6>CEO. Jefsites.com</h6>
+                    <p><em>"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."</em></p>
+                  </div>
+                  <img src="images/jafari.jpg" alt="">
+                </div>
+
+              <div class="CirItem title-box  CirItem3">
+                <div class="CirItem__details">
+                  <h4 class="title"><span>Nkangi Jafari</span></h4>
+                  <h6>CEO. Jefsites.com</h6>
+                  <p><em>"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."</em></p>
+                </div>                
+                <img src="images/jafari.jpg" alt="">
+              </div>
+              <div class="CirItem title-box  CirItem4">
+                <div class="CirItem__details">
+                  <h4 class="title"><span>Nkangi Jafari</span></h4>
+                  <h6>CEO. Jefsites.com</h6>
+                  <p><em>"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."</em></p>
+                </div>
+                  <img src="images/jafari.jpg" alt="">
+              </div>
+
+              <div class="CirItem title-box  CirItem5">
+                <div class="CirItem__details">
+                  <h4 class="title"><span>Nkangi Jafari</span></h4>
+                  <h6>CEO. Jefsites.com</h6>
+                  <p><em>"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."</em></p>
+                </div>               
+                <img src="images/jafari.jpg" alt="">
+              </div>
+
+              <div class="CirItem title-box  CirItem6">
+                <div class="CirItem__details">
+                  <h4 class="title"><span>Nkangi Jafari</span></h4>
+                  <h6>CEO. Jefsites.com</h6>
+                  <p><em>"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."</em></p>
+                </div> 
+                <img src="images/jafari.jpg" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <div class="col-lg-6 col-md-12 text-center testimonial-info">
+          <h2 class="display-4">TESTIMONIALS</h2>
+          <h3>We have Impacted Lives</h3>
+          <p>You too can have a story to tell! Save Money, Save time</p>
+            <a class="button button--small button--text" href="#register">Register as Landlord</a>
+            <a class="button button--small button--text" href="#Register">Register as Tenant</a>
+        </div>
+      </div>
+    </div>
+  </section> 
+
+  <!-- How to use the application section -->
+  <section class="section section__appDescription">
+    <div class="contaner-fluid">
+      <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2>HOW IT WORKS</h2>
+            <button class="tablink active" id="forTenant">For Tenants</button>
+            <button class="tablink" id="forLandLord">For LandLords</button>
+          </div>
+      </div>
+    </div>
+
+    <div id="forLandLord" class="container tabContent">
+      <div class="row  desc">
+        <div class="col-lg-5 col-md-5 col-sm-12 desc__details">
+          <div class="text-center">
+            <h3 class="desc__heading heading headin__darkPurple">
+              Step 1: REGISTER AN ACCOUNT
+            </h3>
+            <p class="desc__paragraph paragraph">
+              Register an account, complete your profile by adding a profile Picture and 
+              verify your email and phone number.
+            </p>
+          </div>
+        </div>
+        <div class=" col-lg-7  col-md-7 col-sm-12">
+          <div class="desc__imageWrap">
+            <img src="./images/howTo/howitworks-lister-2.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="row desc desc__reverse">
+        <div class="col-lg-7 col-md-7 col-sm-12 ">
+          <div class="desc__imageWrap">
+            <img src="./images/howTo/howitworks-seeker-1.png" alt="">
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-5 col-sm-12 desc__details">
+          <div class="text-center     ">
+            <h3 class="desc__heading heading headin__darkPurple">
+              Step 2: POST A PROPERTY
+            </h3>
+            <p class="desc__paragraph paragraph">
+              A property with images and a clear description catches tenants
+              and buyers' attention.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row desc">
+        <div class="col-lg-5 col-md-5 col-sm-12 desc__details">
+          <div class="text-center">
+            <h3 class="desc__heading heading headin__darkPurple">
+              Step 3: CHAT - GET IN TOUCH 
+            </h3>
+            <p class="desc__paragraph paragraph">
+              Chat with client who will message you when
+               interested in your property. Agree on the terms and conditions
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-7  col-md-7 col-sm-12">
+          <div class="desc__imageWrap">
+            <img src="./images/howTo/howitworks-lister-3.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="row desc desc__reverse">
+        <div class="col-lg-7  col-md-7 col-sm-12">
+          <div class="desc__imageWrap">
+            <img src="./images/howTo/howitworks-lister-4.png" alt="">
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-5 col-sm-12 desc__details">
+          <div class="text-center     ">
+            <h3 class="desc__heading heading headin__darkPurple">
+              Step 4: CLOSE THE DEAL
+            </h3>
+            <p class="desc__paragraph paragraph">
+              Receive payments through our secure system and this will
+              always be recorded to ensure proper bills management of the property
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div  id="forTenant" class="container tabContent active">
+      <div class="row desc">
+        <div class="col-lg-5 col-md-5 col-sm-12 desc__details">
+          <div class="text-center">
+            <h3 class="desc__heading heading headin__darkPurple">
+              Step 1: REGISTER AN ACCOUNT
+            </h3>
+            <p class="desc__paragraph paragraph">
+              Register an account, complete your profile by adding a profile Picture and 
+              verify your email and phone number.
+            </p>
+            
+          </div>
+        </div>
+        <div class="col-lg-7  col-md-7 col-sm-12">
+          <div class="desc__imageWrap">
+            <img src="./images/howTo/howitworks-lister-2.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="row desc desc__reverse">
+        <div class="col-lg-7  col-md-7 col-sm-12">
+          <div class="desc__imageWrap desc__imageWrap--searchPic">
+            <img src="./images/howTo/housesearch.png" alt="">
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-5 col-sm-12 desc__details">
+          <div class="text-center     ">
+            <h3 class="desc__heading heading headin__darkPurple">
+              Step 2: VIEW OR SEARCH FOR A PROPERTY
+            </h3>
+            <p class="desc__paragraph paragraph">
+              Check through the posted properties or search through
+              the largest, secure and trusted property database.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row desc">
+        <div class="col-lg-5 col-md-5 col-sm-12 desc__details">
+          <div class="text-center">
+            <h3 class="desc__heading heading headin__darkPurple">
+              Step 3: OR FIND PROPERTIES BY LOCATIONS
+            </h3>
+            <p class="desc__paragraph paragraph">
+              Interested in a property?  Chat with the owner directly with 
+              no third-parties. Agree on all the terms and conditions.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-7  col-md-7 col-sm-12">
+          <div class="desc__imageWrap">
+            <img src="./images/howTo/howitworks-seeker-2.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="row desc desc__reverse">
+        <div class="col-lg-7  col-md-7 col-sm-12">
+          <div class="desc__imageWrap">
+            <img src="./images//howTo/howitworks-lister-3.png" alt="">
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-5 col-sm-12 desc__details">
+          <div class="text-center     ">
+            <h3 class="desc__heading heading headin__darkPurple">
+              Step 4: CHAT - GET IN TOUCH
+            </h3>
+            <p class="desc__paragraph paragraph">
+              Interested in a property?  Chat with the owner directly with 
+              no third-parties. Agree on all the terms and conditions.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row desc">
+        <div class="col-lg-5 col-md-5 col-sm-12 desc__details">
+          <div class="text-center">
+            <h3 class="desc__heading heading headin__darkPurple">
+              Step 4: CLOSE THE DEAL
+            </h3>
+            <p class="desc__paragraph paragraph">
+              Pay through our secure system and this will help you keep records of your payments.
+              You will always see your payments and balances in the dashboad 
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-7  col-md-7 col-sm-12">
+          <div class="desc__imageWrap">
+            <img src="./images//howTo/howitworks-lister-4.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row doneDeal">
+        <div class="col-lg-6 text-center doneDeal__imageside">
+          <h1 class="heading u-margin-bottom-big doneDeal__heading headin__darkPurple">DONE DEAL, AS SIMPLE AS THAT</h1>
+          <div class="doneDeal__imageWrap">
+            <img src="./images/howTo//booking-highfive-hands-illustration.png" alt="done deal image">
+          </div>
+        </div>
+        <div class="col-lg-6 text-center doneDeal__formside">
+          <h2 class="heading u-margin-bottom-big headin__darkPurple">Any Questions, Dont hesitate</h2>
+          <form class="form form__questions doneDeal__form">
+            <div class="form-group u-margin-bottom-small">
+              <input type="text" name="fullname" id="name" class="form__input " placeholder="Enter Full Name">
+              <label for="email" class="form__label">Full Name</label>
+            </div>
+            <div class="form-group u-margin-bottom-small">
+              <input type="email" name="email" id="questionEmail" class="form__input " placeholder="Enter You email">
+              <label for="email" class="form__label"> Email Address</label>
+            </div>
+            <div class="form-group">
+              <textarea class="form__input" name="question" id="question" cols="10" rows="3" placeholder="Enter Your Question"></textarea>
+              <label for="question" class="form__label"> Your question</label>
+              
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<!--Footer details below-->
+<footer class="container-fluid footer footer__home">
+  <div class="row text-center  ">
+    <div class="footer__contentWrap col-lg-3 col-md-3 col-sm-6">
+      <h3 class="footerLogo footer__logo">The Movers</h3>
+      <br>
+      <p class="siteDescription footer__desc">
+        Your solution in finding your next home; Due to a busy town, 
+        finding a house seems expensive, tiresome and insecure due to the 
+        many third parties associated with the process. With the innovation
+        of The Movers, you contact the Landlord directly.
+      </p>
+    </div>
+ 
+  <div class=" footer__contentWrap  col-lg-3 col-md-3 col-sm-6">
+    <h3 class="footer__heading heading"> Contact Us</h3>
+    <br>
+    <p class="footer__paragraph footer__para">+256702139042</p>
+    <p class="footer__paragraph footer__para" >info@themovers.com</p>
+    <p  class="footer__paragraph footer__para">Facebook: TheMovers</p>
+    <p  class="footer__paragraph footer__para">We shall always be there to answer your questions
+      and also assist you in any way possible. 
+    </p>
+    <br>
+    <a href="#termsAndConditions" class="footer__link">Frequently Asked Questions</a>
+  </div>
+
+
+  <div class="col-lg-3 col-md-3 col-sm-6 footerContent footer__contentWrap ">
+    <h3 class="heading footer__heading">Download Apps</h3>
+    <br>
+    
+    <img src="images/playstore.png"  class="mb-4 footer__appLogo" alt="android logo">
+    <img src="images/applestore.png" class="mb-4 footer__appLogo" alt="Apple store">
+    <br><br>
+    <p class="paragraph footer__para">
+      Enjoy our well equiped applications on all phones.
+    </p>
+    
+  </div>
+  
+  <div class="col-lg-3 col-md-3 col-sm-6 footer__contentWrap ">
+    <div class="importantlinks">
+      <h3 class="heading footer__heading">Important Links</h3>
+      <br>
+      <a href="#newPostings" class="footer__link">New Postings</a><br>
+      <a href="#newPostings" class="footer__link">Mostly Visited</a><br>
+      <a href="#newPostings" class="footer__link">Kampala Surburbs</a><br>
+      <a href="#newPostings" class="footer__link">Mostly Visited</a>
+    </div>
+    <br>
+    <div>
+      <form >
+        <label for="newsletter">Register for News and Updates:</label>
+        <input type="email" id="newsletter" placeholder="  Enter Your Email">
+      </form>
+    </div>
+  </div>
+</div>
+</footer>
+
+<!--AFTER FOORTER DETAILS-->
+<div class="lastFooter container-fluid justify-content-center">
+  <div class="row text-center py-2"> 
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <p>©2020 <span>TheMovers</span></p>
+    </div>
+    <div class="col-lg-4 col-md-6">
+      <p>Built with <img width="20px" src="images/heart.gif"> by Nkangi Jafari</span></p>
+    </div>
+    <div class="col-lg-4 col-md-6">
+      <p>Get Social with TheMovers</span></p>
+    </div>
+  </div>
+</div> 
+
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+<section class="iq-features">
+            <div class="container">
+               <div class="row align-items-center">
+                  <div class="col-lg-3 col-md-12"></div>
+                  <div class="col-lg-6 col-md-12">
+                     <div class="holderCircle">
+                        <div class="round"></div>
+                        <div class="dotCircle">
+                           <span class="itemDot active itemDot1" data-tab="1">
+                           <i class="fa fa-clock-o"></i>
+                           <span class="forActive"></span>
+                           </span>
+                           <span class="itemDot itemDot2" data-tab="2">
+                           <i class="fa fa-comments"></i>
+                           <span class="forActive"></span>
+                           </span>
+                           <span class="itemDot itemDot3" data-tab="3">
+                           <i class="fa fa-user"></i>
+                           <span class="forActive"></span>
+                           </span>
+                           <span class="itemDot itemDot4" data-tab="4">
+                           <i class="fa fa-tags"></i>
+                           <span class="forActive"></span>
+                           </span>
+                           <span class="itemDot itemDot5" data-tab="5">
+                           <i class="fa fa-upload"></i>
+                           <span class="forActive"></span>
+                           </span>
+                           <span class="itemDot itemDot6" data-tab="6">
+                           <i class="fa fa-briefcase"></i>
+                           <span class="forActive"></span>
+                           </span>
+                        </div>
+                        <div class="contentCircle">
+                           <div class="CirItem title-box active CirItem1">
+                              <h2 class="title"><span>Automate</span></h2>
+                              <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                              <i class="fa fa-clock-o"></i>
+                           </div>
+                           <div class="CirItem title-box CirItem2">
+                              <h2 class="title"><span>Chat </span></h2>
+                              <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                              <i class="fa fa-comments"></i>
+                           </div>
+                           <div class="CirItem title-box CirItem3">
+                              <h2 class="title"><span>Responses</span></h2>
+                              <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                              <i class="fa fa-user"></i>
+                           </div>
+                           <div class="CirItem title-box CirItem4">
+                              <h2 class="title"><span>Tags</span></h2>
+                              <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                              <i class="fa fa-tags"></i>
+                           </div>
+                           <div class="CirItem title-box CirItem5">
+                              <h2 class="title"><span>Sharing</span></h2>
+                              <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                              <i class="fa fa-upload"></i>
+                           </div>
+                           <div class="CirItem title-box CirItem6">
+                              <h2 class="title"><span>Support</span></h2>
+                              <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                              <i class="fa fa-briefcase"></i>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-lg-3 col-md-12"></div>
+               </div>
+            </div>
+        </section> -->
+</body>
+</html>
+
+<!-- 
+Sliding carousel
+<div id="carousel-example-multi" class="carousel slide carousel-multi-item" data-ride="carousel"> -->
+
+  <!--Controls-->
+  <!-- <div class="controls-top">
+    <a class="button-floating" href="#carousel-example-multi" data-slide="prev"> LEFT</a>
+    <a class="button-floating" href="#carousel-example-multi" data-slide="next">RIGHT</a>
+  </div> -->
+  <!--/.Controls-->
+
+  <!-- Indicators -->
+  <!-- <ol class="carousel-indicators">
+    <li data-target="#carousel-example-multi" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-multi" data-slide-to="1"></li>
+    <li data-target="#carousel-example-multi" data-slide-to="2"></li>
+    <li data-target="#carousel-example-multi" data-slide-to="3"></li>
+    <li data-target="#carousel-example-multi" data-slide-to="4"></li>
+    <li data-target="#carousel-example-multi" data-slide-to="5"></li>
+  </ol> -->
+  <!--/.Indicators-->
+<!-- 
+  <div class="carousel-inner v-2" role="listbox">
+
+    <div class="carousel-item active">
+      <div class="col-12 col-md-4 cardwrapper">
+        <div class="card mb-2">
+          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (36).jpg"
+            alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title font-weight-bold">Card title</h4>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+              card's content.</p>
+            <a class="button button-primary button-md button-rounded">Button</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="col-12 col-md-4 cardwrapper">
+        <div class="card mb-2">
+          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (34).jpg"
+            alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title font-weight-bold">Card title</h4>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+              card's content.</p>
+            <a class="button button-primary button-md button-rounded">Button</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="col-12 col-md-4 cardwrapper">
+        <div class="card mb-2">
+          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (38).jpg"
+            alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title font-weight-bold">Card title</h4>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+              card's content.</p>
+            <a class="button button-primary button-md button-rounded">Button</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="col-12 col-md-4 cardwrapper">
+        <div class="card mb-2">
+          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (29).jpg"
+            alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title font-weight-bold">Card title</h4>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+              card's content.</p>
+            <a class="button button-primary button-md button-rounded">Button</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="col-12 col-md-4 cardwrapper">
+        <div class="card mb-2">
+          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (30).jpg"
+            alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title font-weight-bold">Card title</h4>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+              card's content.</p>
+            <a class="button button-primary button-md button-rounded">Button</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="col-12 col-md-4 cardwrapper">
+        <div class="card mb-2">
+          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (27).jpg"
+            alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title font-weight-bold">Card title</h4>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+              card's content.</p>
+            <a class="button button-primary button-md button-rounded">Button</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div> -->

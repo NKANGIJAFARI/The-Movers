@@ -1,0 +1,146 @@
+.header {
+  width: 100%;
+  height: 79vh;
+  padding: 0;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  z-index: 0;
+  background-image: url('../images/estateBg.jpg');
+  background-image: url('../images/backgroundImage.jpg');
+  background-size: cover;
+  background-position: top;
+  position: relative;
+
+  &__carousel {
+    padding-top: 2rem;
+    position: relative;
+    z-index: 2;
+    // background-color: #f47785;
+    width: 100%;
+    height: 100%;
+    // padding: 70px 0;
+    text-align: center;
+
+    // &--inner {
+    // }
+
+    &--mask {
+      position: relative;
+      width: 100%;
+      @include absoluteCenter;
+      transform: translate(-50%, -65%);
+    }
+
+    &--item {
+      position: relative;
+      height: 100%;
+    }
+
+    &--item {
+      position: relative;
+      display: none;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      width: 100%;
+      transition: all 0.6s ease;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      -webkit-perspective: 1000px;
+      perspective: 1000px;
+    }
+
+    //I dont see any img in the mask
+    // &--item &--mask img {
+    //   -webkit-animation-name: slideInRight;
+    //   animation-name: slideInRight;
+    //   display: block;
+    //   height: auto;
+    //   max-width: 100%;
+    // }
+
+    &-fade &--item {
+      opacity: 0;
+      -webkit-transition-duration: 0.6s;
+      transition-duration: 0.6s;
+      -webkit-transition-property: opacity;
+      transition-property: opacity;
+    }
+    &-fade &--item-next &--item-left,
+    &-fade &--item-prev &--item-right,
+    &-fade &--item.active {
+      opacity: 1;
+    }
+    &-fade &--item-left.active,
+    &-fade &--item-right.active {
+      opacity: 0;
+    }
+    &-fade &--item-left.active,
+    &-fade &--item-next,
+    &-fade &--item-prev,
+    &-fade &--item-prev.active,
+    &-fade &--item.active {
+      -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+      transform: translateX(0);
+    }
+
+    & h4,
+    & p,
+    & a {
+      -webkit-animation-duration: 1s;
+      animation-duration: 1.2s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+    }
+
+    &--heading {
+      -webkit-animation-name: fadeInLeft;
+      animation-name: fadeInLeft;
+    }
+    &--paragraph {
+      -webkit-animation-name: slideInRight;
+      animation-name: slideInRight;
+    }
+
+    &--btn {
+      -webkit-animation-name: fadeInUp;
+      animation-name: fadeInUp;
+    }
+
+    &--img {
+      width: 22rem;
+      height: 18rem;
+      position: absolute;
+      animation-duration: 1.2s;
+      z-index: -2;
+      opacity: 0.4;
+
+      transition: all 1.5s;
+
+      &-1 {
+        bottom: 4rem;
+        left: 6rem;
+        transform: rotate(-13deg);
+        -webkit-animation-name: fadeIn;
+        animation-name: fadeInfaded;
+      }
+      &-2 {
+        transform: rotate(14deg);
+        // border-radius: 50px;
+        // background: linear-gradient(315deg, #b44bdb, #d659ff);
+        // box-shadow: -20px -20px 60px #aa47cf, 20px 20px 60px #e65fff;
+        right: 6rem;
+        top: 2rem;
+        -webkit-animation-name: fadeIn;
+        animation-name: fadeInfaded;
+        // -webkit-animation-name: fadeInLeft;
+        // animation-name: fadeInLeft;
+      }
+    }
+  }
+
+  &__container {
+    max-width: 100%;
+  }
+}

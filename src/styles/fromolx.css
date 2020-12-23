@@ -1,0 +1,160 @@
+
+.backgroundImage{
+    width:100%;
+    position: fixed;
+    top:0px;
+    left: 0px;
+    z-index:-2;
+    height: 100%;
+    opacity:0.6px;
+}
+
+
+.goToSignIn{
+    width: 50%;
+    margin: 0px auto;
+}
+.alreadyAccount{
+    display: none;
+    
+}
+.wrongInfo{
+    display: none;
+    
+}
+.suh{
+    margin: 0% auto 2% auto;
+    
+}
+.but{
+    margin: 1% auto 1% auto;
+}
+#footer {
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:60px;   /* Height of the footer */
+    background:#6cf;
+ }
+ .grid{
+     margin: 2% 0% 0% 0%;
+ }
+.cardstyling{
+    margin: 0% 0% 2% 0%;
+} 
+.validate{
+    max-height: 300px;
+    max-width: 300px;
+    overflow: scroll;
+}
+
+#postad{
+    display: none;
+}
+#greetUser{
+    display: none;
+}
+#search{
+     
+    height: 70%;
+}
+#searchBtn{
+    display: none;
+}
+.userProfile{
+    display: none;
+}
+.userPostings{
+    display: none;
+}
+.category{
+    color: gray;
+}
+.favourite{
+    display: none;
+}
+.text-messages{
+    color: gray;
+}
+
+.inline{
+    display: inline-block;
+}
+
+@media (max-width: 670px){
+    .submitAdForm{
+        width: 100%;
+    }
+    .submitAdFormWrapper{
+        flex:100%;
+        padding:0px;
+    }
+}
+
+
+.submitAdFormWrapper {
+    flex: 80%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    position: relative;
+}
+.submitAdFormWrapper{
+    padding:10px 7px 7px 7px;
+}
+.submitAdForm{
+    margin: 0px auto;
+    padding: 0%;   
+    background-color: snow;
+    padding:2px 10px;
+    width:100%;
+}
+.form-btn {
+    margin: 20px 0px;
+    background-color: #f6fe00;
+    color: black;
+    padding: 10px 40px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+}
+
+
+.form-row-field {
+    color: #9b91f5;
+    position: absolute;
+    pointer-events: none;
+    transition: 0.5s;
+    top: 7px;
+    margin-left: 1em;
+}
+
+.form-field-input {
+    background-color: inherit;
+    display: block;
+    transition: 0.5s;
+}
+
+.form-field-input:focus~label {
+    top: -10px;
+    font-size: 15px;
+    color: #003333;
+    font-weight: bold;
+    background-color: snow;
+} 
+
+.form-field-input:focus~label, input:not(:placeholder-shown) ~label {
+    top: -5px;
+    font-size: 12px;
+    color: #003333;
+    font-weight: bold;
+}
+
+.labelAfter{
+    top: -10px;
+    font-size: 15px;
+    color: #003333;
+    font-weight: bold;
+    background-color: snow;
+}

@@ -1,0 +1,149 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+
+ <!-- NAVIGATION BAR BELOW-->
+ <nav class=" py-0 navbar navbar-expand-lg navbar-light sticky-top" style='background-color: #e3f2fd'> 
+  <div class="container-fluid">
+    <a class="navbar-brand"><h2 class="logo">TheMovers</h2></a>
+
+
+
+<!--DOWNLOAD APP ICONS IN THE HEADING-->
+  <div class="downloadAppsHeader">
+    <!-- <p class="appsDescription">Download App on</p> -->
+    <a href="#"><img src="images/applestore2.png" alt="applestore"></a>
+    <a href="#"><img src="images/playstore.png"alt="playstore"></a>
+  </div>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+    data-target="#navbarResponsive">
+    MENU
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+     
+      <ul class="navbar-nav  ml-auto ">
+         <li class="nav-item">
+          <a  class="nav-link " href="index.html">Home</a>
+        </li>
+       
+         <li class="nav-item">
+          <a  class="nav-link" href="propertyListing.html">Postings</a>
+        </li>
+        <li class="nav-item owner" style="display: none">
+          <a  class=" nav-link " href="postProperty.html">PostProperty</a>
+        </li>
+       
+        <li class="nav-item inActiveUser" style="display: none;">
+          <a  class="nav-link " href="signInPage.html">Sign In/Up</a>
+        </li>
+
+        <li class="activeUser nav-item messageIcon" style="display: none;">
+          <a class="nav-link" href="chatroom.html">
+            <img src="./images/message.png" alt="Messages" class="messageIconImg">
+              <span class="badge badge-danger">4</span>
+          </a>
+        </li>
+        
+        <li class="activeUser nav-item messageIcon" style="display: none;">
+          <a class="nav-link" href="#">
+            <img src="./images/notificationIcon.png" class="">
+              <span class="badge badge-danger">11</span>
+          </a>
+        </li>
+
+        <li class="activeUser nav-item dropdown" style="display: none;">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <img class="profilePicImg" alt="Profile Pic">
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+            aria-labelledby="navbarDropdownMenuLink-55">
+            <a class="dropdown-item" href="userProfile.html">My Profile</a>
+            <a class="dropdown-item" href="UpdateProfile.html">Update Profile</a>
+            <a  class="dropdown-item logOutBtn" href="#">SignOut</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+</nav>
+
+<img class="backgroundImage" src="./images/postadBg.jpg">
+
+  <!--POST AN AD BELOW-->
+    <div class="container submitAdFormWrapper owner" style="display: none;">
+        <form id="submitAdForm" class="same submitAdForm form">
+          <h1 class="suh text-center text-dark">Post a Property</h1>   
+          <div class="alert alert-success wrongInfo fadeInUp" id="submitPostingsuccessfull" style="display: none;" role="alert" ></div>
+          
+          <div class="form-row text-center">
+            <div class="form__group col-md-6 col-lg-4">
+              <input name="rooms" type="number" class=" form__input" id="rooms" placeholder="Number of rooms" required>
+              <label for="rooms" class="form__label"><b>Number of rooms</b></label> 
+            </div>
+            <div class="form__group col-md-6 col-lg-4">
+              <input name="price" type="number" class="form__input" id="price" placeholder="Price in UgX " required>
+              <label for="price" class="form__label"><b>Price(UG Shs)</b></label>
+            </div>
+            <div class="form-group col-md-6 col-lg-4">
+              <input name="location" type="text" class="form__input" id="location" placeholder="Location" required>
+              <label for="location" class=" form__label"><b>Location</b></label>
+            </div>
+          </div>
+          <div class="form-row text-center">
+              <div class="form__group col-md-6 col-lg-4">
+                <select name="propertyUsage" class=" form__input" id="propertyUsage" aria-placeholder="dfghj">
+                    <option disabled selected value>Select</option>
+                    <option>Residential</option>
+                    <option>Commercial</option>
+                </select>
+                <label for="propertyUsage" class="form__label"><b>propertyUsage</b></label>
+            </div>
+            <div class="form-group col-md-6 col-lg-4">
+                <select name="status" class="form__input" id="propertyStatus">
+                    <option disabled selected value>Select</option>
+                    <option value="For-rent">For-Rent</option>
+                    <option value="For-Sale">For-Sale</option>
+                </select>
+                <label for="category" class="form__label"><b>Property Category</b></label>
+            </div>
+            <div class="form-group col-md-6 col-lg-4">
+              <select name="propertyDescription" class="form__input" id="propertyDescription">
+                  <option disabled selected value>Select</option>
+                  <option value="singleRoom">Single Room</option>
+                  <option value="doubleRoom">Double rooms</option>
+                  <option value="selfContained">Self Contained</option>
+                  <option value="bungalow">Bungalow</option>
+                  <option value="Apartment">Apartment</option>
+                  <option value="countryHouse">Country House</option>
+                  <option value="villa">Villa</option>
+                  <option value="Mansion">Mansion</option>
+              </select>
+              <label for="propertyDescription" class="form__label"><b>Property Description</b></label>
+          </div>
+          </div>
+
+        <div class="form-row text-center">
+          <div class="form-group col-md-7">
+            <textarea name="description" class="form__input" id="description" rows="3" placeholder=" " required> </textarea>
+            <label for="description" class="form__label"><b>Property Info</b></label>
+          </div>
+          <div class="form-group col-md-5">
+                <input name="addimage" type="file" class="form__input" id="imageUpload" required>
+                <label for="addimage" class="form__label"><b>Add Display Image</b></label>
+          </div>
+        </div>
+          <div class="text-center">
+            <button type="submit" class="button button--main button-small">Submit</button>
+          </div>
+        </form>        
+    </img>
+
+  </body>
+</html>

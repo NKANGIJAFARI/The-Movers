@@ -1,0 +1,23 @@
+/* body, div, ul, li, h1, img, header, p, nav, main footer {
+    margin:0px;
+    padding: 0px;
+     
+}
+
+.navbar-nav{
+    width: 60%;
+}
+body{
+    background-color: white;
+ }
+
+ nav{
+     z-index: 1080;
+ }
+.logo{
+    font-size:28px;
+    color:rgba(25, 129, 226, 0.911);
+    border: 3px white solid;
+    border-radius: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+} */

@@ -1,0 +1,336 @@
+
+//  import firebase from '../firebaseConfig';
+import * as firebase from 'firebase/app'
+import 'firebase/firestore';
+ import {db, auth} from '../firebaseConfig';
+import { data } from 'jquery';
+
+  //Room should be the combinedUserId
+ export default class Chatroom {
+    constructor(senderId){
+        this.receiverId;
+        this.senderId = senderId;
+        this.room;
+        // this.chatrooms = db.collection('chatrooms').doc(this.room)
+        //                 .collection('rooms');
+        this.unsub;
+    }
+    changeRoom(room){
+        this.room = room;
+    }
+    
+    getReceiversID(id){
+        this.receiverId = id;
+    }
+
+    async addChat(message){
+        // format a chat object
+        const now = new Date();
+        let chatId;
+        if(this.senderId < this.receiverId){
+              chatId = this.senderId +"-"+ this.receiverId;
+          }else{
+             chatId = this.receiverId +"-"+ this.senderId;
+            }
+        const chat = {
+            message: message,
+            message_status: "closed",
+            message_to: this.receiverId,
+            message_from: this.senderId,
+            chat_Id: chatId,
+            created_at: firebase.firestore.Timestamp.fromDate(now)
+        };
+        // save the chat document
+        const response = await db.collection('chats')
+                        .doc(chatId).collection('messages')
+                        .add(chat);   
+
+        const updateChatroomDate = await db.collection('chatrooms').doc(this.room)
+                                        .collection('rooms').doc(chatId).update({
+                             "created_at" : firebase.firestore.Timestamp.fromDate(now)
+        })  
+
+        //return updateChatroomDate;
+    }
+
+
+//WILL BE USED TO SEND MESSAGE IN HOMEPAGE AND PROPERTY PAGE
+    async addChat2(message, receiverId){
+        // format a chat object
+        const now = new Date();
+        let chatId;
+        if(this.senderId < this.receiverId){
+              chatId = this.senderId +"-"+ this.receiverId;
+          }else{
+             chatId = this.receiverId +"-"+ this.senderId;
+            }
+        const chat = {
+            message: message,
+            message_to: receiverId,
+            message_from: this.senderId,
+            message_status: "closed",
+            created_at: firebase.firestore.Timestamp.fromDate(now)
+        };
+        // save the chat document
+        const response = await db.collection('chats')
+                        .doc(chatId).collection('messages')
+                        .add(chat);   
+        const updateChatroomDate = await db.collection('chatrooms').doc(this.room)
+                                     .collection('rooms').doc(chatId).update({
+               "created_at" : firebase.firestore.Timestamp.fromDate(now)
+        })  
+        return updateChatroomDate;
+    }
+    //WILL BE USED TO SEND MESSAGE IN HOMEPAGE AND PROPERTY PAGE
+    async addChatInRecieverChatRoom2(data, receiverId){
+        const now = new Date();
+        let chatId;
+        if(this.senderId < receiverId){
+              chatId = this.senderId +"-"+ receiverId;
+          }else{
+             chatId = receiverId +"-"+ this.senderId;
+            }
+        const roomDetails = {
+            Name: data.Name,
+            profilePicUrl: profilePicUrl,
+            chat_id: chatId,
+            created_at: firebase.firestore.Timestamp.fromDate(now)
+        };
+        // save the chat document
+        const response = await db.collection('chatrooms')
+                        .doc(receiverId).collection('rooms')
+                        .doc(chatId).set(roomDetails); 
+        return response;  
+    }
+
+    async addChatInRecieverChatRoom(data){
+        const now = new Date();
+        let chatId;
+        if(this.senderId < this.receiverId){
+              chatId = this.senderId +"-"+ this.receiverId;
+          }else{
+             chatId = this.receiverId +"-"+ this.senderId;
+            }
+        const roomDetails = {
+            Name: data.Name,
+            profilePic: data.profilePic,
+            chat_id: chatId,
+            created_at: firebase.firestore.Timestamp.fromDate(now)
+        };
+        // save the chat document
+        const response = await db.collection('chatrooms')
+                       .doc(this.receiverId).collection('rooms')
+                       .doc(chatId).set(roomDetails);
+        return response;   
+    }
+    
+
+    async addChatroom(data, chatId){
+        // format a chat object
+
+        const now = new Date();
+        const roomDetails = {
+            Name: data.Name,
+            profilePic: data.profilePic,
+            chat_id: chatId,
+            created_at: firebase.firestore.Timestamp.fromDate(now)
+        };
+        console.log(data.profilePic)
+        // save the chat document
+        const response = await db.collection('chatrooms').doc(this.room)
+                                .collection('rooms').doc(chatId).set(roomDetails);
+        return response;
+    }
+    
+   async getMessages(callback) {
+           let chatId;
+        if(this.senderId < this.receiverId){
+              chatId = this.senderId +"-"+ this.receiverId;
+          }else{
+             chatId = this.receiverId +"-"+ this.senderId;
+            }
+
+        const response = await db.collection('chats').doc(chatId)
+            .collection('messages')
+            //.where('chat_Id', '==', roomId)
+            .orderBy('created_at')
+            .onSnapshot(snapshot => {
+                snapshot.docChanges().forEach(change => {
+                    if (change.type === 'added') {
+                        callback(change.doc.data());
+                    }
+                });
+            });
+            return response;
+    }
+
+  async getChatrooms(callback) {
+    db.collection('chatrooms').doc(this.senderId)
+        .collection('rooms').orderBy("created_at", "desc")
+            .onSnapshot(snapshot => {
+                snapshot.docChanges().forEach(change => {
+                    if(change.type === 'added') {
+                        callback(change.doc.data());
+                    }
+                });
+            });
+    } 
+
+    updateUserName(username){
+        this.username = username;
+        // localStorage.username = username;
+      }
+
+    async markReadMessage(){
+        db.collection('chats').doc(this.room)
+        .collection('messages').get().then(querySnapshot =>{
+            querySnapshot.forEach(doc =>{
+               if(doc.data().message_to === this.senderId){
+                   doc.ref.update({
+                       message_status: "opened"
+               })
+               }else{console.log("closed")}
+            })
+        }
+       )
+    }
+
+}
+
+
+
+
+
+
+import firebase from '../firebaseConfig';
+import {db, auth} from '../firebaseConfig';
+import Chatroom from './chats';
+import ChatUI from './chatUI';
+
+
+//dom queries
+const messagesList = document.querySelector('.mesagesList');
+const sendMessageForm = document.querySelector('.sendMessageForm');
+const sendMessageFormWrapper = document.querySelector('.sendMessageFormWrapper')
+const newNameForm = document.querySelector('.new-name');
+const updateMssg = document.querySelector('.update-mssg');
+const chatRooms = document.querySelector('.chat-rooms');
+//const chattingRooms = document.querySelectorAll(".room");
+const addNewMessageForm = document.querySelector('.addNewMessageForm');
+const addNewMessageBtn = document.querySelector('.addNewMessageBtn');
+
+
+//Check if User is loggedIn so that to access our chat and its functionality
+auth.onAuthStateChanged(user=>{
+  if(user){
+    //Class Instances
+    const chatroom = new Chatroom(auth.currentUser.uid);
+    const chatUI = new ChatUI(messagesList, chatRooms);
+
+    //Get chatrooms and send them into the DOM. getChatrooms is a method from chats
+    //file and startChatroom is from ChatUI
+    chatroom.getChatrooms(data=>chatUI.startChatRoom(data));
+
+    //Function to join userIds for sender and Receiver to make a chat thread,
+    //Receiver Id is got from the users collection by comparing entered email
+    //with user ids in the database.
+    const combineUserIdsForMessage = (enteredNewEmail) =>{
+      const senderId = auth.currentUser.uid;
+      
+      db.collection('users').get().then(users=>{
+        users.docs.forEach(user =>{
+          if(user.data().email === enteredNewEmail && enteredNewEmail != auth.currentUser.email){
+            console.log('Email exists')
+            const receiverId = user.data().userId;
+            chatroom.getReceiversID(receiverId);
+          
+            if(senderId < receiverId){
+              let combinedUserId = senderId +"-"+ receiverId;
+              chatroom.addChatroom(user.data(), combinedUserId)
+              //chatroom.changeRoom(combinedUserId)
+            }else{
+              let combinedUserId = receiverId +"-"+ senderId;
+              chatroom.addChatroom(user.data(), combinedUserId);
+              //chatroom.changeRoom(combinedUserId);
+              }
+          }else{console.log("Email doesn't exists")}
+          })  
+        }).catch(err => console.log(err))
+     }
+
+
+     //Below is to enter an email for a new message
+      addNewMessageBtn.addEventListener('click', ()=>{
+          addNewMessageBtn.style.display = "none";
+          addNewMessageForm.style.display = "block";
+      })
+
+    addNewMessageForm.addEventListener('submit', e=>{
+      e.stopPropagation();
+      e.preventDefault();
+      const enteredNewEmail = addNewMessageForm['enterEmailAddress'].value.toLowerCase().trim();
+      combineUserIdsForMessage(enteredNewEmail);
+      addNewMessageBtn.style.display = "block";
+      addNewMessageForm.style.display = "none";
+      addNewMessageForm.reset();
+    })
+
+
+    console.log("User is", user.email);
+    
+// update/change the chat room
+chatRooms.addEventListener('click', e=>{
+  e.preventDefault();
+  if(e.target.parentElement.classList.contains("room")){
+    chatUI.clear();
+    sendMessageFormWrapper.style.display = "block";
+    const roomId = e.target.parentElement.getAttribute('id');
+    let receiverId;
+    const [id1, id2] = roomId.split("-");
+    if(auth.currentUser.uid==id1){
+      chatroom.getReceiversID(id2);
+      receiverId = id1;
+    }else{
+      chatroom.getReceiversID(id1);
+      receiverId = id2
+    }
+           
+    if(!e.target.parentElement.classList.contains("active_chat")){
+      Array.from(chatRooms.children).forEach(child=>{
+        child.classList.remove("active_chat");
+      });
+      e.target.parentElement.classList.add("active_chat");
+    }else{return}
+    
+    //chatroom.changeRoom(roomId);
+    chatroom.getMessages(chats => {chatUI.render(chats, receiverId)});
+  }else {
+    console.log("i LOVE PROGRAMMING")}
+})
+    
+
+    // add a new chat
+  sendMessageForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const message = sendMessageForm['new-msg-input'].value.trim();
+    if(message){
+       chatroom.addChat(message)
+                .then(() => sendMessageForm.reset())
+                .catch(err =>console.log(err, err.message));
+                             
+       db.collection('users').doc(auth.currentUser.uid).get().then(doc=>{
+        chatroom.addChatInRecieverChatRoom(doc.data()).then(()=>{
+
+        }).catch(err=>{
+          console.log(err)
+        })
+    })
+    }
+});
+
+
+    
+  }else{
+    console.log("Please sign in to send messages");
+  }
+  });

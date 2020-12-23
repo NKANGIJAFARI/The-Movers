@@ -1,0 +1,75 @@
+// ::-webkit-scrollbar {
+//   width: 1.4rem;
+
+//   @include respond(tab-port) {
+//     width: 0;
+//   }
+// }
+
+// ::-webkit-scrollbar-track-piece {
+//   width: 2rem;
+//   background-color: #e3f2fd;
+// }
+// ::-webkit-scrollbar-thumb {
+//   width: 7px;
+//   height: 5px;
+//   background-color: $color-grey-dark-2;
+//   border-radius: 10px;
+// }
+
+// ::-webkit-scrollbar-corner {
+//   width: 13px;
+//   background-color: green;
+// }
+// .scolPath {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 10px;
+//   height: 100%;
+//   background: rgba(255, 255, 255, 0.05s);
+//   z-index: 1080;
+// }
+
+// .progressBar {
+//   position: fixed;
+//   top: 0%;
+//   left: 0;
+//   width: 10px;
+//   height: 100%;
+//   z-index: 1080;
+//   background: linear-gradient(to top, #008aff, #00ffe7);
+//   animation: animate 5% linear infinite;
+// }
+
+// .progressBar::before {
+//   content: '';
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background: linear-gradient(to top, #008aff, #00ffe7);
+//   filter: blur(30px);
+// }
+
+// .progressBar::after {
+//   content: '';
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background: linear-gradient(to top, #008aff, #00ffe7);
+//   filter: blur(30px);
+// }
+
+// @keyframes animate {
+//   0%,
+//   100% {
+//     filter: hue-rotate(0deg);
+//   }
+//   50% {
+//     filter: hue-rotate(360deg);
+//   }
+// }

@@ -1,0 +1,34 @@
+/* .stickyphone1 {
+  position: sticky;
+  background-color: #007bff;
+  top: 9.2rem;
+  padding: 0;
+  z-index: -2;
+} */
+
+.appInfo {
+  transform: skewY(-5deg);
+
+  &__displayPic {
+    width: 100%;
+    margin: 2rem 0 0 0;
+  }
+
+  &__details {
+    &--h {
+      color: $color-primary;
+      font-size: 4rem;
+      margin-bottom: 3.5rem;
+    }
+
+    &--p {
+      color: $color-primary-light-1;
+      &:not(:last-child) {
+        margin-bottom: 1.7rem;
+      }
+      &:last-child {
+        margin-bottom: 2.5rem;
+      }
+    }
+  }
+}

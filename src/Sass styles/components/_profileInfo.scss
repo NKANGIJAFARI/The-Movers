@@ -1,0 +1,20 @@
+.profileInfo {
+  background-color: rgba(9, 247, 9, 0.1);
+  width: 100%;
+  height: auto;
+  text-align: center;
+  padding: 2.5rem 0;
+
+  &__item {
+    display: inline-block;
+    width: 16%;
+    height: 16rem;
+    position: relative;
+    background-color: $color-primary;
+    border-radius: 30px;
+    padding: 1rem;
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+}
