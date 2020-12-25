@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "../Sass styles/main.scss";
 
 import {fetchPostsToPostings} from './fetchPostings';
-
+import './googleMaps';
 
 
 import { getLikedPosts } from './cardsFunctionality';

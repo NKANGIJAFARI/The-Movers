@@ -163,7 +163,64 @@
     </div>
   </div>
 </div>
+<div class="map__wrapper">
+  <div
+    id="style-selector-control"
+    class="map-control"
+    style="
+      text-align: center;
+      background-color: white;
+      padding: 4px 15px 2px 15px;
+      display: flex;
+      flex-direction: row;
+      position: absolute;
+      left: 212px;
+      top: 10px;
+      z-index: 1;
+    "
+  >
+    <input
+      id="searchTextField"
+      type="text"
+      size="30"
+      style="
+        padding: 1px 7px;
+        font-size: 16px;
+        display: inline-block;
+        margin-right: 10px;
+      "
+      placeholder="Anything you want!"
+    />
 
+    <div style="display: inline-block">
+      <h2 style="font-size: 14px; margin: 0">Show or Hide other features</h2>
+      <input
+        type="radio"
+        name="show-hide"
+        id="hide-poi"
+        class="selector-control"
+        checked="checked"
+      />
+      <label for="hide-poi">Hide</label>
+      <input
+        type="radio"
+        name="show-hide"
+        id="show-poi"
+        class="selector-control"
+      />
+      <label for="show-poi">Show</label>
+    </div>
+  </div>
+
+  <div id="map"></div>
+
+  <div id="infowindow-content">
+    <span style="display: block">Your search result</span>
+    <img width="16" height="16" id="place-icon" />
+    <span id="place-name" class="title"></span><br />
+    <span id="place-address"></span>
+  </div>
+</div>
 
   <!-- Main content below -->
   <!--  had "d-flex" as a class and removed, if it breaks add it to wrrappera s a class. -->

@@ -41,6 +41,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.11.1",
     "bootstrap": "^4.5.0",
     "date-fns": "^2.14.0",
     "firebase": "^7.14.6",
