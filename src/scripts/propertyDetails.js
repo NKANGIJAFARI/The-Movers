@@ -327,7 +327,7 @@ const renderPropertyDetails =(data)=>{
   const allFunctions = async() =>{
     await postIt()
     await showRelatedPosts()
-    await getLikedPosts(relatedPosts);
+    await getLikedPosts(relatedPosts, auth.currentuser.uid);
   }
 
   allFunctions();

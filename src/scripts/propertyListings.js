@@ -1,6 +1,7 @@
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../Sass styles/main.scss";
+import { db, auth } from './firebaseConfig';
 
 import {fetchPostsToPostings} from './fetchPostings';
 import './googleMaps';

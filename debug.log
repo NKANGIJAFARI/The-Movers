@@ -199,3 +199,9 @@
 [1223/095243.455:ERROR:crash_report_database_win.cc(455)] unexpected header
 [1223/160434.692:ERROR:crash_report_database_win.cc(455)] unexpected header
 [1224/154648.181:ERROR:crash_report_database_win.cc(455)] unexpected header
+[1226/084532.604:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1226/102032.715:ERROR:scoped_process_suspend.cc(31)] NtSuspendProcess: An attempt was made to access an exiting process. (0xc000010a)
+[1226/102032.980:ERROR:process_info.cc(329)] VirtualQueryEx: Access is denied. (0x5)
+[1226/102032.980:ERROR:process_info.cc(556)] ReadMemoryInfo failed
+[1226/102032.980:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: An attempt was made to access an exiting process. (0xc000010a)
+[1226/182739.566:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)

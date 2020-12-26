@@ -9,20 +9,139 @@ import * as firebase from 'firebase/app'
 import 'firebase/storage';
 import {auth, storage, database, db} from './firebaseConfig';
 import { sub } from 'date-fns';
+import { Loader } from '@googlemaps/js-api-loader';
 
  const submitAdForm = document.querySelector('.submitAdForm');
  const labels = document.querySelectorAll('.form-row-field');
 const inputs = document.querySelectorAll('.form-control');
 const formGroups = document.querySelectorAll('.form-group');
 
+//Lets do an google maps Api  auto-complete on the input 
+//field for the location
+
+let autocomplete;
+let selectedLocation;
+let selectedLocationCoords = {};
+
+//Google maps initiating 
+const loader = new Loader({
+  apiKey: "AIzaSyBP2U4W-gt6pOx1pZUa--W13RqU8ob_or8",
+  version: "weekly",
+  libraries: ["places"]
+});
+
+
+loader
+  .load()
+  .then(() => {
+
+        autocompleteFunc()
+
+  })
+  .catch(error => {
+    console.log(error.message)
+  });
+  
+  //user is searching for the location where he wants the property.
+  const autocompleteFunc =()=>{
+
+    autocomplete = new google.maps.places.Autocomplete(
+      document.getElementById('location'),
+      { types: [] }
+    );
+
+    //geolocate();
+
+    // Bind the map's bounds (viewport) property to the autocomplete object,
+    // so that the autocomplete requests use the current map bounds for the
+    // bounds option in the request.
+    // autocomplete.bindTo('bounds', map);
+
+    // autocomplete.setFields([
+    //   'address_components',
+    //   'geometry',
+    //   'icon',
+    //   'name',
+    // ]);
+
+    //Make autocomplete search only in one country, for my case its Uganda
+    
+    autocomplete.setComponentRestrictions({ country: ['ug'] });
+
+    // const infowindow = new google.maps.InfoWindow();
+    // const infowindowContent = document.getElementById('infowindow-content');
+    // infowindow.setContent(infowindowContent);
+    // const marker = new google.maps.Marker({
+    //   map,
+    //   anchorPoint: new google.maps.Point(0, -29),
+    // });
+
+
+autocomplete.addListener('place_changed', () => {
+    // infowindow.close();
+    // marker.setVisible(false);
+    const place = autocomplete.getPlace();
+
+    //Give location field selected place as its value to be sent to 
+    //Cloud firestore as the location.
+    selectedLocation = place.formatted_address;
+
+
+    selectedLocationCoords = {
+        lat : place.geometry.location.lat(),
+        lng : place.geometry.location.lng()
+    }
+    
+    //place.address_components.forEach(place => console.log(place));
+
+    // if (!place.geometry) {
+    //     // User entered the name of a Place that was not suggested and
+    //     // pressed the Enter key, or the Place Details request failed.
+    //     window.alert(
+    //     "Choose on the listed locations, '" + place.name + "'"
+    //     );
+    //     return;
+    // }
+
+    // // // If the place has a geometry, then present it on a map.
+    // if (place.geometry.viewport) {
+    //     map.fitBounds(place.geometry.viewport);
+    // } else {
+    //     map.setCenter(place.geometry.location);
+    //     map.setZoom(17); // Why 17? Because it looks good.
+    // }
+    // marker.setPosition(place.geometry.location);
+    // marker.setVisible(true);
+    // let address = '';
+
+    // if (place.address_components) {
+    //     address = [
+    //     (place.address_components[0] &&
+    //         place.address_components[0].short_name) ||
+    //         '',
+    //     (place.address_components[1] &&
+    //         place.address_components[1].short_name) ||
+    //         '',
+    //     (place.address_components[2] &&
+    //         place.address_components[2].short_name) ||
+    //         '',
+    //     ].join(' ');
+    // }
+    // infowindowContent.children['place-icon'].src = place.icon;
+    // infowindowContent.children['place-name'].textContent = place.name;
+    // infowindowContent.children['place-address'].textContent = address;
+    // infowindow.open(map, marker);
+    // });
+  })
+}
 
 auth.onAuthStateChanged((user)=> {
     if (user) {
-        submitAdForm.addEventListener('submit', (e)=>{
+        submitAdForm.addEventListener('submit', async(e)=>{
             e.preventDefault();
         
            const rooms = submitAdForm['rooms'].value;
-           const location = submitAdForm['location'].value;
+           const location = selectedLocation;
            const price = submitAdForm['price'].value;
            const description = submitAdForm['description'].value;
            const propertyId = ('TM' + Math.random().toString(36).substr(2, 7)).toUpperCase();
@@ -33,7 +152,7 @@ auth.onAuthStateChanged((user)=> {
            const propertyDescription = submitAdForm.propertyDescription.options[submitAdForm.propertyDescription.selectedIndex].value;
            const userEmail = auth.currentUser.email;
              let profilePic, landLordName;
-             db.collection('users').doc(auth.currentUser.uid).get().then((user)=>{
+            await db.collection('users').doc(auth.currentUser.uid).get().then((user)=>{
                  profilePic = user.data().profilePic;
                  landLordName = user.data().Name;
                 // whatsAppNumber = user.data().whatsAppNumber;
@@ -69,8 +188,22 @@ auth.onAuthStateChanged((user)=> {
                     reader.onerror = error => console.log(error.message);
             };
        
-   const uploadNow = (file) =>{
+   const uploadNow = async(file) =>{
       const metadata = {contentType: file.type};
+
+    //Lets first upload the coords to the real-time datbase so that 
+    //if the connection gets lost on upload, we just get the coords and no dat
+        await database.ref('locationsCoords/' + propertyId).set({
+            propertyId: propertyId,
+            price: price,
+            rooms: rooms,
+            location: location,
+            propertyStatus: propertyStatus,
+            propertyUsage: propertyUsage,
+            lat: selectedLocationCoords.lat,
+            lng: selectedLocationCoords.lng
+        })
+
             //Bellow starts the upload after compressing the image
             const task = ref.child('housePostings').child(propertyId).child("Display Image").put(file, metadata);
             task
@@ -78,31 +211,31 @@ auth.onAuthStateChanged((user)=> {
             .then((imageUrl) => {
                 //adding Data TO storage 
               
-            db.collection('housePostings').doc(propertyId).set({
-                propertyDetails: {
-                    uid : uid,
-                    displayImage : imageUrl,
-                    price: price,
-                    rooms: rooms,
-                    location: location,
-                    description: description,
-                    propertyUsage: propertyUsage,
-                    propertyDescription: propertyDescription,
-                    propertyStatus: propertyStatus,
-                    displayName: displayName, 
-                    propertyId : propertyId,
-                    userEmail: userEmail,
-                    postedByImg: profilePic,
-                    landLordName : landLordName,
-                    datePosted: firebase.firestore.FieldValue.serverTimestamp()
-                }
-                
-            })
+                db.collection('housePostings').doc(propertyId).set({
+                    propertyDetails: {
+                        uid : uid,
+                        displayImage : imageUrl,
+                        price: price,
+                        rooms: rooms,
+                        location: location,
+                        description: description,
+                        propertyUsage: propertyUsage,
+                        propertyDescription: propertyDescription,
+                        propertyStatus: propertyStatus,
+                        displayName: displayName, 
+                        propertyId : propertyId,
+                        userEmail: userEmail,
+                        postedByImg: profilePic,
+                        landLordName : landLordName,
+                        datePosted: firebase.firestore.FieldValue.serverTimestamp()
+                    } 
+                })
                 })
             .then( 
                 ()=>{
                     document.getElementById("submitPostingsuccessfull").style.display = "block";
                     document.getElementById("submitPostingsuccessfull").innerHTML = "Succesfully Posted";        
+                    
                     setTimeout(()=>{
                         document.getElementById("submitPostingsuccessfull").style.display = "none";
                         document.getElementById("submitPostingsuccessfull").innerHTML = "Succesfully Posted";        

@@ -63,15 +63,12 @@ const distiguishUserUI = async() =>{
     const user = await db.collection('users').doc(auth.currentUser.uid).get();
     //Give User data to the getProfile Pic Function to load profile 
     //Pics on all pages
-    await getProfilePic(user);
+    getProfilePic(user);
 
     if(user.data().RegisterAs === "owner"){
         ownersElements.forEach(elem =>{
             elem.style.display = "block";
         });
-
-    
-
     }else if(user.data().RegisterAs === "client"){
         clientsElements.forEach(elem =>{
             elem.style.display = "block"
@@ -83,14 +80,14 @@ const distiguishUserUI = async() =>{
         if(window.location.pathname === "/postProperty.html" || window.location.pathname === "/editPost.html" ){
             window.location = 'index.html'
         }else{
-            console.log("not pos")
+            console.log("not post")
         }
     }
 
 }
 
 //A function to display profile pic on all pages
-const getProfilePic = async(user)=>{
+const getProfilePic = (user)=>{
     const profilePicImg = document.querySelector('.profilePicImg');
     const imgUrl = user.data().profilePic;
         profilePicImg.src = imgUrl

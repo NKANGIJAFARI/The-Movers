@@ -7,16 +7,16 @@ setTimeout(()=>{
     // Below is a function to view properties, if the view props button is 
     //Clicked, we get its id which is the property ID both on Front
     // and backend
-    const propertyDetails = document.querySelectorAll('.viewDetailsBtn');
-    if(propertyDetails.length === 0){
+    const propertyDetailsBtns = document.querySelectorAll('.viewDetailsBtn');
+    if(propertyDetailsBtns.length === 0){
         const failedPropertyLoad = document.querySelector('.failedPropertyLoad');
         //failedPropertyLoad.style.display = "block";
         
         // window.location = 'propertyListing.html';
-    }else{ propertyDetails.forEach(property =>{
-        property.addEventListener('click', (e)=>{
+    }else{ propertyDetailsBtns.forEach(btn =>{
+        btn.addEventListener('click', (e)=>{
             e.preventDefault();
-            console.log(property);
+            console.log(btn);
             const propertyId = e.target.parentElement.getAttribute('id');
             if(propertyId){
                 localStorage.setItem("propIdToBeViewed", propertyId)
@@ -26,10 +26,9 @@ setTimeout(()=>{
     
     })} 
 
+    chatFunction();  
 
-chatFunction();
-    
-}, 5000)
+}, 5000);
 
 
 
@@ -97,39 +96,44 @@ const chatFunction = async() =>{
 
 
 export const getLikedPosts = async(propertyArray) =>{
-    const user = await db.collection('users').doc(auth.currentUser.uid).get();
-    const likeBtns = document.querySelectorAll('.bi-heart');
-
-    likeBtns.forEach(btn=>{
-        //Push each button id to check if user liked that post and turn button red
-        let likeBtnsArray = [];
-        likeBtnsArray.push(btn.getAttribute("id"));
-
-        propertyArray.forEach(property=>{
-            const propertyId = property.data().propertyDetails.propertyId;
-            if(user.data().likedPosts.includes(propertyId)){
-                if(btn.getAttribute('id') === propertyId){ 
-                    btn.classList.add('bi-heartClicked');
-                }
-            }else{
-            //    btn.classList.remove('bi-heartClicked'); 
+        auth.onAuthStateChanged(async(user) =>{
+            if(user){
+                const userData = await db.collection('users').doc(auth.currentUser.uid).get();
+                const likeBtns = document.querySelectorAll('.bi-heart');
+            
+                likeBtns.forEach(btn=>{
+                    //Push each button id to check if user liked that post and turn button red
+                    let likeBtnsArray = [];
+                    likeBtnsArray.push(btn.getAttribute("id"));
+            
+                    propertyArray.forEach(property=>{
+                        const propertyId = property.data().propertyDetails.propertyId;
+                        if(userData.data().likedPosts.includes(propertyId)){
+                            if(btn.getAttribute('id') === propertyId){ 
+                                btn.classList.add('bi-heartClicked');
+                            }
+                        }else{
+                        //    btn.classList.remove('bi-heartClicked'); 
+                        }
+                    })
+            
+            
+                    btn.addEventListener('click', (e)=>{
+                        console.log(btn, e.target.getAttribute('id'));
+                        btn.classList.toggle('bi-heartClicked');
+                        const postId = e.target.getAttribute('id');
+                        if(userData.data().likedPosts.includes(postId)){
+                            db.collection("users").doc(auth.currentUser.uid).update({
+                                likedPosts: firebase.firestore.FieldValue.arrayRemove(postId)
+                            });
+                        }else{
+                            db.collection("users").doc(auth.currentUser.uid).update({
+                                likedPosts: firebase.firestore.FieldValue.arrayUnion(postId)
+                            });
+                        }
+                    })
+                })
             }
-        })
-
-
-        btn.addEventListener('click', (e)=>{
-            console.log(btn, e.target.getAttribute('id'));
-            btn.classList.toggle('bi-heartClicked');
-            const postId = e.target.getAttribute('id');
-            if(user.data().likedPosts.includes(postId)){
-                db.collection("users").doc(auth.currentUser.uid).update({
-                    likedPosts: firebase.firestore.FieldValue.arrayRemove(postId)
-                });
-            }else{
-                db.collection("users").doc(auth.currentUser.uid).update({
-                    likedPosts: firebase.firestore.FieldValue.arrayUnion(postId)
-                });
-            }
-        })
-    })
+        })        
+  
 }

@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/styleforIndex.css';
 import '../styles/main.css'
 
+import { db, auth } from './firebaseConfig';
+
  
 import "../Sass styles/main.scss"
 import '../scripts/tabs';
@@ -242,7 +244,7 @@ const allFunctions = async()=>{
     posts.forEach(property=>{
             propertyArray.push(property)
     });
-    await getLikedPosts(propertyArray);
+    await getLikedPosts(propertyArray, auth.currentUser.uid);
 }
 
 allFunctions()
