@@ -1,72 +1,360 @@
-.navbar {
-  margin: 0;
-  justify-content: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-content: center;
-  flex-direction: column;
-  padding: 2rem;
-}
-.navbar-nav {
-  z-index: 1080;
-  margin: 0;
-  position: relative;
-  @include respond(tab-port) {
-    padding: 1rem 4rem 1rem 4rem;
-    display: flex;
-    flex-direction: column-reverse;
-    width: 100%;
-  }
-}
-.nav-item {
-  display: inline-block;
-  font-size: 1.8rem;
+// .navbar {
+//   margin: 0;
+//   justify-content: center;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   align-content: center;
+//   flex-direction: column;
+//   padding: 2rem;
+// }
+// .navbar-nav {
+//   z-index: 1080;
+//   margin: 0;
+//   position: relative;
+//   @include respond(tab-port) {
+//     padding: 1rem 4rem 1rem 4rem;
+//     display: flex;
+//     flex-direction: column-reverse;
+//     width: 100%;
+//   }
+// }
+// .nav-item {
+//   display: inline-block;
+//   font-size: $default-font;
 
-  @include respond(tab-port) {
-    &:not(:last-child) {
-      margin-bottom: 2rem;
+//   @include respond(tab-port) {
+//     &:not(:last-child) {
+//       margin-bottom: 2rem;
+//     }
+//   }
+// }
+// .nav-link {
+//   display: inline-block;
+//   align-items: center;
+//   line-height: normal;
+//   @include respond(tab-port) {
+//     color: $color-white !important;
+//     display: flex;
+//   }
+// }
+// .navbar-collapse {
+//   flex-grow: 0;
+
+//   @include respond(tab-port) {
+//     background-color: $color-primary;
+//     position: absolute;
+//     color: white;
+//     top: 100%;
+//     right: 0.2px;
+//     width: 40%;
+//     z-index: 1080;
+//     padding: 2rem 1rem 2rem 1rem;
+//   }
+// }
+// .messageIcon {
+//   position: relative;
+
+//   @include respond(tab-port) {
+//     display: none;
+//   }
+// }
+// .messageIcon img {
+//   width: 3rem;
+//   height: 2.5rem;
+//   position: relative;
+
+//   @include respond(tab-port) {
+//     display: none;
+//   }
+// }
+
+// .messageIcon p {
+//   display: none;
+
+//   @include respond(tab-port) {
+//     display: block;
+//   }
+// }
+
+// .messageIcon span {
+//   position: relative;
+//   top: -0.8rem;
+//   right: 16px;
+//   font-size: $default-font;
+
+//   @include respond(tab-port) {
+//     right: -3px;
+//   }
+// }
+
+// .messageIconWrapper {
+//   display: none;
+// }
+
+// .messageIcon2 {
+//   display: none;
+//   list-style-type: none;
+//   display: block;
+//   position: relative;
+// }
+// .messageIcon2 img {
+//   width: 3rem;
+//   height: 2.5rem;
+//   position: relative;
+// }
+// .messageIcon2 span {
+//   position: absolute;
+//   top: 0.5re;
+//   right: 0.7rem;
+//   font-size: 1.3rem;
+// }
+
+// .logo {
+//   font-size: 3.2rem;
+//   color: rgba(25, 129, 226, 0.911);
+//   border: 0.3rem white solid;
+//   border-radius: 10px;
+//   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+//     'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+//   & span {
+//     color: $color-primary;
+//   }
+// }
+// .downloadAppsHeader {
+//   position: relative;
+//   top: 0;
+//   z-index: 1080;
+//   text-align: center;
+//   margin: 0;
+//   display: inline-block;
+// }
+// .downloadAppsHeader p {
+//   margin: 0px;
+// }
+// .downloadAppsHeader img {
+//   width: 10rem;
+//   display: inline-block;
+// }
+
+// .headingDescription {
+//   color: rgba(25, 129, 226, 0.911);
+//   text-shadow: lightseagreen 2px;
+//   font-size: 2.5rem;
+// }
+// .profilepic {
+//   top: 0px;
+//   width: 4.5rem;
+//   height: 4.5rem;
+//   left: 5%;
+//   position: relative;
+//   margin-left: 0.5rem;
+// }
+// .profilePicImg {
+//   width: 3.5rem;
+//   height: 3.5rem;
+//   border-radius: 50%;
+//   cursor: pointer;
+//   margin-left: 0.5rem;
+// }
+// #profileModal {
+//   z-index: 1080;
+// }
+
+// .logo {
+//   font-size: 2.8rem;
+//   color: rgba(25, 129, 226, 0.911);
+//   border: 0.3rem white solid;
+//   border-radius: 1rem;
+//   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+//     'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+// }
+
+// .profilepic {
+//   width: 5rem;
+//   height: 5rem;
+//   position: relative;
+//   top: 0;
+// }
+// .profilePic img {
+//   width: 100%;
+//   height: 100%;
+//   border-radius: 50%;
+// }
+// /*
+// @media (min-width: 576px) {
+
+//   }
+// */
+// @media (max-width: 576px) {
+//   .downloadAppsHeader {
+//     display: none;
+//   }
+//   .logo {
+//     font-size: 20px;
+//   }
+// }
+
+// @media (min-width: 768px) {
+// }
+
+// @media (max-width: 992px) {
+//   .messageIconWrapper {
+//     display: block;
+//     position: fixed;
+//     top: 70%;
+//     right: 0px;
+//     border-top-left-radius: 20px;
+//     border-bottom-left-radius: 20px;
+//     border: purple 2px groove;
+//   }
+
+//   .messageIcon {
+//     display: none;
+//   }
+//   .logo {
+//     font-size: 24px;
+//   }
+// }
+
+// @media (min-width: 992px) {
+// }
+
+// @media (min-width: 1200px) {
+// }
+
+// .hide {
+//   display: none;
+// }
+
+.navbar {
+  padding: 3px !important;
+  &__wrapper {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 20%;
+    min-width: 25rem;
+    margin-right: 100%;
+    height: 80vh;
+    opacity: 0;
+    background-color: blue;
+    transition: all 0.5s;
+
+    &.active {
+      opacity: 1;
+      margin-right: 0;
+      transition: all 0.5s;
     }
   }
-}
-.nav-link {
-  display: inline-block;
-  align-items: center;
-  line-height: normal;
-  @include respond(tab-port) {
-    color: $color-white !important;
-    display: flex;
-  }
-}
-.navbar-collapse {
-  flex-grow: 0;
 
-  @include respond(tab-port) {
-    background-color: $color-primary;
+  &__list {
     position: absolute;
-    color: white;
-    top: 100%;
-    right: 0.2px;
-    width: 40%;
-    z-index: 1080;
-    padding: 2rem 1rem 2rem 1rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center;
+    width: 100%;
+    padding: 0;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 0rem;
+    }
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      display: inline-block;
+      font-size: 1.7rem;
+      font-weight: 400;
+      padding: 1rem 1rem;
+      color: $color-secondary;
+      text-decoration: none;
+      text-transform: uppercase;
+      background-image: linear-gradient(
+        120deg,
+        transparent 0%,
+        transparent 50%,
+        $color-white 50%
+      );
+      background-size: 220%;
+      width: 100%;
+      transition: all 0.4s;
+
+      span {
+        margin-right: 1.5rem;
+        display: inline-block;
+      }
+    }
+
+    &:hover,
+    &:active {
+      background-position: 100%;
+      color: $color-primary;
+      transform: translateX(-0.1rem);
+    }
+  }
+  &__open-btn {
+    font-size: 2rem !important;
+
+    &----span1 {
+    }
+    &----span2 {
+    }
+  }
+
+  &__closure-btn {
+    padding: 0rem 1.2rem 0.4rem 0.9rem;
+    font-size: 2.3rem;
+    border-radius: 0rem 0rem 2.4rem 0rem;
+    color: purple;
+    border: 1px solid aliceblue;
+    background-color: $color-secondary;
+    transition: all 0.4s;
+
+    &:hover {
+      transform: translateY(0);
+      box-shadow: 0 1rem 2rem rgba($color-white, 0.2);
+      color: $color-secondary;
+      background-color: $color-primary;
+
+      &::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+      }
+    }
+  }
+  &__right {
+    display: flex;
+    flex-direction: row;
   }
 }
+
 .messageIcon {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   position: relative;
+  margin-right: 1rem;
 
   @include respond(tab-port) {
     display: none;
   }
 }
-.messageIcon img {
-  width: 3rem;
-  height: 2.5rem;
-  position: relative;
+.far {
+  font-size: 3rem;
+  // width: 3rem;
+  // height: 2.5rem;
+  // position: relative;
 
-  @include respond(tab-port) {
-    display: none;
-  }
+  // @include respond(tab-port) {
+  //   display: none;
+  // }
 }
 
 .messageIcon p {
@@ -78,10 +366,15 @@
 }
 
 .messageIcon span {
+  // position: relative;
+  // top: -0.8rem;
+  // right: 16px;
+  // font-size: $default-font;
+
   position: relative;
-  top: -0.8rem;
-  right: 16px;
-  font-size: 1.6rem;
+  top: -1.5rem;
+  right: 17px;
+  font-size: 1.5rem;
 
   @include respond(tab-port) {
     right: -3px;
@@ -90,6 +383,7 @@
 
 .messageIconWrapper {
   display: none;
+  flex: none;
 }
 
 .messageIcon2 {
@@ -105,13 +399,14 @@
 }
 .messageIcon2 span {
   position: absolute;
-  top: 0.5re;
+  top: 0.5rem;
   right: 0.7rem;
   font-size: 1.3rem;
 }
 
 .logo {
-  font-size: 3.2rem;
+  font-size: 2.7rem;
+  margin: 0;
   color: rgba(25, 129, 226, 0.911);
   border: 0.3rem white solid;
   border-radius: 10px;
@@ -122,108 +417,26 @@
     color: $color-primary;
   }
 }
-.downloadAppsHeader {
-  position: relative;
-  top: 0;
-  z-index: 1080;
-  text-align: center;
-  margin: 0;
-  display: inline-block;
-}
-.downloadAppsHeader p {
-  margin: 0px;
-}
-.downloadAppsHeader img {
-  width: 10rem;
-  display: inline-block;
-}
 
-.headingDescription {
-  color: rgba(25, 129, 226, 0.911);
-  text-shadow: lightseagreen 2px;
-  font-size: 2.5rem;
-}
-.profilepic {
-  top: 0px;
-  width: 4.5rem;
-  height: 4.5rem;
-  left: 5%;
-  position: relative;
-  margin-left: 0.5rem;
-}
 .profilePicImg {
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 4rem;
+  height: 4rem;
   border-radius: 50%;
-  cursor: pointer;
-  margin-left: 0.5rem;
-}
-#profileModal {
-  z-index: 1080;
-}
-
-.logo {
-  font-size: 2.8rem;
-  color: rgba(25, 129, 226, 0.911);
-  border: 0.3rem white solid;
-  border-radius: 1rem;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.profilepic {
-  width: 5rem;
-  height: 5rem;
-  position: relative;
   top: 0;
+  margin: 0;
 }
 .profilePic img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
 }
-/*
-@media (min-width: 576px) {
-
-  }
-*/
-@media (max-width: 576px) {
-  .downloadAppsHeader {
-    display: none;
-  }
-  .logo {
-    font-size: 20px;
-  }
+.navbar__icons-wrapper {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-@media (min-width: 768px) {
-}
-
-@media (max-width: 992px) {
-  .messageIconWrapper {
-    display: block;
-    position: fixed;
-    top: 70%;
-    right: 0px;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border: purple 2px groove;
-  }
-
-  .messageIcon {
-    display: none;
-  }
-  .logo {
-    font-size: 24px;
-  }
-}
-
-@media (min-width: 992px) {
-}
-
-@media (min-width: 1200px) {
-}
-
-.hide {
-  display: none;
+.dropdown-menu {
+  font-size: 1.6rem;
 }

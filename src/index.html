@@ -10,77 +10,93 @@
 
 <body>
   <!--Place the navigation below-->
- <!-- NAVIGATION BAR BELOW-->
-<nav class=" py-0 navbar navbar-expand-lg navbar-light sticky-top" style='background-color: #e3f2fd'> 
-  <div class="container-fluid">
-    <a class="navbar-brand"><h2 class="logo">TheMovers</h2></a>
-
-
-
-<!--DOWNLOAD APP ICONS IN THE HEADING-->
-  <div class="downloadAppsHeader">
+  <nav class="navbar navbar-expand-xlg navbar-light sticky-top" style='background-color: #e3f2fd'> 
+    <div class="container-fluid navigation">
+      <a class="navbar-brand"><h2 class="logo">TheMovers</h2></a>
+  
+  
+ <!--DOWNLOAD APP ICONS IN THE HEADING-->
+   <div class="downloadAppsHeader">
     <!-- <p class="appsDescription">Download App on</p> -->
     <a href="#"><img src="images/applestore2.png" alt="applestore"></a>
     <a href="#"><img src="images/playstore.png"alt="playstore"></a>
   </div>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse"
-    data-target="#navbarResponsive">
-    MENU
-    <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-     
-      <ul class="navbar-nav  ml-auto ">
-         <li class="nav-item">
-          <a  class="nav-link " href="index.html">Home</a>
-        </li>
-       
-         <li class="nav-item">
-          <a  class="nav-link" href="propertyListing.html">Postings</a>
-        </li>
-        <li class="nav-item owner" style="display: none">
-          <a  class=" nav-link " href="postProperty.html">PostProperty</a>
-        </li>
-       
-        <li class="nav-item inActiveUser" style="display: none;">
-          <a  class="nav-link " href="signInPage.html">Sign In/Up</a>
-        </li>
-
-        <li class="activeUser nav-item messageIcon" style="display: none;">
-          <a class="nav-link" href="chatroom.html">
-            <!-- <span class="nav-link-span">Messages</span> -->
-            <img src="./images/message.png" alt="Messages" class="messageIconImg">
-              <span class="badge badge-danger">4</span>
-          </a>
-        </li>
-        
-        <li class="activeUser nav-item messageIcon" style="display: none;">
-          <a class="nav-link" href="#">
-            <!-- <span class="nav-link-span">Notifications</span> -->
-            <img src="./images/notificationIcon.png" class="">
-              <span class="badge badge-danger">11</span>
-          </a>
-        </li>
-
-        <li class="activeUser nav-item dropdown" style="display: none;">
-          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+  
+  
+  
+    <div class="navbar__right ">
+      <div class="activeUser messageIcon ">
+        <a class="navbar__icon activeUser navbar__item" href="chatroom.html" style="display: none;">
+          <!-- <p>Messages</p> -->
+          <i class="far fa-comment-alt icon " style="font-size: 3rem;"></i>
+          <span class="badge badge-danger">4</span>
+        </a>
+        <a class="navbar__icon activeUser navbar__item" href="#" style="display: none;">
+          <i class="far fa-bell icon" style="font-size: 3rem;"></i>
+            <span class="badge badge-danger">11</span>
+        </a>
+  
+        <div class="activeUser navbar__item dropdown" style="display: none;" >
+          <a class="navbar__icon dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
-            <img class="profilePicImg" alt="Profile Pic">
+            <img class="profilePicImg" alt="DP">
           </a>
           <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
             aria-labelledby="navbarDropdownMenuLink-55">
             <a class="dropdown-item" href="userProfile.html">My Profile</a>
-            <a class="dropdown-item" href="UpdateProfile.html">Update Profile</a>
             <a  class="dropdown-item logOutBtn" href="#">SignOut</a>
           </div>
-        </li>
-      </ul>
+        </div>
+      </div>
+  
+        <button class="navbar__open-btn navbar-toggler" type="button" style="font-size: 17px;">
+          <span class="navbar__open-btn--span1">MENU </span> 
+          <span class="navbar-toggler-icon navbar__open-btn--span2"></span>
+        </button>
     </div>
-</nav>
-
-
-
+  
+      
+      <div class="navbar__wrapper" id="navbarResponsive">
+  
+        <ul class="  ml-auto navbar__list">
+           <li class="navbar__item">
+            <a  class="navbar__link " href="index.html">
+              <i class="fas fa-home" style="font-size: 2.6rem !important;"></i> Home
+            </a>
+          </li>
+         
+           <li class="navbar__item">
+            <a  class="navbar__link" href="propertyListing.html">
+              <i class="fas fa-city" style="font-size: 2.6rem !important;"></i> Postings
+            </a>
+          </li>
+          <li class="navbar__item owner" style="display: none;">
+            <a  class=" navbar__link " href="postProperty.html">
+              <i class="fas fa-plus-square" style="font-size: 2.6rem !important;"></i> Post Property
+            </a>
+          </li>
+         
+          <li class="navbar__item inActiveUser" style="display: none;"  >
+            <a  class="navbar__link " href="signInPage.html">
+              <i class="fas fa-user-plus" style="font-size: 2.6rem !important;"></i>
+              Sign In/Up
+            </a>
+          </li>
+  
+          <li class="" style="margin-top: 6rem;">
+            <!-- <p class="appsDescription">Download App on</p> -->
+            <p style="color: white;">Download Application</p>
+            <a href="#"><img src="images/applestore2.png" style="width: 10rem;" alt="applestore"></a>
+            <a href="#"><img src="images/playstore.png"  style="width: 10rem;" alt="playstore"></a>
+          </li>
+     
+        </ul>
+  
+        <button class="navbar__closure-btn button" type="button">
+          <span class="navbar__closure-span">X</span>
+      </button>
+      </div>
+  </nav>
 
   <!-- message sending modal -->
 <!-- <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

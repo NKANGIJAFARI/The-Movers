@@ -5,4 +5,94 @@
 
 .map__wrapper {
   position: relative;
+  display: none;
+}
+.map__wrapper.active {
+  display: flex;
+}
+
+.showPropDetailsWrapper {
+  height: 88% !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  top: none !important;
+  min-width: 35rem !important;
+  // max-width: 52% !important;
+  // width: 50% !important;
+  background: #7386d5;
+  padding: 3px !important;
+  color: $color-black !important;
+  height: 100%;
+  z-index: 1 !important;
+  margin-left: -35rem !important;
+  transition: all 0.5s;
+
+  & div {
+    padding: 2px 2px !important;
+    border: none !important;
+    margin: 0px !important;
+  }
+}
+
+.showPropDetailsWrapper.active {
+  margin-left: 0 !important;
+  transition: all 0.5s;
+}
+
+.showPropDetailsWrapper {
+  //Its styles are same as those for the filter property
+
+  // z-index: 1080 !important;
+  // height: 80%;
+  // position: absolute !important;
+  // min-width: 25rem;
+  // max-width: 100% !important;
+  // background: #7386d5;
+  // padding: 2px !important;
+  // color: $color-black !important;
+  // transition: all 0.3s;
+  // z-index: 1080;
+}
+.showPropDetailsWrapper.active {
+  // width: 40%;
+  // margin-left: 0 !important;
+}
+
+.showHidePropDetails {
+  position: absolute;
+  font-size: 30px;
+  top: 0;
+  right: 10px;
+  margin-right: -4.85rem;
+  background-color: #ffffff;
+  padding: 1rem;
+  cursor: pointer;
+  transform: translate(-0%, 220%);
+}
+
+.map-control {
+  text-align: center;
+  background-color: white;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  left: 212px;
+  top: 10px;
+  z-index: 1;
+}
+#searchTextField {
+  font-size: 1.6rem;
+  display: inline-block;
+  margin-right: 1rem;
+  top: 10px;
+  width: 27rem;
+  padding: 1rem 2rem;
+}
+
+.map__showHide-businesses {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  background-color: aliceblue;
 }

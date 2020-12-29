@@ -16,11 +16,18 @@ library.add(fas, far, fab)
 dom.i2svg() 
 
 
+// NAVIGATION BAR STYLING
+const navOpenCloseBtn = document.querySelector('.navbar__open-btn');
+const navBarWrapper = document.querySelector(".navbar__wrapper");
+const navClosureBtn = document.querySelector('.navbar__closure-btn');
 
-// let progress = document.querySelector('.progressBar');
+navOpenCloseBtn.addEventListener('click', (e)=>{
+    e.preventDefault();
+    console.log(navOpenCloseBtn)
+    console.log(navBarWrapper)
+    navBarWrapper.classList.toggle('active');
+});
 
-// let totalHeight = document.body.scrollHeight - window.innerHeight;
-// window.onscroll = function(){
-//     let progressHeight = (window.pageXOffset / totalHeight) * 100;
-//     progress.style.height = progressHeight + "%"
-// }
+navClosureBtn.addEventListener('click' , () =>{
+    navBarWrapper.classList.remove('active');
+})

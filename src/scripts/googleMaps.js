@@ -1,8 +1,14 @@
 import { Loader } from '@googlemaps/js-api-loader';
 import {auth, storage, database, db} from './firebaseConfig';
+import {postingCard} from './fetchPostings';
+
+//Button to show the propertyDetails and wrapper for the prop details
+const showHidePropDetailsBtn = document.querySelector('.showHidePropDetails');
+const showPropDetailsWrapper = document.querySelector('.showPropDetailsWrapper');
  
 //Markers array
 const markersArray = [];
+
 let map;
 let autocomplete;
 
@@ -15,6 +21,8 @@ let autocomplete;
         map: map,
     });
 
+    marker.setValues({type: "point", id: props.propertyId});
+
     if (props.iconImage) {
         marker.setIcon(props.iconImage);
     }
@@ -25,26 +33,34 @@ let autocomplete;
           content: props.content,
         });
 
-        marker.addListener('click', function () {
+        marker.addListener('mouseover', function () {
             infoWindow.open(map, marker);
         });
+        marker.addListener('mouseout', function () {
+          infoWindow.close(map, marker);
+        });
+        marker.addListener('click', function (event)
+         { showPropertyOnClickedMarker(this.id) })
     }
   }
 
  //A function to addMarkers to the map
   const addMarkers = () => {
+    console.log(markersArray)
     markersArray.forEach((marker) => {
       addMarker(marker);
-      console.log("added")
+      console.log("added markers");
     })
   };
 
-const getFromDatabase = () =>{
+const getFromDatabase = async () =>{
   database.ref('locationsCoords/').once('value').then((snapshot)=>{
     console.log('PROPERTIES ARE GOT')
     snapshot.forEach(snap =>{
       const data = snap.val();
+      console.log(data);
       const propertyLocationObject = {
+        propertyId : data.propertyId,
         coords: {lat: data.lat, lng: data.lng },
         content: `
             <div class="infowindow__content">
@@ -66,12 +82,11 @@ const getFromDatabase = () =>{
     });
   
     addMarkers();
-    showViews()
   })
 }
 
 getFromDatabase();
-  
+  console.log("function", getFromDatabase)
 
 //A function to get users geographical location.
 // Bias the autocomplete object to the user's geographical location,
@@ -218,7 +233,7 @@ const autocompleteFunc =()=>{
     .then(() => {
        map = new google.maps.Map(document.getElementById("map"), mapOptions);
         //addMarkers();
-        geolocate()
+        //geolocate()
         autocompleteFunc()
   
       // Add controls to the map, allowing users to hide/show features on the map.
@@ -238,9 +253,16 @@ const autocompleteFunc =()=>{
           };
   
           const styleControl = document.getElementById('style-selector-control');
-          map.controls[google.maps.ControlPosition.TOP_LEFT].push(styleControl);
+          map.controls[google.maps.ControlPosition.TOP_CENTER].push(styleControl);
+
+          const showHideBusiness = document.getElementById('showHideBusiness');
+          map.controls[google.maps.ControlPosition.TOP_CENTER].push(showHideBusiness);
+          
           styleControl.style.top = '10px';
+
+
           // Apply new JSON when the user chooses to hide/show features.
+          // map.setOptions({ styles: styles['hide'] });
           document.getElementById('hide-poi').addEventListener('click', () => {
               map.setOptions({ styles: styles['hide'] });
           });
@@ -253,10 +275,40 @@ const autocompleteFunc =()=>{
     });
 
 
-const showViews = () =>{
-  const viewDetailsBtns = document.querySelectorAll('.mapViewDetailsBtn');
-  console.log(viewDetailsBtns)
+const showPropertyOnClickedMarker = async(propId) =>{
+  const showPropDetailsWrapper = document.querySelector('.showPropDetailsWrapper');
+  const showPropertyDetails = document.querySelector('.showPropDetails')
+
+  const property =  await db.collection('housePostings').doc(propId).get();
+  console.log(property.data());
+  const data = property.data().propertyDetails;
+  showPropertyDetails.innerHTML = postingCard(data);
+  if( showPropDetailsWrapper.classList.contains('active')){
+    return
+  }else{
+    showPropDetailsWrapper.classList.add('active');
+    showHidePropDetailsBtn.innerHTML = `<i class="fas fa-chevron-left">`
+  }
 }
+
+
+showHidePropDetailsBtn.addEventListener('click', ()=>{
+  if(showPropDetailsWrapper.classList.contains('active')){
+    showPropDetailsWrapper.classList.remove('active');
+    showHidePropDetailsBtn.innerHTML = `<i class="fas fa-chevron-right">`
+  }else{
+    showPropDetailsWrapper.classList.add('active');
+    showHidePropDetailsBtn.innerHTML = `<i class="fas fa-chevron-left">`;
+  }
+});
+
+
+// if(showPropDetailsWrapper.classList.contains('active')){
+//   showHidePropDetailsBtn.innerContent += `<i class="fas fa-chevron-left"></i>`
+// }else{
+//   showHidePropDetailsBtn.innerContent += `<i class="fas fa-chevron-left"></i>`
+// }
+
 
 
 

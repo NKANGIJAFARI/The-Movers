@@ -39,7 +39,7 @@
   }
   &__rentSaleOption {
     color: red;
-    font-size: 1.6rem;
+    font-size: $default-font;
     padding: 0 0.5rem;
     position: absolute;
     top: 0.7rem;
@@ -55,7 +55,7 @@
       border: turquoise;
 
       &:not(:last-child) {
-        width: 32%;
+        width: 29%;
         //margin-right: 1.5rem;
       }
 
@@ -117,7 +117,7 @@
       border: 0.1rem rgb(138, 131, 104) solid;
     }
     &--btn {
-      font-size: 1.4rem;
+      font-size: $default-font;
       align-items: center;
       padding: 0.4rem 0.6rem;
     }
@@ -151,7 +151,7 @@
 }
 .houselistingsBtn a {
   background: rgb(214, 43, 43);
-  font-size: 14px;
+  font-size: $default-font;
   color: #fff;
   padding: 1rem 2.8rem;
   border-radius: 2rem;

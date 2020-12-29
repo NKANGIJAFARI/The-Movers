@@ -6,7 +6,7 @@
   position: relative;
   margin-top: -160px;
   z-index: 0;
-  font-size: 1.6rem;
+  font-size: $default-font;
   padding: 3.5rem 3rem 3rem 3rem;
   width: 100%;
   text-align: center;
@@ -56,7 +56,7 @@
 }
 
 .section__appInfo {
-  background: #e3f2fd;
+  background: $color-secondary;
   // background: linear-gradient(2deg, #87cefa 15%, rgba(2, 252, 98, 0.186) 100%);
   transition: all 1.2s;
   padding: 10rem 5rem;
@@ -91,7 +91,7 @@
 }
 
 .section__appDescription {
-  background-color: #e3f2fd;
+  background-color: $color-secondary;
   position: relative;
   padding: 6rem 10rem;
   // box-shadow: inset -5px -5px 10px #adadad, inset 5px 5px 10px $color-white;
@@ -151,7 +151,7 @@
   border-radius: 50%;
   color: #fff;
   cursor: pointer;
-  font-size: 1.7rem;
+  font-size: $default-font;
   height: 33px;
   position: absolute;
   right: 0;

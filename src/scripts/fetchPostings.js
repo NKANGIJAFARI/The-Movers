@@ -173,8 +173,9 @@ const featuredPostCard = (posts,  divToPutDetails, divToPutPostings)=>{
 
 
 export const postingCard  = (data)=>{
+  console.log(data)
     return`
-    <div  class="houseposting col-sm-12 col-md-6 col-lg-4" >
+    <div  class="houseposting" >
       <div  class=" ${data.propertyDescription} ${data.propertyUsage} " >
         <div class="card text-center">
           <p class="card-header card__header text-left">

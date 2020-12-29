@@ -9,7 +9,7 @@ const signInSignUpWrapper = document.querySelector(".signInSignUpWrapper");
 const toShowWhenLoggedIn = document.querySelectorAll(".loggedIn");
 const toShowWhenLoggedOut = document.querySelectorAll(".loggedOut");  
 const logOutBtns = document.querySelectorAll(".logOutBtn");
-const navLinks = document.querySelectorAll(".nav-item");
+const navLinks = document.querySelectorAll(".navbar__item");
 
 
 // Distiguish what to show owners and clients

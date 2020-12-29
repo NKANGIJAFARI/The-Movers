@@ -13,7 +13,56 @@ const postedProperties = document.querySelector('.postedProperties');
 
 const filterBtn = document.querySelector(".filterBtn");
 
+const toggleMapAndCardsBtns = document.querySelectorAll('.toggleMapAndCardsBtn');
+toggleMapAndCardsBtns.forEach(btn =>{
+    btn.addEventListener('click', (e)=>{
+        const propertyListWrapper = document.querySelector(".propertyListWrapper");
+        const mapWrapper = document.querySelector('.map__wrapper')
+        const showCards = document.querySelector('#showCards');
+        const showMap = document.querySelector('#showMap');
 
+        if(e.target.getAttribute('id') === "showCards"){
+            console.log("This are cards");
+         
+            if(propertyListWrapper.classList.contains('active')){
+                console.log("ALREADY IS ACTIVE")
+                return
+            }
+
+            if(mapWrapper.classList.contains('active')){
+                mapWrapper.classList.remove('active');
+            }
+            propertyListWrapper.classList.add('active');
+
+            if(showCards.classList.contains('active')){
+                return
+            }else{
+                showMap.classList.remove("active")
+                showCards.classList.add('active')
+            }
+
+        }else if(e.target.getAttribute('id') === "showMap"){
+            console.log('This are maps');
+            if(mapWrapper.classList.contains("active")){
+                console.log("Already on maps")
+                return
+            }
+
+            if(propertyListWrapper.classList.contains('active')){
+                propertyListWrapper.classList.remove('active');
+                console.log('removed', propertyListWrapper)
+            }
+            mapWrapper.classList.add('active');
+
+            if(showMap.classList.contains('active')){
+                return
+            }else{
+                showCards.classList.remove("active")
+                showMap.classList.add('active')
+            }            
+        }
+    })
+})
 
 const otherFunctions = async() =>{
      setTimeout(()=>{
@@ -26,7 +75,7 @@ const otherFunctions = async() =>{
             postings.forEach(post=>{ 
                 const x = screen.availWidth;
 
-                if(sidebar.classList.contains("active")){
+                if(!sidebar.classList.contains("active")){
                     if(x < 600){
                         postedProperties.style.display ="inline-flex"
                     }
@@ -34,7 +83,7 @@ const otherFunctions = async() =>{
                     hideFilter.innerText = "Show Filter"
                     post.classList.remove("col-lg-6");
                     post.classList.add("col-lg-4");
-                }else if(!sidebar.classList.contains("active")){
+                }else if(sidebar.classList.contains("active")){
                     
                     if(x < 600){
                         postedProperties.style.display ="none"
