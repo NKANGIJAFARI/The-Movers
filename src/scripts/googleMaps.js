@@ -149,7 +149,6 @@ const getFromDatabase = async () =>{
 }
 
 getFromDatabase();
-  console.log("function", getFromDatabase)
 
 //A function to get users geographical location.
 // Bias the autocomplete object to the user's geographical location,
