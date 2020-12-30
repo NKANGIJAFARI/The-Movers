@@ -56,10 +56,10 @@
 }
 
 .section__appInfo {
-  background: $color-secondary;
+  background: $color-tertiary;
   // background: linear-gradient(2deg, #87cefa 15%, rgba(2, 252, 98, 0.186) 100%);
   transition: all 1.2s;
-  padding: 10rem 5rem;
+  padding: 7rem 5rem;
   transform: skewY(5deg);
   &:hover {
     // background-color: #87cefa;
