@@ -1,6 +1,10 @@
 .form {
-  &__group:not(:last-child) {
-    margin-bottom: 0.5rem;
+  text-align: right;
+  &__group {
+    position: relative;
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
   }
 
   //Forms in different pages
@@ -45,12 +49,15 @@
   }
 
   &__label {
-    font-size: $default-font;
-    font-weight: 700;
-    margin-left: 2rem;
-    margin-top: 0.7rem;
-    display: block;
-    transition: all 0.3s;
+    font-size: 1.3rem;
+    font-weight: 400;
+    transform: translate(40%, -8px);
+    display: inline-block;
+    right: 0;
+    padding: 0px 0.9rem;
+    background-color: $color-primary;
+    border-radius: 5px 5px;
+    color: white;
   }
 
   &__input:placeholder-shown + &__label {

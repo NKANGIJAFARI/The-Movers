@@ -278,6 +278,68 @@ ul.CTAs a {
   display: flex;
 }
 
+.toggleButtonsWrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.toggleMapAndCardsBtn {
+  &:link,
+  &:visited {
+    font-size: $default-font;
+    background-color: rgba($color-tertiary, 1);
+    color: $color-white;
+
+    display: inline-flex !important;
+    border-radius: 0px !important;
+    text-decoration: none;
+    transition: all 0.7s;
+    z-index: 1;
+    padding: 0.6rem 2rem;
+  }
+
+  // &:active {
+  //   box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+  //   transform: translateY(0);
+  //   border-radius: 6px;
+  // }
+  &--1 {
+    margin-right: -20px;
+    padding-right: 34px !important;
+
+    & .active {
+      z-index: 2;
+      border-radius: 0px 20px 20px 0 !important;
+      background-color: #471180 !important;
+      color: $color-white !important;
+    }
+  }
+
+  &--2 {
+    padding-left: 37px !important;
+
+    & .active {
+      background-color: #471180 !important;
+      color: $color-white !important;
+      border-radius: 20px 0px 0px 20px !important;
+      z-index: 2;
+    }
+  }
+
+  &:hover {
+    //display: flex;
+    transform: translateX(0px) !important;
+    //border-radius: 6px;
+    z-index: 2;
+
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    // transform: scale(1.2px);
+    border-radius: 6px;
+  }
+}
+
 .toggleMapAndCardsBtn.active {
   background-color: #471180 !important;
   color: $color-white !important;

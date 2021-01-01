@@ -1,24 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
+.main-container {
+  position: relative;
+  height: 90%;
+  font-size: 15px;
+}
+
 * {
   box-sizing: border-box;
 }
-/* 
-body {
-  background: #f6f5f7;
-  font-family: 'Montserrat', sans-serif;
-  height: 100vh;
-  margin: 0px 0 0px;
-} */
-
-/* nav{
-	height:10%;
-	width:100%;
-  } */
-
-/* img {
-  width: 60%;
-} */
 
 h2 {
   text-align: center;
@@ -61,32 +51,31 @@ span {
   border-color: #ffffff;
 }
 
-form {
-  background-color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 0 10px;
-  height: 100%;
-  text-align: center;
-}
-input {
-  background-color: #eee;
-  border: none;
-  display: block;
-  padding: 6px 10px;
-  margin: 0px 0;
-  width: 100%;
-}
-input:focus {
-  outline: none;
-}
+// form {
+//   background-color: #ffffff;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   flex-direction: column;
+//   padding: 0 30px;
+//   height: 100%;
+//   text-align: center;
+// }
+// input {
+//   background-color: #eee;
+//   border: none;
+//   display: block;
+//   padding: 6px 10px;
+//   margin: 0px 0;
+//   width: 100%;
+// }
+// input:focus {
+//   outline: none;
+// }
 .signInForm {
   padding: 0px 10%;
 }
 .signInForm input {
-  background-color: rgb(218, 219, 221);
   text-align: center;
 }
 .signInForm input:focus {
@@ -95,14 +84,14 @@ input:focus {
 }
 
 .wrapper {
-  background-color: #fff;
+  @include absoluteCenter;
+  background-color: $color-secondary;
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  position: relative;
   overflow: hidden;
   width: 70%;
   max-width: 100%;
-  height: 80%;
+  height: 85%;
   display: block !important;
 }
 
@@ -117,10 +106,16 @@ input:focus {
   left: 0;
   width: 50%;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
 }
 
 .wrapper.right-panel-active .sign-in-container {
   transform: translateX(100%);
+  left: -30%;
+  width: 30%;
 }
 
 .sign-up-container {
@@ -132,20 +127,23 @@ input:focus {
 }
 
 .wrapper.right-panel-active .sign-up-container {
-  transform: translateX(100%);
+  transform: translateX(90%);
+  left: -30%;
+  width: 69.8%;
   opacity: 1;
   z-index: 5;
+  padding: 1.5rem 5rem;
   animation: show 0.6s;
 }
 
 @keyframes show {
   0%,
-  49.99% {
+  74.99% {
     opacity: 0;
     z-index: 1;
   }
 
-  50%,
+  75%,
   100% {
     opacity: 1;
     z-index: 5;
@@ -165,12 +163,18 @@ input:focus {
 
 .wrapper.right-panel-active .overlay-container {
   transform: translateX(-100%);
+  left: 35%;
+  width: 35%;
 }
 
 .overlay {
   background: #ff416c;
-  background: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
-  background: linear-gradient(to right, #ff4b2b, #ff416c);
+  background: -webkit-linear-gradient(
+    to right,
+    $color-primary,
+    $color-tertiary
+  );
+  background: linear-gradient(to right, $color-primary-light-1, $color-primary);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
@@ -234,10 +238,40 @@ input:focus {
   width: 40px;
 }
 
-.signUpLabels {
+.hide {
   display: none;
 }
 
-.hide {
-  display: none;
+.fontuser {
+  position: relative;
+}
+
+.fontuser i {
+  position: absolute;
+  left: 15px;
+  top: 40px;
+  color: gray;
+}
+
+.fontpassword {
+  position: relative;
+}
+
+.fontpassword i {
+  position: absolute;
+  left: 15px;
+  top: 40px;
+  color: gray;
+}
+
+.submitBtn-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.form__group--avatar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
