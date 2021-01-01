@@ -95,11 +95,98 @@
       </button>
       </div>
   </nav>
+ 
+  <!-- <div class="container wrapper" id="signUpWrapper">
+      <div class="form-container sign-up-container">
+          <form class="signUpForm form">
+              <h4 class="u-margin-bottom-medium">REGISTER</h4>
+              <div class="form-row text-center">
+                  <div class="form-group form__group col-md-6">
+                      <input type="text" class="input form__input" id="name" placeholder="Full Name">
+                      <label class="signUpLabels form__label" for="name">Full Name</label>
+                  </div>
+                  <div class="form-group form__group col-md-6 text-center">
+                      <select class="form-control registerAs" id="registerAs" placeholder="Client js">
+                          <option selected disabled>Register As:</option>
+                          <option value="client">Client</option>
+                          <option value="owner">Property Owner</option>
+                      </select>
+                  </div>
+                  <div class="form-group form__group col-md-6">
+                      <input type="email" class="input form__input" id="signup-email" placeholder="Email Address">
+                      <label  class="signUpLabels form__label" for="signup-email">Email</label>
+                  </div>
+                  <div class="form-group form__group col-md-6">
+                      <input type="tel" class="input form__input" id="signup-phoneNumber" placeholder="Phone Number">
+                      <label  class="signUpLabels form__label" for="signup-phoneNumber">Phone Number</label>
+                  </div>
+                  <div class="form-group form__group col-md-6">
+                      <input type="password" class="input form__input" id="signup-password" placeholder="Create Password">
+                      <label class="signUpLabels form__label"  for="signUpPassword">Password</label>
+                  </div>
+                  <div class="form-group form__group col-md-6">
+                      <input type="password" class="input form__input" id="confirm-password" placeholder="Confirm password">
+                      <label class="signUpLabels form__label" for="confirm-password">Confirm Password</label>
+                  </div>
+              </div>
+              
+              <div class="form-group">
+                  <input type="checkbox" name="terms" id="terms" class=" text-left" required value="terms">
+                  <label class="form__label" for="terms">I agree to the <a href="#">Terms and Conditions</a></label>
+              </div>
+              <div>
+                  <button type="submit" class="btn btn-primary pageButton">Sign Up</button>
+              </div>
+          </form>
+      </div>
+      <div class="form-container sign-in-container">
+          <form class="signInForm px-10">
+              <h4 class="u-margin-bottom-medium">Sign In</h4>
+              <div class="input-group form__group">
+                  <div class="input-group-prepend">
+                  <div class="input-group-text">@</div>
+                  </div>
+                  <input type="text" class="form__input" id="signInEmail" placeholder="Username or Email">
+                  <label class="signUpLabels form__label" for="signInEmail">Enter Email Address</label>  
+              </div>
 
-    <div class="container signUpWrapper" id="signUpWrapper">
+
+              <div class="input-group form__group">
+                  <div class="input-group-prepend">
+                  <div class="input-group-text">@</div>
+                  </div>
+                  <input type="password" class="form__input" id="signInPassword" placeholder="Enter Password">
+                  <label for="signInPassword">Password</label>
+              </div>
+  
+                  
+  
+              <button type="submit" class="btn btn-primary pageButton">LogIn</button>
+              <div class="form-group">
+                  <p><a href="#">Forgot password?</a></p>
+              </div>
+      </form>
+      </div>
+      <div class="overlay-container">
+          <div class="overlay">
+              <div class="overlay-panel overlay-left">
+                  <h1>Welcome Back!</h1>
+                  <p>To keep connected with us please login with your personal info</p>
+                  <button class="ghost pageButton" id="signIn">Sign In</button>
+              </div>
+              <div class="overlay-panel overlay-right">
+                  <h1>Hello, Friend!</h1>
+                  <p>Enter your personal details and start journey with us</p>
+                  <button class="ghost  pageButton" id="signUp">Sign Up</button>
+              </div>
+          </div>
+      </div>
+  </div> -->
+<main class="main-container">
+    <div class="container wrapper" id="signUpWrapper">
         <div class="form-container sign-up-container">
             <form class="signUpForm form">
-                <h4 class="u-margin-bottom-medium">REGISTER</h4>
+                <h4 class="u-margin-bottom-medium">REGISTER NEW ACCOUNT</h4>
                 <div class="form-row text-center">
                     <div class="form-group form__group col-md-6">
                         <input type="text" class="input form__input" id="name" placeholder="Full Name">
@@ -107,15 +194,19 @@
                     </div>
                     <div class="form-group form__group col-md-6 text-center">
                         <!-- <label class="signUpLabels form__label" for="confirm-password">Register As:</label> -->
-                        <select class="form-control registerAs" id="registerAs" placeholder="Client js">
+                        <select class=" registerAs form__input" id="registerAs" placeholder="Client js">
                             <option selected disabled>Register As:</option>
-                            <option value="client">Client</option>
+                            <option value="client">Tenant</option>
                             <option value="owner">Property Owner</option>
+                            <option value="client">Buyer</option>
+                            <option value="client">Seller</option>   
                         </select>
+                        <label  class="signUpLabels form__label" for="registerAs">Register As</label>
+                        
                     </div>
                     <div class="form-group form__group col-md-6">
                         <input type="email" class="input form__input" id="signup-email" placeholder="Email Address">
-                        <label  class="signUpLabels form__label" for="signup-email">Email</label>
+                        <label  class="signUpLabels form__label" for="signup-email">Email Address</label>
                     </div>
                     <div class="form-group form__group col-md-6">
                         <input type="tel" class="input form__input" id="signup-phoneNumber" placeholder="Phone Number">
@@ -123,7 +214,7 @@
                     </div>
                     <div class="form-group form__group col-md-6">
                         <input type="password" class="input form__input" id="signup-password" placeholder="Create Password">
-                        <label class="signUpLabels form__label"  for="signUpPassword">Password</label>
+                        <label class="signUpLabels form__label"  for="signUpPassword">Create Password</label>
                     </div>
                     <div class="form-group form__group col-md-6">
                         <input type="password" class="input form__input" id="confirm-password" placeholder="Confirm password">
@@ -131,58 +222,170 @@
                     </div>
                 </div>
                 
-                <div class="form-group">
-                    <input type="checkbox" name="terms" id="terms" class=" text-left" required value="terms">
-                    <label class="form__label" for="terms">I agree to the <a href="#">Terms and Conditions</a></label>
-                </div>
-                <div>
-                    <button type="submit" class="btn btn-primary pageButton">Sign Up</button>
-                </div>
+                <div class="form-group submitBtn-container">
+                    <div>
+                      <input type="checkbox" name="terms" id="terms" class=" text-left" required value="terms">
+                      <label class="label" for="terms">I agree to the <a href="#">Terms and Conditions</a></label>
+                    </div>
+                    <div>
+                      <button type="submit" class="button button--main">Sign Up</button>
+                    </div>
+                  </div>
             </form>
         </div>
         <div class="form-container sign-in-container">
             <form class="signInForm px-10">
-                <h4 class="u-margin-bottom-medium">Sign In</h4>
-                <div class="input-group form__group">
-                    <div class="input-group-prepend">
-                    <div class="input-group-text">@</div>
-                    </div>
-                    <input type="text" class="form__input" id="signInEmail" placeholder="Username or Email">
-                    <label class="signUpLabels form__label" for="signInEmail">Enter Email Address</label>  
-                </div>
+              
+              <div class="form__group--avatar-container">
+                <i class="fas fa-user-circle" style="    position: relative;
+          font-size: 6rem;
+          margin-bottom: 3.5rem;"></i>
+              </div>
 
+              <div class="form__group"> 
+                <input type="email" 
+                class="form__input"
+                        id="signInEmail"
+                        placeholder="Enter Username"
+                        name="signInEmail" required>  
+             
+                <label class="form__label" for="signInEmail">Email Address</label>  
+                <i class="fa fa-user fa-lg" 
+                style=" position: absolute;
+                        left: 3%;
+                        top: 9%;
+                        font-size: 2.4rem">
+                </i>
+              </div> 
 
-                <div class="input-group form__group">
-                    <div class="input-group-prepend">
-                    <div class="input-group-text">@</div>
-                    </div>
-                    <input type="password" class="form__input" id="signInPassword" placeholder="Enter Password">
-                    <label for="signInPassword">Password</label>
+              <div class="form__group"> 
+                <input type="password" 
+                class="form__input"
+                id="signInPassword"
+                        placeholder="Enter Username"
+                        name="signInPassword" required>  
+             
+                <label class="form__label" id="signInEmail" for="signInPassword"><b>Password</b></label>  
+                <i class="fas fa-key" 
+                   style=" position: absolute;
+                        left: 3%;
+                        top: 9%;
+                        font-size: 2.4rem">
+                </i> 
+              </div> 
+
+              <div class="form-group submitBtn-container">
+                <div>
+                  <p><a href="#">Forgot password?</a></p>
                 </div>
-    
-                    
-    
-                <button type="submit" class="btn btn-primary pageButton">LogIn</button>
-                <div class="form-group">
-                    <p><a href="#">Forgot password?</a></p>
+                <div>
+                  <button type="submit" class="button button--main">LogIn</button>
                 </div>
+              </div>
+
         </form>
         </div>
         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
-                    <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
-                    <button class="ghost pageButton" id="signIn">Sign In</button>
+                    <h1 class="heading heading__white u-margin-bottom-small ">Hello, Friend!</h1>
+                    <p class="paragraph ">Enter your personal details and start journey with us</p>
+                    <div>
+                      <p>If you have account </p>
+                      <button class="ghost pageButton" id="signIn">LogIn to Your Accout</button>
+                    </div>
+                   
                 </div>
                 <div class="overlay-panel overlay-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Enter your personal details and start journey with us</p>
-                    <button class="ghost  pageButton" id="signUp">Sign Up</button>
-                </div>
+                    <h1 class="heading heading__white u-margin-bottom-small ">Welcome Back!</h1>
+                    <p class="paragraph">To keep connected with us please login with your personal info</p>
+                    <div>
+                      <p>If you dont have account </p>
+                      <button class="ghost  pageButton" id="signUp">Create it here</button>
+                    </div>
+                  </div>
             </div>
         </div>
     </div>
+</main>
+
+
+<!--Footer details below-->
+<div class="container-fluid footer">
+    <div class="row text-center  ">
+      <div class="footer__contentWrap col-lg-3 col-md-3 col-sm-6">
+        <h3 class="footerLogo footer__logo">The Movers</h3>
+        <br>
+        <p class="siteDescription footer__desc">
+          Your solution in finding your next home; Due to a busy town, 
+          finding a house seems expensive, tiresome and insecure due to the 
+          many third parties associated with the process. With the innovation
+          of The Movers, you contact the Landlord directly.
+        </p>
+      </div>
+   
+    <div class=" footer__contentWrap  col-lg-3 col-md-3 col-sm-6">
+      <h3 class="footer__heading heading"> Contact Us</h3>
+      <br>
+      <p class="footer__paragraph footer__para">+256702139042</p>
+      <p class="footer__paragraph footer__para" >info@themovers.com</p>
+      <p  class="footer__paragraph footer__para">Facebook: TheMovers</p>
+      <p  class="footer__paragraph footer__para">We shall always be there to answer your questions
+        and also assist you in any way possible. 
+      </p>
+      <br>
+      <a href="#termsAndConditions" class="footer__link">Frequently Asked Questions</a>
+    </div>
+  
+  
+    <div class="col-lg-3 col-md-3 col-sm-6 footerContent footer__contentWrap ">
+      <h3 class="heading footer__heading">Download Apps</h3>
+      <br>
+      
+      <img src="images/playstore.png"  class="mb-4 footer__appLogo" alt="android logo">
+      <img src="images/applestore.png" class="mb-4 footer__appLogo" alt="Apple store">
+      <br><br>
+      <p class="paragraph footer__para">
+        Enjoy our well equiped applications on all phones.
+      </p>
+      
+    </div>
+    
+    <div class="col-lg-3 col-md-3 col-sm-6 footer__contentWrap ">
+      <div class="importantlinks">
+        <h3 class="heading footer__heading">Important Links</h3>
+        <br>
+        <a href="#newPostings" class="footer__link">New Postings</a><br>
+        <a href="#newPostings" class="footer__link">Mostly Visited</a><br>
+        <a href="#newPostings" class="footer__link">Kampala Surburbs</a><br>
+        <a href="#newPostings" class="footer__link">Mostly Visited</a>
+      </div>
+      <br>
+      <div>
+        <form >
+          <label for="newsletter">Register for News and Updates:</label>
+          <input type="email" id="newsletter" placeholder="  Enter Your Email">
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  <!--AFTER FOORTER DETAILS-->
+  <div class="lastFooter container-fluid justify-content-center">
+    <div class="row text-center py-2"> 
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <p>©2020 <span>TheMovers</span></p>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <p>Built with <img width="20px" src="images/heart.gif"> by Nkangi Jafari</span></p>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <p>Get Social with TheMovers</span></p>
+      </div>
+    </div>
+  </div> 
+  
 
 </body>
 </html>
