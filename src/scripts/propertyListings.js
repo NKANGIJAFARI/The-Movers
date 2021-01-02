@@ -5,7 +5,6 @@ import { db, auth } from './firebaseConfig';
 
 import './googleMaps';
 
-
 import { getLikedPosts } from './cardsFunctionality';
 import pic from "../images/star2.png";
 

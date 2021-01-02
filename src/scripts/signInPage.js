@@ -89,9 +89,11 @@ const signInForm = document.querySelector(".signInForm");
         return db.collection('users').doc(credentials.user.uid).set({
             Name: signUpForm['name'].value,
             PhoneNumber: signUpForm['signup-phoneNumber'].value.trim(),
-            RegisterAs: signUpForm['registerAs'].value.trim(),
+            RegisterAs: signUpForm['registerAs'].value,
             email: email,
             userId : credentials.user.uid,
+            gender: signUpForm['gender'].value,
+            profilePic: signUpForm['gender'].value === "male" ? "https://firebasestorage.googleapis.com/v0/b/the-movers-2020.appspot.com/o/avatars%2Favatar__male.png?alt=media&token=da3654de-bd63-436a-b2f0-9cc57749aaec" : "https://firebasestorage.googleapis.com/v0/b/the-movers-2020.appspot.com/o/avatars%2Favatar__female.jpg?alt=media&token=2eb8fc0f-386c-4cbe-8a2c-dbeabf19e9db",
         });
       }).then(()=>{
         signUpForm.reset();
