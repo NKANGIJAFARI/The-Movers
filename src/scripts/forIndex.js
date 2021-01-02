@@ -259,7 +259,7 @@ const fetchPostsToHome = async(divToPutPostings)=>{
               <i class="fas fa-map-marked-alt"></i>
               <span class="text-black">MAP</span>
             </a>
-            <a class="card__icons--item button landLordContactBtn" data-toggle="modal" data-target="#messageModal" id="${data.uid}">
+            <a class="card__icons--item button landLordContactBtn" id="${data.uid}">
               <i class="far fa-comment-alt"></i>
               CHAT
             </a>
@@ -455,7 +455,7 @@ const allFunctions = async()=>{
     posts.forEach(property=>{
             propertyArray.push(property)
     });
-    await getLikedPosts(propertyArray, auth.currentUser.uid);
+    await getLikedPosts(propertyArray);
 }
 
 allFunctions()
