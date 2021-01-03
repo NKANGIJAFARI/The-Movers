@@ -27,21 +27,32 @@ setTimeout(()=>{
     
     })} 
 
-    const contactBtns = document.querySelectorAll('.landLordContactBtn');
     try {
         auth.onAuthStateChanged(user=>{
             if(user){
                 //Class Instances
                 const chatroom = new Chatroom(auth.currentUser.uid);
+                const contactBtns = document.querySelectorAll('.landLordContactBtn');
     
                 contactBtns.forEach(btn=>{
-                    $('#messageModal').modal('show')
-
+                
                     btn.addEventListener('click', async(e)=>{
                     e.preventDefault();
+
                     const senderId = auth.currentUser.uid;
                     const receiverId = e.currentTarget.getAttribute("id");
-    
+                        
+                    errorHandling({
+                        type: "Can",
+                        msg: "You cant send a message to yourself",
+                        solution: "Please try contacting other landlords"
+                    });
+                    if(receiverId === auth.currentUser.uid){
+                        throw new Error("You can't send email to your self")
+                    }
+
+                    $('#messageModal').modal('show')
+                    
                     const users = await db.collection('users').where("userId", "==", receiverId).get();
                     let receiverInfo;
                     users.forEach(user =>{
@@ -100,7 +111,7 @@ setTimeout(()=>{
             }
             });
     } catch (error) {
-        console.log(error.message)
+        console.erro(error.message);
     }  
 
 }, 5000);
@@ -198,8 +209,11 @@ const errorHandling = ({msg, solution, type, link}) =>{
     
     errorSolution.innerText = solution;
     errorMessage.innerText = msg;
-    errorForwardLink.innerHTML = `
-    <a href="${link}" class="errorForwardLink">Go to Sign In page</a>
-    `
+    if(link){
+        errorForwardLink.innerHTML = `
+        <a href="${link}" class="errorForwardLink">Go to Sign In page</a>
+        `
+    }
+ 
     $('.errorHandlingModal').modal('show'); 
 }

@@ -159,15 +159,15 @@ const carouselFunctions = ()=>{
                 }
                 else if (bodyWidth >= 992) {
                     incno = itemsSplit[2];
-                    itemWidth = 320;
+                    itemWidth = 300;
                 }
                 else if (bodyWidth >= 768) {
                     incno = itemsSplit[1];
-                    itemWidth = 300;
+                    itemWidth = 280;
                 }
                 else if (bodyWidth >= 540) {
                     incno = itemsSplit[1];
-                    itemWidth = 280;
+                    itemWidth = 250;
                 }
                 else {
                     incno = itemsSplit[0];
@@ -332,23 +332,33 @@ const fetchPostsToHome = async(divToPutPostings)=>{
     const featuredPostCard = (posts,  divToPutDetails, divToPutPostings)=>{
     const activeImage = (image) =>{
         return (
-            `<div class="carousel-item featured__carousel--item active">
-            <img src="${image}" class="d-block featured__carousel--img" alt="...">
-            <div class="carousel-caption featured__carousel--caption d-none d-md-block">
-                <h5 class="heading featured__carousel--heading">First slide label</h5>
-                <p class="paragraph featured__carousel--paragraph">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </div>
+         
+
+            `<div class="carousel-item active">
+                <img class="d-block w-100" src=${image} alt="Second slide">
             </div>`
             )
     }
+
+    // `<div class="carousel-item featured__carousel--item active">
+    // <img src="${image}" class="d-block featured__carousel--img" alt="...">
+    // <div class="carousel-caption featured__carousel--caption d-none d-md-block">
+    //     <h5 class="heading featured__carousel--heading">First slide label</h5>
+    //     <p class="paragraph featured__carousel--paragraph">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+    // </div>
+    // </div>`
     const allOtherImages = (image) =>{
         return (
-            `<div class="carousel-item featured__carousel--item">
-            <img src="${image}" class="d-block featured__carousel--img" alt="...">
-            <div class="carousel-caption featured__carousel--caption d-none d-md-block">
-                <h5 class="heading featured__carousel--heading">First slide label</h5>
-                <p class="paragraph featured__carousel--paragraph">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </div>
+            // `<div class="carousel-item featured__carousel--item">
+            // <img src="${image}" class="d-block featured__carousel--img" alt="...">
+            // <div class="carousel-caption featured__carousel--caption d-none d-md-block">
+            //     <h5 class="heading featured__carousel--heading">First slide label</h5>
+            //     <p class="paragraph featured__carousel--paragraph">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            // </div>
+            // </div>`
+
+            `<div class="carousel-item">
+                <img class="d-block w-100" src=${image} alt="Second slide">
             </div>`
             )
         }

@@ -121,12 +121,12 @@ const signUpWrapper = document.getElementById('signUpWrapper');
 
 signUpButton.addEventListener('click', () => {
     signUpWrapper.classList.add("right-panel-active");
-    signUpWrapper.style.width ="75%";
+    //signUpWrapper.style.width ="75%";
 });
 
 signInButton.addEventListener('click', () => {
     signUpWrapper.classList.remove("right-panel-active");
-    signUpWrapper.style.width = "60%"
+    //signUpWrapper.style.width = "60%"
     if (window.screen.width < 1024) {
         signUpWrapper.style.width = "70%"
       }
