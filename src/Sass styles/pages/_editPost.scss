@@ -1,11 +1,17 @@
 .imagewrap {
-  width: 32%;
+  width: 33%;
+  //min-width: 250px;
   display: inline-block;
   background-color: $color-white;
   margin-bottom: 1rem;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   overflow: hidden;
+
+  @include respond(phone-large) {
+    width: 49%;
+    // min-width: 250px;
+  }
 }
 
 .imagewrap img {
@@ -20,4 +26,21 @@
   margin: 0;
   margin-bottom: 0;
   color: white;
+}
+
+.button-delete-image {
+  padding: 6px 2rem;
+  font-size: 1.6rem;
+
+  @include respond(tab-port) {
+    padding: 6px 1.6rem;
+    font-size: 1.4rem;
+  }
+}
+
+.editImages {
+  display: flex;
+  flex-wrap: wrap;
+  // justify-content: center;
+  justify-content: space-evenly;
 }

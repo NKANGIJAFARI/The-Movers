@@ -49,7 +49,7 @@ ORDER: Base + typography > general layout + grid > page layout > components
       @content;
     } //1500
   }
-  @if $breakpoint == big-desktop {
+  @if $breakpoint == large-desktop {
     @media only screen and (min-width: 93.75em) {
       @content;
     } //1500

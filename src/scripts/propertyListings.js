@@ -144,25 +144,34 @@ const otherFunctions = async() =>{
         filterBtn.addEventListener('click', ()=>{
             sidebar.classList.toggle('active');
             postings.forEach(post=>{ 
-                const x = screen.availWidth;
+                //  const screenSize = screen.availWidth;
+                const screenSize =window.screen.width
 
-                if(!sidebar.classList.contains("active")){
-                    if(x < 600){
-                        postedProperties.style.display ="inline-flex"
-                    }
                 
-                    hideFilter.innerText = "Show Filter"
-                    post.classList.remove("col-lg-6");
-                    post.classList.add("col-lg-4");
-                }else if(sidebar.classList.contains("active")){
-                    
-                    if(x < 600){
+
+
+                if(sidebar.classList.contains("active")){
+                    // if(x < 600){
+                    //     postedProperties.style.display ="inline-flex"
+                    // }
+                    if(screenSize < 570){
                         postedProperties.style.display ="none"
-                    }
+                      }else{
+                        postedProperties.style.display ="flex"
+                       }
+                
                     hideFilter.innerText = "Hide Filter"
                     post.classList.remove("col-lg-4");
                     post.classList.add("col-lg-6");
+   
+                }else if(!sidebar.classList.contains("active")){
+                    postedProperties.style.display ="flex"
+                    hideFilter.innerText = "Show Filter"
+                    post.classList.remove("col-lg-6");
+                    post.classList.add("col-lg-4");
                     sidebar.classList.add("sidebarFixed");
+                } else{
+                    postedProperties.style.display ="flex"
                 }
                 
             })
