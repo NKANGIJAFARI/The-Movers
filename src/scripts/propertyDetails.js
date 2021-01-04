@@ -2,9 +2,9 @@ import 'bootstrap';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/propertyListings.css';
-import '../styles/main.css'
+// import '../styles/main.css'
 import '../Sass styles/main.scss'
-import '../styles/propertyDetails.css'
+//import '../styles/propertyDetails.css'
 import { db, database, auth } from './firebaseConfig';
 
 import pic from "../images/star2.png";

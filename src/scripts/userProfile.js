@@ -2,7 +2,7 @@ import 'bootstrap';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/fromolx.css';
- import '../styles/userProfile.css';
+ //import '../styles/userProfile.css';
 import '../styles/main.css';
 
 import '../Sass styles/main.scss';
@@ -14,14 +14,10 @@ import { data } from 'jquery';
 
 auth.onAuthStateChanged(function(user) {
   if (user) {
+    
+    allFunctions()
 
-    console.log('This is the user', user);
-
-  
-    //Calling Fetching Function
-    fetchUserPostings();
     console.log('Logged in as:', user.email);
-    //document.getElementById("userProfile").innerHTML=auth.currentUser.displayName;
     document.getElementById(`suh`).innerHTML = `YOUR POSTS`;
 
     //UPDATE PROFILE PICTURE OF A USER
@@ -120,7 +116,7 @@ auth.onAuthStateChanged(function(user) {
     })
   }
 
-  })
+    })
 
   const updateEmail = async(confirmedEmail)=>{
     db.collection('users').doc(auth.currentUser.uid).update({
@@ -128,21 +124,18 @@ auth.onAuthStateChanged(function(user) {
     })
   } 
 
+
+
 }else {
     // No user is signed in.
   } 
 });
 
-function signOut(){
-    auth.signOut().then(function() {
-        // Sign-out successful.
-      }).catch(function(error) {
-        // An error happened.
-        console.log(error);
-      });
-    }
 
-
+const allFunctions = async () =>{
+  await fetchUserPostings();
+  updatePropertyStatus();
+}
 
     //Selecting a category
 const categorySelection = (data)=>{
@@ -165,17 +158,20 @@ const categorySelection = (data)=>{
   
   //Fetching UserPostings
   const fetchUserPostings =async()=>{
+    console.log("Func started")
+
+
     const spinner = document.querySelector('.spin')
 
     const posts = await db.collection('housePostings').where('propertyDetails.uid', '==', auth.currentUser.uid).get();
     spinner.style.display ="none";
     posts.forEach(post=>{
-      document.getElementById("ownerPosts").innerHTML += adCard(post.data().propertyDetails);
+      document.getElementById("ownerPosts").innerHTML += propertyCard(post.data().propertyDetails);
     })
     const editPostBtn = document.querySelectorAll('.editPostBtn');
     
     if(!editPostBtn){
-      throw new error('Reload the page')
+      throw new error('Reload the page');
     }
 
     console.log(editPostBtn);
@@ -190,8 +186,8 @@ const categorySelection = (data)=>{
   }
 
   
-  //Generating AdCard
-  function adCard(data){
+  //Generating propertyCard
+  function propertyCard(data){
    return`
    <div class=" houseposting col-sm-12 col-md-6 col-lg-4" >
     <div class="${data.propertyDescription} ${data.propertyUsage} rounded" >
@@ -227,9 +223,9 @@ const categorySelection = (data)=>{
           </p>
   
           <div class="text-center mb-4 mt-4">
-            <button type="button" id= "${data.propertyId}" class="btn btn-danger cardBtn card__body--btn">Occupied</button>
-            <button type="button" id= "${data.propertyId}" class="btn btn-success cardBtn card__body--btn">Availble</button>
-            <button type="button" id= "${data.propertyId}" class="btn btn-secondary cardBtn card__body--btn">Under Innovation</button>
+            <button type="button" data-propId="${data.propertyId}" data-propAvailability ="occupiued" class="btn btn-danger cardBtn card__body--btn updatePropertyStatusBtn">Occupied</button>
+            <button type="button" data-propId="${data.propertyId}" data-propAvailability ="available" class="btn btn-success cardBtn card__body--btn updatePropertyStatusBtn">Availble</button>
+            <button type="button" data-propId="${data.propertyId}" data-propAvailability ="underInnovation" class="btn btn-secondary cardBtn card__body--btn updatePropertyStatusBtn">Under Innovation</button>
           </div>
         </div>
       </div>
@@ -239,21 +235,40 @@ const categorySelection = (data)=>{
    }
 
   //Delete the postings
-document.getElementById('ownerPosts').addEventListener('click', e=>{
-  e.preventDefault();
-  if(e.target.tagName === 'BUTTON'){
-    const key = e.target.getAttribute('id');
-    console.log(e.target.parentElement);
-    //Delete from UI
-   document.getElementById('ownerPosts').removeChild(e.target.parentElement);
-    //Delete from database
-    db.collection("housePostings").doc(key).delete().then(()=>{
-      console.log("Deleted from firebase", key);
-    }).catch(error =>{
-      console.log(error, error.message);
-    });
+
+  const updatePropertyStatus = () =>{
+    const updatePropertyStatusBtns = document.querySelectorAll('.updatePropertyStatusBtn');
+
+    updatePropertyStatusBtns.forEach(btn =>{
+      btn.addEventListener('click', (e)=>{
+        const propId = e.target.getAttribute('data-propId');
+        const propAvailability = e.target.getAttribute('data-propAvailability');
+
+        db.collection('housePostings').doc(propId).update({
+          "propertyDetails.availability" : propAvailability
+          }).then(()=> console.log(`Updated to ${propAvailability}`))
+        })
+      })
   }
-})
+
+// document.getElementById('ownerPosts').addEventListener('click', e=>{
+//   e.preventDefault();
+//   if(e.target.tagName === 'BUTTON'){
+//     const key = e.target.getAttribute('data-propId');
+//     const action = e.target.getAttribute('data-propAvailability');
+//     console.log(e.target.parentElement);
+//     //Delete from UI
+//     document.getElementById('ownerPosts').removeChild(e.target.parentElement);
+//     //Delete from database
+//     db.collection("housePostings").doc(key).delete().then(()=>{
+//       console.log("Deleted from firebase", key);
+//     }).catch(error =>{
+//       console.log(error, error.message);
+//     });
+//   }
+// })
+
+
 
   //search function
   function searchFunction() {
@@ -271,6 +286,10 @@ document.getElementById('ownerPosts').addEventListener('click', e=>{
       }
     }
   }
+
+
+
+
 
 //HomePageCategoySelection
 

@@ -4,8 +4,8 @@ import 'bootstrap';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import '../styles/main.css';
-import '../styles/editPost.css'
+// import '../styles/main.css';
+// import '../styles/editPost.css'
 
 import '../Sass styles/main.scss';
 

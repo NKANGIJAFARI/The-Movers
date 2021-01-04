@@ -1,8 +1,6 @@
 import 'bootstrap';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
-//import '../styles/fromolx.css';
-//import '../styles/userProfile.css';
 import '../Sass styles/main.scss'
 
 import * as firebase from 'firebase/app'
@@ -91,47 +89,6 @@ autocomplete.addListener('place_changed', () => {
         lat : place.geometry.location.lat(),
         lng : place.geometry.location.lng()
     }
-    
-    //place.address_components.forEach(place => console.log(place));
-
-    // if (!place.geometry) {
-    //     // User entered the name of a Place that was not suggested and
-    //     // pressed the Enter key, or the Place Details request failed.
-    //     window.alert(
-    //     "Choose on the listed locations, '" + place.name + "'"
-    //     );
-    //     return;
-    // }
-
-    // // // If the place has a geometry, then present it on a map.
-    // if (place.geometry.viewport) {
-    //     map.fitBounds(place.geometry.viewport);
-    // } else {
-    //     map.setCenter(place.geometry.location);
-    //     map.setZoom(17); // Why 17? Because it looks good.
-    // }
-    // marker.setPosition(place.geometry.location);
-    // marker.setVisible(true);
-    // let address = '';
-
-    // if (place.address_components) {
-    //     address = [
-    //     (place.address_components[0] &&
-    //         place.address_components[0].short_name) ||
-    //         '',
-    //     (place.address_components[1] &&
-    //         place.address_components[1].short_name) ||
-    //         '',
-    //     (place.address_components[2] &&
-    //         place.address_components[2].short_name) ||
-    //         '',
-    //     ].join(' ');
-    // }
-    // infowindowContent.children['place-icon'].src = place.icon;
-    // infowindowContent.children['place-name'].textContent = place.name;
-    // infowindowContent.children['place-address'].textContent = address;
-    // infowindow.open(map, marker);
-    // });
   })
 }
 
@@ -201,7 +158,8 @@ auth.onAuthStateChanged((user)=> {
             propertyStatus: propertyStatus,
             propertyUsage: propertyUsage,
             lat: selectedLocationCoords.lat,
-            lng: selectedLocationCoords.lng
+            lng: selectedLocationCoords.lng,
+            availability: available
         })
 
             //Bellow starts the upload after compressing the image
@@ -227,6 +185,7 @@ auth.onAuthStateChanged((user)=> {
                         userEmail: userEmail,
                         postedByImg: profilePic,
                         landLordName : landLordName,
+                        availability: available,
                         datePosted: firebase.firestore.FieldValue.serverTimestamp()
                     } 
                 })

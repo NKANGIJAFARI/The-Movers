@@ -1,5 +1,6 @@
 import { Loader } from '@googlemaps/js-api-loader';
 import {auth, storage, database, db} from './firebaseConfig';
+import pic from "../images/star2.png";
 
 //Button to show the propertyDetails and wrapper for the prop details
 const showHidePropDetailsBtn = document.querySelector('.showHidePropDetails');
@@ -54,7 +55,7 @@ let autocomplete;
 
   const postingCard  = (data)=>{
     return`
-    <div  class="houseposting ${size}" >
+    <div  class="houseposting" >
       <div  class=" ${data.propertyDescription} ${data.propertyUsage} " >
         <div class="card text-center">
           <p class="card-header card__header text-left">
