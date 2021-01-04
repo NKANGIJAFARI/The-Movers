@@ -1,5 +1,6 @@
 import { Loader } from '@googlemaps/js-api-loader';
 import {auth, storage, database, db} from './firebaseConfig';
+import pic from "../images/star2.png";
 
 //Button to show the propertyDetails and wrapper for the prop details
 const showHidePropDetailsBtn = document.querySelector('.showHidePropDetails');
