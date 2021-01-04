@@ -100,23 +100,24 @@
   padding: 6rem 10rem;
   // box-shadow: inset -5px -5px 10px #adadad, inset 5px 5px 10px $color-white;
 
-  border-top-right-radius: 130px;
+  transform: skewY(-5deg);
+  //border-top-right-radius: 130px;
   border-top-left-radius: 130px;
   border-bottom-right-radius: 130px;
   border-bottom-left-radius: 130px;
 
-  background: gradient(
-    120deg,
-    #23d5ab,
-    #23a6d5,
-    #23d5ab,
-    #23a6d5,
-    #23d5ab,
-    #23a6d5
-  );
-  background-size: 400% 400%;
-  animation: gradient ease infinite;
-  animation-duration: 50s;
+  // background: gradient(
+  //   120deg,
+  //   #23d5ab,
+  //   #23a6d5,
+  //   #23d5ab,
+  //   #23a6d5,
+  //   #23d5ab,
+  //   #23a6d5
+  // );
+  // background-size: 400% 400%;
+  // animation: gradient ease infinite;
+  // animation-duration: 50s;
 
   @include respond(tab-port) {
     padding: 5rem;

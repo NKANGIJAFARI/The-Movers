@@ -2,7 +2,7 @@ import 'bootstrap';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/fromolx.css';
- import '../styles/userProfile.css';
+ //import '../styles/userProfile.css';
 import '../styles/main.css';
 
 import '../Sass styles/main.scss';

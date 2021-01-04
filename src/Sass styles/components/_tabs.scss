@@ -74,6 +74,7 @@
 .tabcontent {
   color: $color-primary;
   display: none;
+  transform: skewY(5deg);
   padding: 1.5rem 1rem;
   animation-name: fadeIn;
   animation-duration: 1.5s;
@@ -84,7 +85,11 @@
   display: block;
 }
 
+.tab__buttons-container {
+  transform: skewY(5deg);
+}
 .doneDeal {
+  transform: skewY(5deg);
   padding: 6rem 0rem 0rem 0rem;
 
   &__imageside {

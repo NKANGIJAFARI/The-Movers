@@ -1,8 +1,6 @@
 import 'bootstrap';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
-//import '../styles/fromolx.css';
-//import '../styles/userProfile.css';
 import '../Sass styles/main.scss'
 
 import * as firebase from 'firebase/app'

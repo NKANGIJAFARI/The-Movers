@@ -54,7 +54,7 @@ let autocomplete;
 
   const postingCard  = (data)=>{
     return`
-    <div  class="houseposting ${size}" >
+    <div  class="houseposting" >
       <div  class=" ${data.propertyDescription} ${data.propertyUsage} " >
         <div class="card text-center">
           <p class="card-header card__header text-left">

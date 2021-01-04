@@ -1,8 +1,8 @@
 // import 'bootstrap';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/styleforIndex.css';
-import '../styles/main.css'
+// import '../styles/styleforIndex.css';
+// import '../styles/main.css'
 import pic from "../images/star2.png";
 
 import { db, auth } from './firebaseConfig';
