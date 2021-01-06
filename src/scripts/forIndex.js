@@ -159,15 +159,15 @@ const carouselFunctions = ()=>{
                 }
                 else if (bodyWidth >= 992) {
                     incno = itemsSplit[2];
-                    itemWidth = 300;
+                    itemWidth = 320;
                 }
                 else if (bodyWidth >= 768) {
                     incno = itemsSplit[1];
-                    itemWidth = 280;
+                    itemWidth = 300;
                 }
                 else if (bodyWidth >= 540) {
                     incno = itemsSplit[1];
-                    itemWidth = 250;
+                    itemWidth = 280;
                 }
                 else {
                     incno = itemsSplit[0];
