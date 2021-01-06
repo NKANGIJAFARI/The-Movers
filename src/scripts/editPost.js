@@ -12,7 +12,6 @@ import '../Sass styles/main.scss';
 //import { error } from 'jquery';
 import * as firebase from 'firebase/app';
 import {db, auth, database, storage} from './firebaseConfig';
-import { add } from 'date-fns';
 
 const editImages = document.querySelector(".editImages");
 const propId = localStorage.getItem('idForPropertyToBeEdited');
@@ -27,31 +26,13 @@ const cancelButton = document.getElementById("cancelEdiTBtn")
 let arrayOfimagesFromDB = [];
 let arrayOfImagesFromUpload = [];
 let successfullUploads= [];
-let TotalImages = [...arrayOfImagesFromUpload, ...arrayOfimagesFromDB];
 let imagesToBeDeletedFromStorage = [];
 let numberFromDB = 0;
 
 let usedSlots = [];
 let availableIdSlots = [];
 
-
-
-const propertyDetails = {
-    description: " ",
-    displayImage: "https://firebasestorage.googleapis.com/v0/b/the-movers-2020.appspot.com/o/housePostings%2FTMK034UY1%2FDisplay%20Image?alt=media&token=910fae1a-895c-4581-a400-0fe73c88c9d9",
-    displayName: null,
-    landLordName: "Zenia Lykke",
-    location: "Kibuye - Kampala",
-    postedByImg: "https://firebasestorage.googleapis.com/v0/b/the-movers-2020.appspot.com/o/userImages%2FiTGYtokuL1cQwyqAXoERn1uD3F73?alt=media&token=b1e621c1-2b4e-44f4-991a-b0a179cb6296",
-    price: "300000000",
-    propertyDescription: "countryHouse",
-    propertyId: "TMK034UY1",
-    propertyStatus: "For-Sale",
-    propertyUsage: "Residential",
-    rooms: "8",
-    uid: "iTGYtokuL1cQwyqAXoERn1uD3F73",
-    userEmail: "zenia@gmail.com"
-}
+let newPropertyDetails = { }
 
 //For each image added from DB this number will increase
 
@@ -72,7 +53,6 @@ const hideAddImagesInput = () =>{
         // addImagesInput.classList.add("hide");
         console.log(addImagesInput)
     }else if(usedSlots.length < 6){
-        console.log("NO mORE THAN 6", usedSlots.length)
         // document.querySelector('#imagesAllowed').innerContent = (6 - usedSlots.length)
          addImagesInput.style.display = "block";
     }
@@ -86,11 +66,9 @@ const imageToBeUploadedCard = (image) =>{
         <button type="button"  id="${image.imageNumber}"
             class="btn btn-danger btn-md button-delete-Image"> Delete Image 
         </button>
-
-   
     </div>` ;      
 }
-{/* <select class="custom-select mr-sm-2" id="propertyViews">
+/* <select class="custom-select mr-sm-2" id="propertyViews">
 <option selected>Image Description</option>
 <option value="front-View">Front View</option>
 <option value="back-View">Back View</option>
@@ -101,7 +79,7 @@ const imageToBeUploadedCard = (image) =>{
 <option value="kitchen">Kitchen</option>
 <option value="rear-view">Rear view</option>
 <option value="balcony">alcony</option>
-</select> */}
+</select> */
 
 const showPropToBeEdited = async() =>{
     const property = await db.collection('housePostings').doc(propId).get();
@@ -109,6 +87,8 @@ const showPropToBeEdited = async() =>{
 
     const editedDetails = document.querySelector(".editedDetails");
     const data = property.data().propertyDetails;
+
+    console.log(data)
     const imagesFromDB = property.data().imagesFiles;
 
     const htmlForm = `
@@ -376,15 +356,6 @@ playThem()
 //This function will be used to upload all the images that
 //will be selected and given captions and will capture the captions also
 
-document.querySelector(".showArrays").addEventListener('click', ()=>{
-    console.log("This is from the databae",arrayOfimagesFromDB);
-    //console.log("This is from the upload",arrayOfImagesFromUpload);
-    // console.log(numberFromDB);
-    // console.log(availableIdSlots);
-    // console.log(successfullUploads);
-    //selectImagesToUpload()
-    console.log(usedSlots)
-})
 
 let fileName = "";
 
@@ -400,7 +371,7 @@ const uploadImages = async() =>{
                 console.log(error, error.message)
             });
         })
-        updateDocInFirestore();
+        //updateDocInFirestore();
     }
     arrayOfImagesFromUpload.forEach(file=>{
         const img = file.image;
@@ -419,8 +390,9 @@ const uploadImages = async() =>{
             
         }).then(()=>{        
             //After uploading, go to the view post to check new updates
-            // localStorage.setItem("propIdToBeViewed", propId);
-            // window.location.pathname = "/propertyDetails.html"
+             //localStorage.setItem("propIdToBeViewed", propId);
+             //window.location.pathname = "/propertyDetails.html"
+            console.log('UPDATED SUCCESSFULLY')
         }).catch(err=> console.log(err.message));
 
      })
@@ -442,14 +414,14 @@ const editPostForm =  document.querySelector(".editPostForm");
 editPostForm.addEventListener('submit', async(e)=>{
     e.preventDefault();
     await uploadImages();
-    propertyDetails.rooms = editPostForm['rooms'].value;
-    propertyDetails.location = editPostForm['location'].value;
-    propertyDetails.price = editPostForm['price'].value;
-    propertyDetails.description = editPostForm['description'].value;
+    newPropertyDetails.rooms = editPostForm['rooms'].value;
+    newPropertyDetails.location = editPostForm['location'].value;
+    newPropertyDetails.price = editPostForm['price'].value;
+    newPropertyDetails.description = editPostForm['description'].value;
     //const selectedImage = document.getElementById("editDisplayImage").files[0]
-    propertyDetails.propertyStatus = editPostForm.propertyStatus.options[editPostForm.propertyStatus.selectedIndex].value;
-    propertyDetails.propertyUsage = editPostForm.propertyUsage.options[editPostForm.propertyUsage.selectedIndex].value;
-    propertyDetails.propertyDescription = editPostForm.propertyDescription.options[editPostForm.propertyDescription.selectedIndex].value;
+    newPropertyDetails.propertyStatus = editPostForm.propertyStatus.options[editPostForm.propertyStatus.selectedIndex].value;
+    newPropertyDetails.propertyUsage = editPostForm.propertyUsage.options[editPostForm.propertyUsage.selectedIndex].value;
+    newPropertyDetails.propertyDescription = editPostForm.propertyDescription.options[editPostForm.propertyDescription.selectedIndex].value;
 
 //Create an object with all values from details form after update   
 
@@ -461,20 +433,13 @@ const updateDocInFirestore = async() =>{
     console.log("all images",allImages)
     const {
         description,
-        displayImage,
-        displayName,
-        landLordName,
         location,
-        postedByImg,
         price,
         propertyDescription,
-        propertyId,
         propertyStatus,
         propertyUsage,
         rooms,
-        uid,
-        userEmail  
-    } = propertyDetails;
+    } = newPropertyDetails;
 
 
     const imagesFiles = {};
@@ -488,23 +453,14 @@ const updateDocInFirestore = async() =>{
     db.collection('housePostings').doc(propId).update({
         imagesFiles: imagesFiles,
         imagesAvailable: true,
-        propertyDetails: {
-            uid : uid,
-            price: price,
-            rooms: rooms,
-            location: location,
-            description: description,
-            propertyUsage: propertyUsage,
-            propertyDescription: propertyDescription,
-            propertyStatus: propertyStatus,
-            propertyId : propId,
-            userEmail: userEmail,
-            postedByImg: postedByImg,
-            landLordName : landLordName,
-            displayImage: displayImage,
-            displayName: displayName,
-            datePosted: firebase.firestore.FieldValue.serverTimestamp()
-        }
+            "propertyDetails.price": price,
+            "propertyDetails.rooms": rooms,
+            "propertyDetails.location": location,
+            "propertyDetails.description": description,
+            "propertyDetails.propertyUsage": propertyUsage,
+            "propertyDetails.propertyDescription": propertyDescription,
+            "propertyDetails.propertyStatus": propertyStatus,
+            "propertyDetails.datePosted": firebase.firestore.FieldValue.serverTimestamp()
         
     }).then(()=>{
     })

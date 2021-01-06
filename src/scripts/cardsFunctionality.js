@@ -94,18 +94,18 @@ setTimeout(()=>{
                 })
                 })  
             }else{
-                contactBtns.forEach(btn => {
-                    btn.addEventListener('click', (e)=>{
-                        e.preventDefault();
-                        errorHandling({
-                            msg: "You're not logged In",
-                            solution: "PLease Login to send a message to landlord",
-                            link: "/signInPage.html", 
-                            type: "Un Authorised Access"
-                        })
-                        return;
-                    })
-                })
+                // contactBtns.forEach(btn => {
+                //     btn.addEventListener('click', (e)=>{
+                //         e.preventDefault();
+                //         errorHandling({
+                //             msg: "You're not logged In",
+                //             solution: "PLease Login to send a message to landlord",
+                //             link: "/signInPage.html", 
+                //             type: "Un Authorised Access"
+                //         })
+                //         return;
+                //     })
+                // })
               
                 console.log("Please sign in to send messages");
             }

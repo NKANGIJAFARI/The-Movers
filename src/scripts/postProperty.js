@@ -159,7 +159,7 @@ auth.onAuthStateChanged((user)=> {
             propertyUsage: propertyUsage,
             lat: selectedLocationCoords.lat,
             lng: selectedLocationCoords.lng,
-            availability: available
+            availability: "available"
         })
 
             //Bellow starts the upload after compressing the image
@@ -185,7 +185,7 @@ auth.onAuthStateChanged((user)=> {
                         userEmail: userEmail,
                         postedByImg: profilePic,
                         landLordName : landLordName,
-                        availability: available,
+                        availability: "available",
                         datePosted: firebase.firestore.FieldValue.serverTimestamp()
                     } 
                 })
