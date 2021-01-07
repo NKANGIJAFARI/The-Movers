@@ -13,15 +13,6 @@
       <a class="navbar-brand"><h2 class="logo">TheMovers</h2></a>
   
   
- <!--DOWNLOAD APP ICONS IN THE HEADING-->
-   <div class="downloadAppsHeader">
-    <!-- <p class="appsDescription">Download App on</p> -->
-    <a href="#"><img src="images/applestore2.png" alt="applestore"></a>
-    <a href="#"><img src="images/playstore.png"alt="playstore"></a>
-  </div>
-  
-  
-  
     <div class="navbar__right ">
       <div class="activeUser messageIcon ">
         <a class="navbar__icon activeUser navbar__item" href="chatroom.html" style="display: none;">
@@ -55,7 +46,30 @@
   
       
       <div class="navbar__wrapper" id="navbarResponsive">
-  
+
+        <div class="activeUser messageIcon-smallscreen">
+          <a class="navbar__icon activeUser navbar__item" href="chatroom.html" style="display: none;">
+            <!-- <p>Messages</p> -->
+            <i class="far fa-comment-alt icon " style="font-size: 3rem;"></i>
+            <span class="badge badge-danger">4</span>
+          </a>
+          <a class="navbar__icon activeUser navbar__item" href="#" style="display: none;">
+            <i class="far fa-bell icon" style="font-size: 3rem;"></i>
+              <span class="badge badge-danger">11</span>
+          </a>
+    
+          <div class="activeUser navbar__item dropdown" style="display: none;" >
+            <a class="navbar__icon dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <img class="profilePicImg" alt="DP">
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+              aria-labelledby="navbarDropdownMenuLink-55">
+              <a class="dropdown-item" href="userProfile.html">My Profile</a>
+              <a  class="dropdown-item logOutBtn" href="#">SignOut</a>
+            </div>
+          </div>
+        </div>
         <ul class="  ml-auto navbar__list">
            <li class="navbar__item">
             <a  class="navbar__link " href="index.html">
@@ -81,7 +95,7 @@
             </a>
           </li>
   
-          <li class="" style="margin-top: 6rem;">
+          <li class="playstoreApstoreLogos" style="margin-top: 6rem;">
             <!-- <p class="appsDescription">Download App on</p> -->
             <p style="color: white;">Download Application</p>
             <a href="#"><img src="images/applestore2.png" style="width: 10rem;" alt="applestore"></a>
@@ -183,10 +197,18 @@
       </div>
   </div> -->
 <main class="main-container">
-    <div class="container logInRegisterWrapper" id="signUpWrapper">
+      <div class="container logInRegisterWrapper" id="signUpWrapper">
+      <div class="toggleSignUpSigIn">
+        <button type="button" class="pageButton pageButton--1 active toggleSignUpSigInBtn " id="signIn">
+          Sign In
+        </button>
+        <button type="button" class="pageButton pageButton--2 toggleSignUpSigInBtn " id="signUp">
+          Sign UP
+        </button>
+      </div>
         <div class="form-container sign-up-container">
             <form class="signUpForm form">
-                <h4 class="u-margin-bottom-medium">REGISTER NEW ACCOUNT</h4>
+                <h4 class="u-margin-bottom-medium heading heading__darkpurple">REGISTER</h4>
                 <div class="form-row text-center">
                   
                     <div class="form-group form__group col-md-6">
@@ -304,7 +326,7 @@
                     <p class="paragraph ">Enter your personal details and start journey with us</p>
                     <div>
                       <p>If you have account </p>
-                      <button class="ghost pageButton" id="signIn">LogIn to Your Accout</button>
+                      <button class="ghost pageButton toggleSignUpSigInBtn" id="signIn">LogIn</button>
                     </div>
                    
                 </div>
@@ -313,7 +335,7 @@
                     <p class="paragraph">To keep connected with us please login with your personal info</p>
                     <div>
                       <p>If you dont have account </p>
-                      <button class="ghost  pageButton" id="signUp">Create it here</button>
+                      <button class="ghost  pageButton toggleSignUpSigInBtn" id="signUp"> SignUp</button>
                     </div>
                   </div>
             </div>

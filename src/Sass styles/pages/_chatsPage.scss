@@ -13,9 +13,6 @@ button {
   margin: 0px;
 }
 
-nav {
-  height: 10%;
-}
 .chatWrapper {
   max-width: 1170px;
   margin: 0px auto;
@@ -159,7 +156,7 @@ nav {
   }
 
   &__right {
-    background-color: brown;
+    background-color: $color-tertiary;
     color: #05728f;
     position: relative;
     float: left;
@@ -372,14 +369,6 @@ nav {
   left: 0;
 }
 .sendMessageForm {
-  /* border: 1px solid #c4c4c4;
-    position: relative;
-    width:80%;
-    padding:0px 8px 0px 0px;
-    margin: 3px 4px;
-    border-radius: 20px;
-    background-color: #faf7f7; */
-
   border: 1px solid #c4c4c4;
   position: relative;
   width: 70%;
@@ -454,4 +443,8 @@ nav {
 
 .displayBeforeMsgs {
   @include absoluteCenter;
+}
+
+.displayBeforeMsgs__paragraph {
+  color: $color-secondary;
 }

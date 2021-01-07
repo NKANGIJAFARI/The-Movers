@@ -16,13 +16,18 @@
     margin: 3rem 0rem 8rem 0rem;
   }
 
-  &-column {
+  &-row {
     align-items: center;
 
     @include respond(phone-large) {
       display: flex;
       flex-direction: column-reverse;
     }
+  }
+
+  &-column {
+    display: flex;
+    justify-content: center;
   }
 }
 .holderCircle {

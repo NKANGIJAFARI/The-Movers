@@ -41,25 +41,33 @@
   width: 90em;
 }
 .tablink {
-  background-color: $color-white;
-  color: $color-black;
+  // background-color: $color-white;
+  color: $color-white;
+  background-color: $color-tertiary;
   border: none;
   border-radius: 7px;
   outline: none;
   cursor: pointer;
   padding: 10px 16px;
   font-size: $default-font;
-  width: 20rem;
+  width: 23rem;
   outline: none;
-  box-shadow: inset -5px -5px 10px $color-primary,
-    inset 5px 5px 10px $color-white;
+  // box-shadow: inset -5px -5px 10px $color-primary,
+  //   inset 5px 5px 10px $color-white;
 
+  @include respond(phone-large) {
+    width: 16rem;
+  }
+
+  @include respond(phone) {
+    width: 14.5rem;
+  }
   &:not(:last-child) {
     margin-right: 1rem;
   }
 
   &.active {
-    background-color: $color-grey-dark;
+    background-color: $color-primary;
     outline: none;
   }
 }
@@ -74,7 +82,7 @@
 .tabcontent {
   color: $color-primary;
   display: none;
-  transform: skewY(5deg);
+  // transform: skewY(5deg);
   padding: 1.5rem 1rem;
   animation-name: fadeIn;
   animation-duration: 1.5s;
@@ -86,10 +94,20 @@
 }
 
 .tab__buttons-container {
-  transform: skewY(5deg);
+  //transform: skewY(5deg);
+
+  &--column {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    @include respond(phone) {
+      padding: 0;
+    }
+  }
 }
 .doneDeal {
-  transform: skewY(5deg);
+  // transform: skewY(5deg);
   padding: 6rem 0rem 0rem 0rem;
 
   &__imageside {
@@ -114,4 +132,8 @@
   &__heading {
     font-size: 2rem;
   }
+}
+
+.tabs__heading {
+  margin-bottom: 3rem;
 }
