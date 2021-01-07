@@ -15,12 +15,6 @@
   <div class="container-fluid navigation">
     <a class="navbar-brand"><h2 class="logo">TheMovers</h2></a>
 
-   <!--DOWNLOAD APP ICONS IN THE HEADING-->
-   <div class="downloadAppsHeader">
-    <!-- <p class="appsDescription">Download App on</p> -->
-    <a href="#"><img src="images/applestore2.png" alt="applestore"></a>
-    <a href="#"><img src="images/playstore.png"alt="playstore"></a>
-  </div>
 
   <div class="navbar__right ">
     <div class="activeUser messageIcon ">
@@ -56,6 +50,29 @@
     
     <div class="navbar__wrapper" id="navbarResponsive">
 
+      <div class="activeUser messageIcon-smallscreen">
+        <a class="navbar__icon activeUser navbar__item" href="chatroom.html" style="display: none;">
+          <!-- <p>Messages</p> -->
+          <i class="far fa-comment-alt icon " style="font-size: 3rem;"></i>
+          <span class="badge badge-danger">4</span>
+        </a>
+        <a class="navbar__icon activeUser navbar__item" href="#" style="display: none;">
+          <i class="far fa-bell icon" style="font-size: 3rem;"></i>
+            <span class="badge badge-danger">11</span>
+        </a>
+  
+        <div class="activeUser navbar__item dropdown" style="display: none;" >
+          <a class="navbar__icon dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <img class="profilePicImg" alt="DP">
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+            aria-labelledby="navbarDropdownMenuLink-55">
+            <a class="dropdown-item" href="userProfile.html">My Profile</a>
+            <a  class="dropdown-item logOutBtn" href="#">SignOut</a>
+          </div>
+        </div>
+      </div>
       <ul class="  ml-auto navbar__list">
          <li class="navbar__item">
           <a  class="navbar__link " href="index.html">
@@ -81,7 +98,7 @@
           </a>
         </li>
 
-        <li class="" style="margin-top: 6rem;">
+        <li class="playstoreApstoreLogos" style="margin-top: 6rem;">
           <!-- <p class="appsDescription">Download App on</p> -->
           <p style="color: white;">Download Application</p>
           <a href="#"><img src="images/applestore2.png" style="width: 10rem;" alt="applestore"></a>

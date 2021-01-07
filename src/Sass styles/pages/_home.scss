@@ -2,6 +2,7 @@
   overflow: hidden;
   width: 100%;
 }
+
 .section__posts {
   position: relative;
   margin-top: -160px;
@@ -56,7 +57,7 @@
 }
 
 .section__appInfo {
-  background: $color-tertiary;
+  background: $color-primary;
   // background: linear-gradient(2deg, #87cefa 15%, rgba(2, 252, 98, 0.186) 100%);
   transition: all 1.2s;
   padding: 7rem 1.6rem;
@@ -69,7 +70,7 @@
 .section__testimonials {
   // background: $color-faded-white;
   // background-color: rgb(13, 163, 223);
-  padding: 7rem 5rem 7rem 5rem;
+  padding: 7rem 5rem 10rem 5rem;
   // background: linear-gradient(2deg, rgba(2, 252, 98, 0.186) 0%, #87cefa 100%);
 
   transition: all 1.4s;
@@ -100,10 +101,10 @@
   padding: 6rem 10rem;
   // box-shadow: inset -5px -5px 10px #adadad, inset 5px 5px 10px $color-white;
 
-  transform: skewY(-5deg);
+  // transform: skewY(-5deg);
   //border-top-right-radius: 130px;
-  border-top-left-radius: 130px;
-  border-bottom-right-radius: 130px;
+  border-top-left-radius: 100px;
+  border-bottom-right-radius: 70px;
   border-bottom-left-radius: 130px;
 
   // background: gradient(

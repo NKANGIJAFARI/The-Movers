@@ -3,7 +3,7 @@
 .main-container {
   position: relative;
   height: 90%;
-  font-size: 15px;
+  font-size: $default-font;
   // width: 100%;
 }
 
@@ -37,11 +37,22 @@
     @include respond(tab-port) {
       width: 90%;
     }
+    @include respond(phone) {
+      width: 96%;
+      height: 100%;
+      margin-top: 10px;
+    }
 
     & .sign-in-container {
       transform: translateX(100%);
-      left: -30%;
+      left: -100%;
       width: 30%;
+
+      @include respond(phone-large) {
+        transform: translateX(0%);
+        //left: 0%;
+        width: 0%;
+      }
     }
 
     & .sign-up-container {
@@ -53,6 +64,13 @@
       padding: 1.5rem 5rem;
       animation: show 0.6s;
       overflow-y: scroll;
+
+      @include respond(phone-large) {
+        transform: translateX(0%);
+        left: 0%;
+        width: 100%;
+        padding: 3rem 2.5rem;
+      }
     }
 
     & .overlay-container {
@@ -101,6 +119,10 @@
   flex-direction: column;
   justify-content: center;
   align-content: center;
+
+  @include respond(phone-large) {
+    width: 100%;
+  }
 }
 
 .sign-up-container {
@@ -144,6 +166,10 @@
   transform: translateX(0);
   transition: transform 0.6s ease-in-out;
 
+  @include respond(phone-large) {
+    display: none;
+  }
+
   &-container {
     position: absolute;
     top: 0;
@@ -153,6 +179,10 @@
     overflow: hidden;
     transition: transform 0.6s ease-in-out;
     z-index: 100;
+
+    @include respond(phone-large) {
+      display: none;
+    }
   }
 
   &-left {
@@ -210,6 +240,7 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .form__group--avatar-container {
@@ -219,16 +250,37 @@
 }
 
 .pageButton {
-  border-radius: 20px;
-  border: 1px solid #ff4b2b;
-  background-color: #ff4b2b;
+  // border-radius: 20px;
+  // border: 1px solid #ff4b2b;
+  // background-color: #ff4b2b;
+  // color: #ffffff;
+  // font-size: 12px;
+  // font-weight: bold;
+  // padding: 10px 25px;
+  // letter-spacing: 1px;
+  // text-transform: uppercase;
+  // transition: transform 80ms ease-in;
+
+  border: 1px solid $color-tertiary;
+  background-color: $color-tertiary;
   color: #ffffff;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: bold;
-  padding: 10px 25px;
+  padding: 14px 25px 10px;
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: transform 80ms ease-in;
+
+  &.active {
+    background-color: $color-primary;
+  }
+
+  &--1 {
+    border-radius: 0px 0px 20px 0px;
+  }
+  &--2 {
+    border-radius: 0px 0px 0px 20px;
+  }
 }
 
 .pageButton:active {
@@ -242,4 +294,17 @@
 .pageButton.ghost {
   background-color: transparent;
   border-color: #ffffff;
+}
+
+.toggleSignUpSigIn {
+  display: none;
+
+  @include respond(phone) {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+  }
 }

@@ -49,19 +49,48 @@ const signInForm = document.querySelector(".signInForm");
         });
     
 
-const signUpButton = document.getElementById('signUp');
-const signInButton = document.getElementById('signIn');
-const signUpWrapper = document.getElementById('signUpWrapper');
+// const signUpButton = document.getElementById('signUp');
+// const signInButton = document.getElementById('signIn');
 
-signUpButton.addEventListener('click', () => {
-    signUpWrapper.classList.add("right-panel-active");
-    //signUpWrapper.style.width ="75%";
-});
+// signUpButton.addEventListener('click', () => {
+//     signUpWrapper.classList.add("right-panel-active");
+//     //signUpWrapper.style.width ="75%";
+// });
 
-signInButton.addEventListener('click', () => {
-    signUpWrapper.classList.remove("right-panel-active");
-    //signUpWrapper.style.width = "60%"
-    if (window.screen.width < 1024) {
-        signUpWrapper.style.width = "70%"
-      }
-});
+// signInButton.addEventListener('click', () => {
+//     signUpWrapper.classList.remove("right-panel-active");
+//     //signUpWrapper.style.width = "60%"
+//     if (window.screen.width < 1024) {
+//         signUpWrapper.style.width = "70%"
+//       }
+// });
+
+
+const logInRegisterWrapper = document.querySelector('.logInRegisterWrapper');
+const toggleSignInUpBtns = document.querySelectorAll(".toggleSignUpSigInBtn");
+const toSignUp = document.querySelector('.pageButton--1');
+const toSignIn = document.querySelector(".pageButton--2")
+
+toggleSignInUpBtns.forEach(btn =>{
+    btn.addEventListener("click", (e)=>{
+        e.preventDefault();
+
+        const btnType = e.currentTarget.getAttribute("id");
+        console.log(btnType);
+
+        if(btnType === "signUp"){
+            logInRegisterWrapper.classList.add("right-panel-active");
+            if(!toSignIn.classList.contains("active")){
+                toSignIn.classList.add("active");
+                toSignUp.classList.remove("active");
+            }else{return}
+            
+        }else if(btnType === "signIn"){
+            logInRegisterWrapper.classList.remove("right-panel-active");
+            if(!toSignUp.classList.contains("active")){
+                toSignUp.classList.add("active");
+                toSignIn.classList.remove("active");
+            }else{return}
+        }
+    })
+})

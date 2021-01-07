@@ -259,6 +259,10 @@
     text-align: center;
     width: 100%;
     padding: 0;
+
+    @include respond(phone) {
+      transform: translate(-50%, -30%);
+    }
   }
 
   &__item {
@@ -349,8 +353,36 @@
   position: relative;
   margin-right: 1rem;
 
-  @include respond(tab-port) {
+  @include respond(phone) {
     display: none;
+  }
+
+  &-smallscreen {
+    display: none;
+
+    @include respond(phone) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      margin-right: 1rem;
+      width: 100%;
+      padding: 6px;
+      background-color: $color-secondary;
+      flex-direction: row-reverse;
+    }
+
+    & span {
+      // position: relative;
+      // top: -0.8rem;
+      // right: 16px;
+      // font-size: $default-font;
+
+      position: relative;
+      top: -1.5rem;
+      right: 17px;
+      font-size: 1.5rem;
+    }
   }
 }
 .far {
@@ -383,9 +415,9 @@
   right: 17px;
   font-size: 1.5rem;
 
-  @include respond(tab-port) {
-    right: -3px;
-  }
+  // @include respond(tab-port) {
+  //   right: 17px;
+  // }
 }
 
 .messageIconWrapper {
@@ -446,4 +478,10 @@
 
 .dropdown-menu {
   font-size: 1.6rem;
+}
+
+.playstoreApstoreLogos {
+  @include respond(phone) {
+    display: none;
+  }
 }

@@ -88,9 +88,11 @@ const distiguishUserUI = async() =>{
 
 //A function to display profile pic on all pages
 const getProfilePic = (user)=>{
-    const profilePicImg = document.querySelector('.profilePicImg');
-    const imgUrl = user.data().profilePic;
-        profilePicImg.src = imgUrl
+    const profilePicImg = document.querySelectorAll('.profilePicImg');
+    profilePicImg.forEach(profile =>{
+        const imgUrl = user.data().profilePic;
+        profile.src = imgUrl;
+    })
     };
 
 
