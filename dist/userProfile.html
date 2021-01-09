@@ -1,0 +1,364 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body>
+    
+
+ 
+
+
+ <!--Place the navigation below-->
+ <nav class="navbar navbar-expand-xlg navbar-light sticky-top" style='background-color: #e3f2fd'> 
+  <div class="container-fluid navigation">
+    <a class="navbar-brand"><h2 class="logo">GO-Nyumba</h2></a>
+
+
+  <div class="navbar__right ">
+    <div class="activeUser messageIcon ">
+      <a class="navbar__icon activeUser navbar__item" href="chatroom.html" style="display: none;">
+        <!-- <p>Messages</p> -->
+        <i class="far fa-comment-alt icon " style="font-size: 3rem;"></i>
+        <span class="badge badge-danger">4</span>
+      </a>
+      <a class="navbar__icon activeUser navbar__item" href="#" style="display: none;">
+        <i class="far fa-bell icon" style="font-size: 3rem;"></i>
+          <span class="badge badge-danger">11</span>
+      </a>
+
+      <div class="activeUser navbar__item dropdown" style="display: none;" >
+        <a class="navbar__icon dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <img class="profilePicImg" alt="DP">
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+          aria-labelledby="navbarDropdownMenuLink-55">
+          <a class="dropdown-item" href="userProfile.html">My Profile</a>
+          <a  class="dropdown-item logOutBtn" href="#">SignOut</a>
+        </div>
+      </div>
+    </div>
+
+      <button class="navbar__open-btn navbar-toggler" type="button" style="font-size: 17px;">
+        <span class="navbar__open-btn--span1">MENU </span> 
+        <span class="navbar-toggler-icon navbar__open-btn--span2"></span>
+      </button>
+  </div>
+
+    
+    <div class="navbar__wrapper" id="navbarResponsive">
+
+      <div class="activeUser messageIcon-smallscreen">
+        <a class="navbar__icon activeUser navbar__item" href="chatroom.html" style="display: none;">
+          <!-- <p>Messages</p> -->
+          <i class="far fa-comment-alt icon " style="font-size: 3rem;"></i>
+          <span class="badge badge-danger">4</span>
+        </a>
+        <a class="navbar__icon activeUser navbar__item" href="#" style="display: none;">
+          <i class="far fa-bell icon" style="font-size: 3rem;"></i>
+            <span class="badge badge-danger">11</span>
+        </a>
+  
+        <div class="activeUser navbar__item dropdown" style="display: none;" >
+          <a class="navbar__icon dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <img class="profilePicImg" alt="DP">
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+            aria-labelledby="navbarDropdownMenuLink-55">
+            <a class="dropdown-item" href="userProfile.html">My Profile</a>
+            <a  class="dropdown-item logOutBtn" href="#">SignOut</a>
+          </div>
+        </div>
+      </div>
+      <ul class="  ml-auto navbar__list">
+         <li class="navbar__item">
+          <a  class="navbar__link " href="index.html">
+            <i class="fas fa-home" style="font-size: 2.6rem !important;"></i> Home
+          </a>
+        </li>
+       
+         <li class="navbar__item">
+          <a  class="navbar__link" href="propertyListing.html">
+            <i class="fas fa-city" style="font-size: 2.6rem !important;"></i> Postings
+          </a>
+        </li>
+        <li class="navbar__item owner" style="display: none;">
+          <a  class=" navbar__link " href="postProperty.html">
+            <i class="fas fa-plus-square" style="font-size: 2.6rem !important;"></i> Post Property
+          </a>
+        </li>
+       
+        <li class="navbar__item inActiveUser" style="display: none;"  >
+          <a  class="navbar__link " href="signInPage.html">
+            <i class="fas fa-user-plus" style="font-size: 2.6rem !important;"></i>
+            Sign In/Up
+          </a>
+        </li>
+
+        <li class="playstoreApstoreLogos" style="margin-top: 6rem;">
+          <!-- <p class="appsDescription">Download App on</p> -->
+          <p style="color: white;">Download Application</p>
+          <a href="#"><img src="images/applestore2.a91717284c8e616bacdb54081057fe3f.png" style="width: 10rem;" alt="applestore"></a>
+          <a href="#"><img src="images/playstore.d56dbab1c46b35be9a89ba16c5093835.png"  style="width: 10rem;" alt="playstore"></a>
+        </li>
+   
+      </ul>
+
+      <button class="navbar__closure-btn button" type="button">
+        <span class="navbar__closure-span">X</span>
+    </button>
+    </div>
+</nav>
+
+<img class="backgroundImage" src="images/postadBg.0c757df2f45a25601038c60fdbd90060.jpg">
+
+
+    <!-- Update profile buttons -->
+    <div class="container-fluid text-center" style="background-color: aliceblue; padding:2px">  
+      <!-- Update Profile Picture -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#profilePicUpdate">
+      Update Profile Picture
+    </button>
+    <div class="modal fade" id="profilePicUpdate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Update Profil Pictute</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <form>
+                  <div class="form-group">
+                    <label for="exampleFormControlFile1">Update Profile Picture</label>
+                    <input type="file" class="form-control-file" id="profilePicUpload">
+                  </div>
+                </form>
+                <img id="output" width="180" />	
+                <p id="profilePicUploadSuccessMsg" style="display: none;">Success! Your profile Picture is updated</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="uploadProfilePic">Upload Image</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Email id update -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateEmailModal">
+      Update Email Address
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="updateEmailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Change Email Address</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <form id="updateEmailForm">
+                  <div class="form-group">
+                    <label for="exampleFormControlFile1">Update Email Address</label>
+                    <p>Remember the newly Updated email will become your account's new
+                        Email address which you will have to use to logIn and chat in the 
+                        App/website
+                    </p>
+                    <br>
+                    <p>Current Email is: <span style="color:blueviolet" id="currentEmail"></span></p>
+                    <br>
+                    <input type="email" class="form-control" id="emailUpdate" placeholder="Enter New Email">
+                    <br>
+                    <input type="email" class="form-control" id="confirmEmailUpdate" placeholder="Confirm New Email">
+                    <p style="display: none;" id="confirmEmailErrorMsg">Check number and try again</p>
+                  </div>
+              </form>	
+          </div>
+          <div class="modal-footer">
+            <div id="emailUpdatesuccessMsg">
+              
+            </div>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Phone Number Update -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updatePhoneNumberModal">
+      Update Phone Number
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="updatePhoneNumberModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Update Phone Number</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <form id="updatePhoneNumberForm">
+                  <div class="form-group">
+                    
+                    <p>Remember the newly Updated Phone Number will become your account's new
+                        number other users will use to contact you on both  
+                        App/website
+                    </p>
+                    <label for="exampleFormControlFile1">Current Phone Number is: <span id="currentPhoneNumber">+256702139042</span></label>
+                    <br>
+                    <br>
+                    <input type="tel" class="form-control" id="numberUpdate" placeholder="Enter New Phone Number" pattern="\+?[0-9]{10,13}">
+                    <br>
+                    <input type="tel" class="form-control" id="confirmNumberUpdate" placeholder="Confirm New Phone Number" pattern="\+?[0-9]{10,13}">
+                    <p style="display: none;" id="confirmNumberErrorMsg">Check number and try again</p>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                  </div>
+              </form>	
+          </div>
+          <div class="modal-footer justify-center" id="numberUpdatesuccessMsg">
+              
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+  <section class="section section__profileInfo">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="profileInfo">
+          <div class="profileInfo__item">
+            <h2>Feature under development</h2>
+            <p>1</p>
+          </div>
+          <div class="profileInfo__item">
+            <h2>Your Rating</h2>
+            <p>2 </p>
+          </div>
+          <div class="profileInfo__item">
+            <h2>This cards will show some user info</h2>
+            <p>3</p>
+          </div>
+          <div class="profileInfo__item">
+            <h2>Yo</h2>
+            <p>3</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="container-fluid text-center" id="container">
+
+    <h1 class=" text-center text-light owner" style="display: none;" id="suh">Your Posts</h1>  
+    <h1 class=" text-center text-light client" style="display: none;"  id="suh">Your Saved Posts</h1>   
+
+    <div class="spinner-border text-primary spin" role="status" style="width: 8rem; height: 8rem;">
+      <span class="sr-only" style="z-index: 1080;">Loading...</span>
+    </div>
+
+   <div class="row usersPosts" id="ownerPosts">
+          <!-- With Javascript, all posts by the signed
+            In owner will show here -->
+   </div>
+
+   <div>
+      <div class="row usersPosts" id="clientPosts">
+        <!-- With Javascript, all posts by the signed
+           In client will show here -->
+      </div>
+   </div>
+
+  </div> 
+
+<!--Footer details below-->
+<div class="container-fluid footer">
+  <div class="row text-center  ">
+    <div class="footer__contentWrap col-lg-3 col-md-3 col-sm-6">
+      <h3 class="footerLogo footer__logo">GO-Nyumba</h3>
+      <br>
+      <p class="siteDescription footer__desc">
+        Your solution in finding your next home; Due to a busy town, 
+        finding a house seems expensive, tiresome and insecure due to the 
+        many third parties associated with the process. With the innovation
+        of GO-Nyumba, you contact the Landlord directly.
+      </p>
+    </div>
+ 
+  <div class=" footer__contentWrap  col-lg-3 col-md-3 col-sm-6">
+    <h3 class="footer__heading heading"> Contact Us</h3>
+    <br>
+    <p class="footer__paragraph footer__para">+256702139042</p>
+    <p class="footer__paragraph footer__para" >info@themovers.com</p>
+    <p  class="footer__paragraph footer__para">Facebook: GO-Nyumba</p>
+    <p  class="footer__paragraph footer__para">We shall always be there to answer your questions
+      and also assist you in any way possible. 
+    </p>
+    <br>
+    <a href="#termsAndConditions" class="footer__link">Frequently Asked Questions</a>
+  </div>
+
+
+  <div class="col-lg-3 col-md-3 col-sm-6 footerContent footer__contentWrap ">
+    <h3 class="heading footer__heading">Download Apps</h3>
+    <br>
+    
+    <img src="images/playstore.d56dbab1c46b35be9a89ba16c5093835.png"  class="mb-4 footer__appLogo" alt="android logo">
+    <img src="images/applestore.4cba88d5967cf71c087fd5d09ad3ba3f.png" class="mb-4 footer__appLogo" alt="Apple store">
+    <br><br>
+    <p class="paragraph footer__para">
+      Enjoy our well equiped applications on all phones.
+    </p>
+    
+  </div>
+  
+  <div class="col-lg-3 col-md-3 col-sm-6 footer__contentWrap ">
+    <div class="importantlinks">
+      <h3 class="heading footer__heading">Important Links</h3>
+      <br>
+      <a href="#newPostings" class="footer__link">New Postings</a><br>
+      <a href="#newPostings" class="footer__link">Mostly Visited</a><br>
+      <a href="#newPostings" class="footer__link">Kampala Surburbs</a><br>
+      <a href="#newPostings" class="footer__link">Mostly Visited</a>
+    </div>
+    <br>
+    <div>
+      <form >
+        <label for="newsletter">Register for News and Updates:</label>
+        <input type="email" id="newsletter" placeholder="  Enter Your Email">
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+<!--AFTER FOORTER DETAILS-->
+<div class="lastFooter container-fluid justify-content-center">
+  <div class="row text-center py-2"> 
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <p>©2020 <span>GO-Nyumba</span></p>
+    </div>
+    <div class="col-lg-4 col-md-6">
+      <p>Built with <img width="20px" src="images/heart.0746190b9250429fa91fdb357808486b.gif"> by Nkangi Jafari</span></p>
+    </div>
+    <div class="col-lg-4 col-md-6">
+      <p>Get Social with GO-Nyumba</span></p>
+    </div>
+  </div>
+</div> 
+
+<script src="main.bundle.js"></script><script src="userProfile.bundle.js"></script><script src="authentication.bundle.js"></script></body>
+</html>

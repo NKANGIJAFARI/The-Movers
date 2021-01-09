@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Property Listings</title>
+
+  <script src="https://use.fontawesome.com/f6bf8ec87a.js" defer></script>
+
+  </head>
+  <body class="body">
+
+<nav class="navbar navbar-expand-xlg navbar-light sticky-top" style='background-color: #e3f2fd'> 
+  <div class="container-fluid navigation">
+    <a class="navbar-brand"><h2 class="logo">GO-Nyumba</h2></a>
+
+    <div class="downloadAppsHeader toggleButtonsWrapper">
+      <a href="#" class=" toggleMapAndCardsBtn toggleMapAndCardsBtn--1" id="showCards">Show Cards</a>
+      <a href="#" class="toggleMapAndCardsBtn toggleMapAndCardsBtn--2 active" id="showMap">Show Map</a>
+    </div>
+
+  <div class="navbar__right ">
+    <div class="activeUser messageIcon ">
+      <a class="navbar__icon activeUser navbar__item" href="chatroom.html" style="display: none;">
+        <!-- <p>Messages</p> -->
+        <i class="far fa-comment-alt icon " style="font-size: 3rem;"></i>
+        <span class="badge badge-danger">4</span>
+      </a>
+      <a class="navbar__icon activeUser navbar__item" href="#" style="display: none;">
+        <i class="far fa-bell icon" style="font-size: 3rem;"></i>
+          <span class="badge badge-danger">11</span>
+      </a>
+
+      <div class="activeUser navbar__item dropdown" style="display: none;" >
+        <a class="navbar__icon dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <img class="profilePicImg" alt="DP">
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+          aria-labelledby="navbarDropdownMenuLink-55">
+          <a class="dropdown-item" href="userProfile.html">My Profile</a>
+          <a  class="dropdown-item logOutBtn" href="#">SignOut</a>
+        </div>
+      </div>
+    </div>
+
+      <button class="navbar__open-btn navbar-toggler" type="button" style="font-size: 17px;">
+        <span class="navbar__open-btn--span1">MENU </span> 
+        <span class="navbar-toggler-icon navbar__open-btn--span2"></span>
+      </button>
+  </div>
+
+    
+    <div class="navbar__wrapper" id="navbarResponsive">
+
+      <div class="activeUser messageIcon-smallscreen">
+        <a class="navbar__icon activeUser navbar__item" href="chatroom.html" style="display: none;">
+          <!-- <p>Messages</p> -->
+          <i class="far fa-comment-alt icon " style="font-size: 3rem;"></i>
+          <span class="badge badge-danger">4</span>
+        </a>
+        <a class="navbar__icon activeUser navbar__item" href="#" style="display: none;">
+          <i class="far fa-bell icon" style="font-size: 3rem;"></i>
+            <span class="badge badge-danger">11</span>
+        </a>
+  
+        <div class="activeUser navbar__item dropdown" style="display: none;" >
+          <a class="navbar__icon dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <img class="profilePicImg" alt="DP">
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+            aria-labelledby="navbarDropdownMenuLink-55">
+            <a class="dropdown-item" href="userProfile.html">My Profile</a>
+            <a  class="dropdown-item logOutBtn" href="#">SignOut</a>
+          </div>
+        </div>
+      </div>
+      <ul class="  ml-auto navbar__list">
+         <li class="navbar__item">
+          <a  class="navbar__link " href="index.html">
+            <i class="fas fa-home" style="font-size: 2.6rem !important;"></i> Home
+          </a>
+        </li>
+       
+         <li class="navbar__item">
+          <a  class="navbar__link" href="propertyListing.html">
+            <i class="fas fa-city" style="font-size: 2.6rem !important;"></i> Postings
+          </a>
+        </li>
+        <li class="navbar__item owner" style="display: none;">
+          <a  class=" navbar__link " href="postProperty.html">
+            <i class="fas fa-plus-square" style="font-size: 2.6rem !important;"></i> Post Property
+          </a>
+        </li>
+       
+        <li class="navbar__item inActiveUser" style="display: none;"  >
+          <a  class="navbar__link " href="signInPage.html">
+            <i class="fas fa-user-plus" style="font-size: 2.6rem !important;"></i>
+            Sign In/Up
+          </a>
+        </li>
+
+        <li class="playstoreApstoreLogos" style="margin-top: 6rem;">
+          <!-- <p class="appsDescription">Download App on</p> -->
+          <p style="color: white;">Download Application</p>
+          <a href="#"><img src="images/applestore2.a91717284c8e616bacdb54081057fe3f.png" style="width: 10rem;" alt="applestore"></a>
+          <a href="#"><img src="images/playstore.d56dbab1c46b35be9a89ba16c5093835.png"  style="width: 10rem;" alt="playstore"></a>
+        </li>
+   
+      </ul>
+
+      <button class="navbar__closure-btn button" type="button">
+        <span class="navbar__closure-span">X</span>
+    </button>
+    </div>
+</nav>
+
+
+  <!-- DIV TO DISPLAY WHEN PAGE HAS NOT LOADED THE PROPERTIES -->
+  <div class="failedPropertyLoad" style="display: none">
+    <!-- <h2>Properties didnt load, need a page refresh<h2>
+    <button class="refreshBtn">REFRESH PAGE</button> -->
+    <img src="images/static-ip-no-internet.a7dd9da82885274152d2302fbf3d82be.jpg" alt="">
+  </div>
+
+
+<div class="modal fade " id="messageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content messageModal text-center justify-content-center">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Message to: 
+          <span class="messageReceiver"></span>
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="sendMessageForm type_msg">
+            <!-- <label for="message-text" class="col-form-label">Message:</label> -->
+            <textarea id="new-msg-input" rows="4" class=" form-control form__input new-chat" placeholder="Type your message here..."></textarea>
+            <!-- <input type="text" id="new-msg-input" class=" form-control new-chat" placeholder="Type a message"> -->
+
+          <div class="form-group text-right">
+            <button type="submit" class="btn btn-primary btn-large msg_send_button">Send message</button>
+            <button type="button" class="btn btn-danger btn-large" data-dismiss="modal">Cancel</button>
+          </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+  <!-- Main content below -->
+  <!--  had "d-flex" as a class and removed, if it breaks add it to wrrappera s a class. -->
+<div class="wrapper propertyListWrapper toggleMapAndCards">
+   	<nav id="sidebar" class="sidebarFixed">
+   		<div class="sidebar-header">
+   			<h5>Filter Properties</h5>
+       </div>
+       
+         <div>
+            <p class="labelBlock">Property Category</p>
+            <input name="propertyCategory" type="radio" class="propertyCategory" id="forRent" value="For-Rent">
+            <label for="forRent">For Rent</label>
+            <input name="propertyCategory" type="radio" class="propertyCategory" id="forSale" value="For-Sale">
+            <label for="forSale">For Sale</label>
+          </div> 
+         <form id="priceForm">
+          <div>
+            <label class="labelBlock" for="price">Price Range</label>
+            <input type="number" id="minPrice" class="priceRange" name="price" placeholder="Min">
+            <input type="number" id="maxPrice" class="priceRange" name="price" placeholder="Max">
+            <button type="submit" class="priceRangebutton">GO</button>
+          </div>
+         </form>
+          <div>
+            <p class="labelBlock">Property Specifications</p>
+            <input name="withBathroom" type="radio" id="forRent" value="forRent">
+            <label  for="yes">Yes</label>
+            <input name="withBathroom" type="radio" id="forSale" value="forSale">
+            <label  for="no">No</label>
+            <input name="withBathroom" type="radio" id="any" value="any">
+            <label  for="any">Any</label>
+          </div>
+        
+          <div>
+            <label class="labelBlock" for="propertyUsage">Property Usage</label>
+            <select id="propertyUsage">
+              <option selected value="Any">Any</option>
+              <option value="Residential">Residential</option>
+              <option value="Commercial">Commercial</option>>
+            </select>
+          </div>
+          <div>
+            <label class="labelBlock" for="propertyType">Property Type</label>
+            <select name="propertyType" id="propertyType">
+              <option selected value="Any">Any</option>
+              <option value="singleRoom">Single Room</option>
+              <option value="doubleRoom">Double rooms</option>
+              <option value="selfContained">Self Contained</option>
+              <option value="bungalow">Bungalow</option>
+              <option value="Apartment">Apartment</option>
+              <option value="countryHouse">Country House</option>
+              <option value="villa">Villa</option>
+              <option value="Mansion">Mansion</option>
+            </select>
+          </div>
+        
+          <div>
+            <label class="labelBlock" for="propertyLocation">Preffered Location</label>
+            <select name="propertyLocation" id="propertyLocation">
+              <option selected value="Any">Any</option>
+              <option value="Kawempe">Kawempe</option>
+              <option value="Makindye">Makindye</option>
+              <option value="Namasuba">Namasuba</option>
+              <option value="Bugolobi">Bugolobi</option>
+              <option value="Munyonyo">Munyonyo</option>
+              <option value="Nakawa">Nakawa</option>
+            </select>
+          </div>
+          <div>
+   
+   	</nav>
+   	
+  <div class="content">
+  <button type="button" id="sidebarCollapse" class="btn btn-info filterBtn" style="display:none" >
+    <i class="fa fa-align-justify"></i> <span class="hideFilter">Show Filters</span>
+  </button>  	
+    
+<!--HOUSE POSTINGS BELOW-->
+  <div class="container-fluid text-center ">
+    <div class="row postedProperties">
+      <!-- All the posted properties will go here -->
+
+      <div class="spinner-border text-primary spin" role="status" style="width: 8rem; height: 8rem;">
+        <span class="sr-only">Loading...</span>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+  </div>
+
+
+  <div class=" toggleMapAndCards map__wrapper toggleMapAndCards active">
+    <div id="style-selector-control" class="map-control">
+      <input
+        id="searchTextField"
+        type="text"
+        class="form__input form__input"
+        placeholder="Search by Location"
+      />
+  
+    
+    </div>
+  	<div id="sidebar" class=" showPropDetailsWrapper">
+      <a class="showHidePropDetails"><i class="fas fa-chevron-right"></i></a>
+      <div class="sidebar-header">
+        <h3>Property Details</h3>
+      </div>
+      <div class="showPropDetails">
+        <h2>Select a property to be shown here</h2>
+        <!-- The property Details will be inserted here -->
+      </div>
+    </div>
+  
+    <div id="map"></div>
+  
+
+    <!-- <div id="infowindow-content">
+      <span style="display: block">Your search result</span>
+      <img width="16" height="16" id="place-icon" />
+      <span id="place-name" class="title"></span><br />
+      <span id="place-address"></span>
+    </div> -->
+  </div>
+
+  <div class="map__showHide-businesses" id="showHideBusiness">
+    <div class="showBusiness__headingWrapper">
+      <h2 style="font-size: 1.6rem; margin: 0">Businesses</h2>
+    </div>
+    <div class="showBusiness__inputsWrapper">
+        <div class="inputWrap">
+          <input
+            type="radio"
+            name="show-hide"
+            id="hide-poi"
+            class="selector-control"
+            checked="checked"
+          />
+          <label for="hide-poi">Hide</label>
+      </div>
+      <div class="inputWrap">
+          <input
+            type="radio"
+            name="show-hide"
+            id="show-poi"
+            class="selector-control"
+          />
+          <label for="show-poi">Show</label>
+      </div>
+    </div>
+
+  </div>
+
+<!--Footer details below-->
+<!--Footer details below-->
+<footer class="container-fluid footer">
+  <div class="footer__wrapper">
+    <div class="footer__desc ">
+      <h3 class="footerLogo footer__logo">GO-Nyumba</h3>
+      <p class="siteDescription footer__desc--para paragraph">
+        Your solution in finding your next home; Due to a busy town, 
+        finding a house seems expensive, tiresome and insecure due to the 
+        many third parties associated with the process. With the innovation
+        of GO-Nyumba, you contact the Landlord directly.
+      </p>
+    </div>
+    <div class="footer__content">     
+      <div class=" footer__content--inner footer__content--inner-1  ">
+        <h3 class="footer__heading heading"> Contact Us</h3>
+        <div class="footer__social">
+          <p class="footer__paragraph footer__para">+256702139042</p>
+          <p class="footer__paragraph footer__para" >info@GO-Nyumba.com</p>
+          <p  class="footer__paragraph footer__para">Social Media: @GO-Nyumba</p>
+        </div>
+        <div class="footer__content--social u-margin-bottom-small u-margin-top-small">
+          <img class="footer__content--social-icon" src="images/instagramlogo.739479ca28a803b1dc504a33401b7d8b.png" alt="">
+          <img class="footer__content--social-icon" src="images/facebooklogo.a9ef856ed4e6902b48d4fd550f2a34bf.png" alt="">
+          <img class="footer__content--social-icon" src="images/twitterlogo.1fa0f127792f81498ddb46c445298971.png" alt="">
+          <img class="footer__content--social-icon" src="images/linkedInlogo.342d6a9a483438acbd302c76f1928b66.png" alt="">
+        </div>
+        <a href="#termsAndConditions" class="footer__link">Frequently Asked Questions</a>
+      </div>
+
+      <div class="footer__content--innerWrap footer__content--inner-2" >
+        <h3 class="heading footer__heading u-margin-bottom-small">Download Apps</h3>
+        
+        <div>
+          <img src="images/playstore.d56dbab1c46b35be9a89ba16c5093835.png"  class="mb-4 footer__appLogo" alt="android logo">
+          <img src="images/applestore.4cba88d5967cf71c087fd5d09ad3ba3f.png" class="mb-4 footer__appLogo" alt="Apple store">
+        </div>
+        <p class="paragraph footer__para">
+          Enjoy our well equiped applications on all phones.
+        </p>
+      </div>
+      
+      <div class=" footer__content--inner footer__content--inner-3">
+        <div class="importantlinks">
+          <h3 class="heading footer__heading">Important Links</h3>
+          <a href="#newPostings" class="footer__link">New Postings</a><br>
+          <a href="#newPostings" class="footer__link">Mostly Visited</a><br>
+          <a href="#newPostings" class="footer__link">Kampala Surburbs</a><br>
+          <a href="#newPostings" class="footer__link">Mostly Visited</a>
+        <div>
+          <form >
+            <label for="newsletter">Register for News and Updates:</label>
+            <div class="form__group" style="display: flex;">
+              <input type="email" id="newsletter" class="form__input" placeholder="  Enter Your Email" required>
+              <input type="submit" value="Submit">
+            </div>
+          </form>
+        </div>
+      </div>
+      </div>
+    </div>
+</footer>
+
+<!--AFTER FOORTER DETAILS-->
+<div class="lastFooter container-fluid justify-content-center">
+  <div class="row text-center py-2"> 
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <p>©2020 <span>GO-Nyumba</span></p>
+    </div>
+    <div class="col-lg-4 col-md-6">
+      <p>Built with <img width="20px" src="images/heart.0746190b9250429fa91fdb357808486b.gif"> by Nkangi Jafari</span></p>
+    </div>
+    <div class="col-lg-4 col-md-6">
+      <p>Get Social with GO-Nyumba</span></p>
+    </div>
+  </div>
+</div> 
+
+
+
+    
+  <script src="main.bundle.js"></script><script src="forListings.bundle.js"></script><script src="authentication.bundle.js"></script></body>
+</html>
