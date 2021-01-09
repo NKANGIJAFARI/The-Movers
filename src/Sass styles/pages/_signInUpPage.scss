@@ -35,7 +35,11 @@
   &.right-panel-active {
     width: 75%;
     @include respond(tab-port) {
-      width: 90%;
+      width: 94%;
+    }
+    @include respond(tab-port) {
+      width: 80%;
+      height: 95%;
     }
     @include respond(phone) {
       width: 96%;
@@ -299,7 +303,7 @@
 .toggleSignUpSigIn {
   display: none;
 
-  @include respond(phone) {
+  @include respond(phone-large) {
     position: absolute;
     left: 0;
     width: 100%;

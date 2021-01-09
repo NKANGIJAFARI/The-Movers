@@ -239,6 +239,14 @@ ul.CTAs a {
 .toggleButtonsWrapper {
   display: flex;
   flex-direction: row;
+
+  @include respond(phone) {
+    order: 3;
+    margin-top: 1.5rem;
+    z-index: 5;
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 .toggleMapAndCardsBtn {

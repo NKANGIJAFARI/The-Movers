@@ -5,6 +5,7 @@
   &__row {
     display: flex;
     align-items: center;
+    justify-content: center;
     // @include respond(tab-port) {
     //   text-align: center;
     //   justify-content: center;
@@ -54,7 +55,9 @@
     }
   }
   &__details--wrapper {
-    min-width: 300px;
+    //min-width: 200px;
+    display: flex;
+    justify-content: center;
 
     @include respond(tab-land) {
       padding: 0 0rem;
@@ -63,10 +66,10 @@
       padding: 0 10rem;
     }
     @include respond(phone-large) {
-      padding: 0 6rem;
+      padding: 0 3rem;
     }
     @include respond(phone) {
-      padding: 0 2rem;
+      padding: 0 0rem;
     }
   }
   &__details {
@@ -100,6 +103,16 @@
     position: relative;
     padding: 1.3rem;
 
-    //Other styles are within the posting cards' styles as the icons are copies d there.
+    &--item:last-child {
+      &:hover {
+        transform: scale(1) !important;
+      }
+    }
+    //Other styles are within the posting cards' styles as the icons are copied there.
   }
+}
+.card__icons--item .card__body--heart {
+  position: relative;
+  top: 2.4rem;
+  left: 1rem;
 }

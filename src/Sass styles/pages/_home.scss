@@ -16,6 +16,10 @@
   @include respond(tab-port) {
     padding: 0rem 1.5rem 1.5rem 1.5rem;
   }
+
+  @include respond(phone) {
+    padding: 0rem 0.5rem 1.5rem 0.5rem;
+  }
   &:hover {
   }
 }
@@ -106,6 +110,7 @@
   border-top-left-radius: 100px;
   border-bottom-right-radius: 70px;
   border-bottom-left-radius: 130px;
+  z-index: 1;
 
   // background: gradient(
   //   120deg,

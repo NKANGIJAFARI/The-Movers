@@ -286,18 +286,47 @@ const autocompleteFunc =()=>{
     libraries: ["places"]
   });
   
-  const mapOptions = {
-    mapTypeControl: true,
-    center: { lat: 0.3476, lng: 32.5825 },
-    zoom: 10
-  };
+  // const mapOptions = {
+  //   mapTypeControl: true,
+  //   mapTypeControlOptions: {
+  //           style: MapTypeControlStyle.HORIZONTAL_BAR,
+  //           position: ControlPosition.TOP_CENTER,
+  //         },
+  //   center: { lat: 0.3476, lng: 32.5825 },
+  //   zoom: 10
+  // };
   
   loader.load()
     .then(() => {
+      const mapOptions = {
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+                style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+                position: google.maps.ControlPosition.LEFT_TOP,
+              },
+        fullscreenControl: true,
+        // fullscreenControlOptions: {
+        //   style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+        //   position: google.maps.ControlPosition.RIGHT_TOP,
+        // },
+        center: { lat: 0.3476, lng: 32.5825 },
+        zoom: 10
+      };
+
+       // mapOptions.fullscreenControlOptions.position = google.maps.ControlPosition.BOTTOM_RIGHT
+
+
        map = new google.maps.Map(document.getElementById("map"), mapOptions);
         //addMarkers();
         //geolocate()
         autocompleteFunc()
+
+     
+
+
+         
+         // map.mapTypeControlOptions.ControlPosition.TOP_CENTER;
+       // position: maps.ControlPosition.TOP_CENTER
   
       // Add controls to the map, allowing users to hide/show features on the map.
       const styles = {
@@ -315,11 +344,22 @@ const autocompleteFunc =()=>{
           ],
           };
   
-          const styleControl = document.getElementById('style-selector-control');
-          map.controls[google.maps.ControlPosition.TOP_CENTER].push(styleControl);
+          // mapTypeControlOptions: {
+          //   style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+          //   position: google.maps.ControlPosition.TOP_CENTER,
+          // },
 
+         // map.controls[google.maps.MapTypeControlStyle.VERTICAL_BAR];
+
+
+          const styleControl = document.getElementById('style-selector-control');
+          if(screen.availWidth > 575){
+            map.controls[google.maps.ControlPosition.TOP_CENTER].push(styleControl);
+          }else if(screen.availWidth < 575){
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(styleControl);
+          }
           const showHideBusiness = document.getElementById('showHideBusiness');
-          map.controls[google.maps.ControlPosition.TOP_CENTER].push(showHideBusiness);
+          map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(showHideBusiness);
           
           styleControl.style.top = '10px';
 

@@ -14,9 +14,9 @@
 
 <nav class="navbar navbar-expand-xlg navbar-light sticky-top" style='background-color: #e3f2fd'> 
   <div class="container-fluid navigation">
-    <a class="navbar-brand"><h2 class="logo">TheMovers</h2></a>
+    <a class="navbar-brand"><h2 class="logo">GO-Nyumba</h2></a>
 
-    <div class="downloadAppsHeader toggleButtons">
+    <div class="downloadAppsHeader toggleButtonsWrapper">
       <a href="#" class=" toggleMapAndCardsBtn toggleMapAndCardsBtn--1" id="showCards">Show Cards</a>
       <a href="#" class="toggleMapAndCardsBtn toggleMapAndCardsBtn--2 active" id="showMap">Show Map</a>
     </div>
@@ -126,47 +126,6 @@
     <img src="./images/static-ip-no-internet.jpg" alt="">
   </div>
 
-
-  <!-- Message sending modal -->
-  <!-- <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="messageModalLongTitle">Message to: <span id="landlordEmail"></span></h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          
-          <div class="sendMessageFormWrapper">
-            <form class="type_msg sendMessageForm">
-            <div class="input_msg_write">
-              <input type="text" id="new-msg-input" class="new-chat" placeholder="Type a message" />
-       
-            </div>
-                   <button class="msg_send_button" type="submit">
-                Submit
-    
-              </button>
-          </form>
-        </div>
-  
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="button button-secondary" data-dismiss="modal">Cancel</button>
-          <a href="./chatroom.html" type="button" class="button button-primary">Go To Chats</a>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
-
-
-
-  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Open modal for @fat</button>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button> -->
 
 <div class="modal fade " id="messageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -324,105 +283,107 @@
   </div>
 
   <div class="map__showHide-businesses" id="showHideBusiness">
-    <div>
+    <div class="showBusiness__headingWrapper">
       <h2 style="font-size: 1.6rem; margin: 0">Businesses</h2>
     </div>
-  <div>
-      <div class="form__group">
-        <input
-          type="radio"
-          name="show-hide"
-          id="hide-poi"
-          class="selector-control"
-          checked="checked"
-        />
-        <label for="hide-poi">Hide</label>
+    <div class="showBusiness__inputsWrapper">
+        <div class="inputWrap">
+          <input
+            type="radio"
+            name="show-hide"
+            id="hide-poi"
+            class="selector-control"
+            checked="checked"
+          />
+          <label for="hide-poi">Hide</label>
+      </div>
+      <div class="inputWrap">
+          <input
+            type="radio"
+            name="show-hide"
+            id="show-poi"
+            class="selector-control"
+          />
+          <label for="show-poi">Show</label>
+      </div>
     </div>
-    <div class="form__group">
-        <input
-          type="radio"
-          name="show-hide"
-          id="show-poi"
-          class="selector-control"
-        />
-        <label for="show-poi">Show</label>
-    </div>
-  </div>
 
   </div>
 
 <!--Footer details below-->
-<div class="container-fluid footer">
-  <div class="row text-center  ">
-    <div class="footer__contentWrap col-lg-3 col-md-3 col-sm-6">
-      <h3 class="footerLogo footer__logo">The Movers</h3>
-      <br>
-      <p class="siteDescription footer__desc">
+<!--Footer details below-->
+<footer class="container-fluid footer">
+  <div class="footer__wrapper">
+    <div class="footer__desc ">
+      <h3 class="footerLogo footer__logo">GO-Nyumba</h3>
+      <p class="siteDescription footer__desc--para paragraph">
         Your solution in finding your next home; Due to a busy town, 
         finding a house seems expensive, tiresome and insecure due to the 
         many third parties associated with the process. With the innovation
-        of The Movers, you contact the Landlord directly.
+        of GO-Nyumba, you contact the Landlord directly.
       </p>
     </div>
- 
-  <div class=" footer__contentWrap  col-lg-3 col-md-3 col-sm-6">
-    <h3 class="footer__heading heading"> Contact Us</h3>
-    <br>
-    <p class="footer__paragraph footer__para">+256702139042</p>
-    <p class="footer__paragraph footer__para" >info@themovers.com</p>
-    <p  class="footer__paragraph footer__para">Facebook: TheMovers</p>
-    <p  class="footer__paragraph footer__para">We shall always be there to answer your questions
-      and also assist you in any way possible. 
-    </p>
-    <br>
-    <a href="#termsAndConditions" class="footer__link">Frequently Asked Questions</a>
-  </div>
+    <div class="footer__content">     
+      <div class=" footer__content--inner footer__content--inner-1  ">
+        <h3 class="footer__heading heading"> Contact Us</h3>
+        <div class="footer__social">
+          <p class="footer__paragraph footer__para">+256702139042</p>
+          <p class="footer__paragraph footer__para" >info@GO-Nyumba.com</p>
+          <p  class="footer__paragraph footer__para">Social Media: @GO-Nyumba</p>
+        </div>
+        <div class="footer__content--social u-margin-bottom-small u-margin-top-small">
+          <img class="footer__content--social-icon" src="./images/instagramlogo.png" alt="">
+          <img class="footer__content--social-icon" src="./images/facebooklogo.png" alt="">
+          <img class="footer__content--social-icon" src="./images/twitterlogo.png" alt="">
+          <img class="footer__content--social-icon" src="./images/linkedInlogo.png" alt="">
+        </div>
+        <a href="#termsAndConditions" class="footer__link">Frequently Asked Questions</a>
+      </div>
 
-
-  <div class="col-lg-3 col-md-3 col-sm-6 footerContent footer__contentWrap ">
-    <h3 class="heading footer__heading">Download Apps</h3>
-    <br>
-    
-    <img src="images/playstore.png"  class="mb-4 footer__appLogo" alt="android logo">
-    <img src="images/applestore.png" class="mb-4 footer__appLogo" alt="Apple store">
-    <br><br>
-    <p class="paragraph footer__para">
-      Enjoy our well equiped applications on all phones.
-    </p>
-    
-  </div>
-  
-  <div class="col-lg-3 col-md-3 col-sm-6 footer__contentWrap ">
-    <div class="importantlinks">
-      <h3 class="heading footer__heading">Important Links</h3>
-      <br>
-      <a href="#newPostings" class="footer__link">New Postings</a><br>
-      <a href="#newPostings" class="footer__link">Mostly Visited</a><br>
-      <a href="#newPostings" class="footer__link">Kampala Surburbs</a><br>
-      <a href="#newPostings" class="footer__link">Mostly Visited</a>
+      <div class="footer__content--innerWrap footer__content--inner-2" >
+        <h3 class="heading footer__heading u-margin-bottom-small">Download Apps</h3>
+        
+        <div>
+          <img src="images/playstore.png"  class="mb-4 footer__appLogo" alt="android logo">
+          <img src="images/applestore.png" class="mb-4 footer__appLogo" alt="Apple store">
+        </div>
+        <p class="paragraph footer__para">
+          Enjoy our well equiped applications on all phones.
+        </p>
+      </div>
+      
+      <div class=" footer__content--inner footer__content--inner-3">
+        <div class="importantlinks">
+          <h3 class="heading footer__heading">Important Links</h3>
+          <a href="#newPostings" class="footer__link">New Postings</a><br>
+          <a href="#newPostings" class="footer__link">Mostly Visited</a><br>
+          <a href="#newPostings" class="footer__link">Kampala Surburbs</a><br>
+          <a href="#newPostings" class="footer__link">Mostly Visited</a>
+        <div>
+          <form >
+            <label for="newsletter">Register for News and Updates:</label>
+            <div class="form__group" style="display: flex;">
+              <input type="email" id="newsletter" class="form__input" placeholder="  Enter Your Email" required>
+              <input type="submit" value="Submit">
+            </div>
+          </form>
+        </div>
+      </div>
+      </div>
     </div>
-    <br>
-    <div>
-      <form >
-        <label for="newsletter">Register for News and Updates:</label>
-        <input type="email" id="newsletter" placeholder="  Enter Your Email">
-      </form>
-    </div>
-  </div>
-</div>
-</div>
+</footer>
 
 <!--AFTER FOORTER DETAILS-->
 <div class="lastFooter container-fluid justify-content-center">
   <div class="row text-center py-2"> 
     <div class="col-lg-4 col-md-6 col-sm-12">
-      <p>©2020 <span>TheMovers</span></p>
+      <p>©2020 <span>GO-Nyumba</span></p>
     </div>
     <div class="col-lg-4 col-md-6">
       <p>Built with <img width="20px" src="images/heart.gif"> by Nkangi Jafari</span></p>
     </div>
     <div class="col-lg-4 col-md-6">
-      <p>Get Social with TheMovers</span></p>
+      <p>Get Social with GO-Nyumba</span></p>
     </div>
   </div>
 </div> 
