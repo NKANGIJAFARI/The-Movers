@@ -21,10 +21,27 @@ let autocomplete;
         map: map,
     });
 
-    marker.setValues({type: "point", id: props.propertyId});
+    // const iconBase =
+    // "https://developers.google.com/maps/documentation/javascript/examples/full/images/";
+    // const icons = {
+    //   parking: {
+    //     icon: iconBase + "parking_lot_maps.png",
+    //   }
+    // }
 
+
+    marker.setValues({type: "pointer", id: props.propertyId});
+    //new google.maps.Size(21, 34);
+
+  
     if (props.iconImage) {
-        marker.setIcon(props.iconImage);
+      var pinIcon = new google.maps.MarkerImage(
+          props.iconImage,
+          //new google.maps.Point(10, 34),
+          new google.maps.Size(42,68)
+        );
+        marker.setIcon(pinIcon);
+        // marker.setIcon(props.iconImage);
     }
 
     //Check if it has the info window and display it
@@ -49,7 +66,7 @@ let autocomplete;
     console.log(markersArray)
     markersArray.forEach((marker) => {
       addMarker(marker);
-      console.log("added markers");
+      console.log(marker);
     })
   };
 
@@ -120,6 +137,7 @@ const getFromDatabase = async () =>{
       snapshot.forEach(snap =>{
         const data = snap.val();
         console.log(data);
+        const iconImageSrc = `<img src="./images/iconpng.png" alt=""></img>`
         const propertyLocationObject = {
           propertyId : data.propertyId,
           coords: {lat: data.lat, lng: data.lng },
@@ -135,8 +153,8 @@ const getFromDatabase = async () =>{
                 </div>
               </div>
               `,
-          iconImage:
-            'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+          iconImage: "https://firebasestorage.googleapis.com/v0/b/the-movers-2020.appspot.com/o/maps%20icons%2Fnew%20icon.png?alt=media&token=56853d11-42f1-4366-b468-25f3f309e99d",
+            
         }
     
         markersArray.push(propertyLocationObject);
@@ -228,14 +246,7 @@ const autocompleteFunc =()=>{
       infowindow.close();
       marker.setVisible(false);
       const place = autocomplete.getPlace();
-
-      // console.log(place.geometry.location);
-      // console.log(place);
-      // console.log(place.address_components[0].types);
-      // console.log(place.address_components[1].types);
-      // console.log(place.address_components[2].types);
       
-
       if (!place.geometry) {
         // User entered the name of a Place that was not suggested and
         // pressed the Enter key, or the Place Details request failed.
@@ -286,16 +297,6 @@ const autocompleteFunc =()=>{
     libraries: ["places"]
   });
   
-  // const mapOptions = {
-  //   mapTypeControl: true,
-  //   mapTypeControlOptions: {
-  //           style: MapTypeControlStyle.HORIZONTAL_BAR,
-  //           position: ControlPosition.TOP_CENTER,
-  //         },
-  //   center: { lat: 0.3476, lng: 32.5825 },
-  //   zoom: 10
-  // };
-  
   loader.load()
     .then(() => {
       const mapOptions = {
@@ -305,12 +306,8 @@ const autocompleteFunc =()=>{
                 position: google.maps.ControlPosition.LEFT_TOP,
               },
         fullscreenControl: true,
-        // fullscreenControlOptions: {
-        //   style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
-        //   position: google.maps.ControlPosition.RIGHT_TOP,
-        // },
         center: { lat: 0.3476, lng: 32.5825 },
-        zoom: 10
+        zoom: 12
       };
 
        // mapOptions.fullscreenControlOptions.position = google.maps.ControlPosition.BOTTOM_RIGHT
@@ -344,14 +341,6 @@ const autocompleteFunc =()=>{
           ],
           };
   
-          // mapTypeControlOptions: {
-          //   style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
-          //   position: google.maps.ControlPosition.TOP_CENTER,
-          // },
-
-         // map.controls[google.maps.MapTypeControlStyle.VERTICAL_BAR];
-
-
           const styleControl = document.getElementById('style-selector-control');
           if(screen.availWidth > 575){
             map.controls[google.maps.ControlPosition.TOP_CENTER].push(styleControl);

@@ -14,7 +14,7 @@
 
 <nav class="navbar navbar-expand-xlg navbar-light sticky-top" style='background-color: #e3f2fd'> 
   <div class="container-fluid navigation">
-    <a class="navbar-brand"><h2 class="logo">GO-Nyumba</h2></a>
+    <a class="navbar-brand"><h2 class="logo">GO-<span class="logo__span">Nyumba</span></h2></a>
 
     <div class="downloadAppsHeader toggleButtonsWrapper">
       <a href="#" class=" toggleMapAndCardsBtn toggleMapAndCardsBtn--1" id="showCards">Show Cards</a>
@@ -139,10 +139,10 @@
         </button>
       </div>
       <div class="modal-body">
-        <form class="sendMessageForm type_msg">
+        <form class="sendMessageForm type_msg" autocomplete="off">
             <!-- <label for="message-text" class="col-form-label">Message:</label> -->
             <textarea id="new-msg-input" rows="4" class=" form-control form__input new-chat" placeholder="Type your message here..."></textarea>
-            <!-- <input type="text" id="new-msg-input" class=" form-control new-chat" placeholder="Type a message"> -->
+            <!-- <input type="text"  autocomplete="off" id="new-msg-input" class=" form-control new-chat" placeholder="Type a message"> -->
 
           <div class="form-group text-right">
             <button type="submit" class="btn btn-primary btn-large msg_send_button">Send message</button>
@@ -171,7 +171,7 @@
             <input name="propertyCategory" type="radio" class="propertyCategory" id="forSale" value="For-Sale">
             <label for="forSale">For Sale</label>
           </div> 
-         <form id="priceForm">
+         <form id="priceForm" autocomplete="off">
           <div>
             <label class="labelBlock" for="price">Price Range</label>
             <input type="number" id="minPrice" class="priceRange" name="price" placeholder="Min">
@@ -360,10 +360,10 @@
           <a href="#newPostings" class="footer__link">Kampala Surburbs</a><br>
           <a href="#newPostings" class="footer__link">Mostly Visited</a>
         <div>
-          <form >
+          <form autocomplete="off">
             <label for="newsletter">Register for News and Updates:</label>
             <div class="form__group" style="display: flex;">
-              <input type="email" id="newsletter" class="form__input" placeholder="  Enter Your Email" required>
+              <input type="email" autocomplete="off" id="newsletter" class="form__input" placeholder="  Enter Your Email" required>
               <input type="submit" value="Submit">
             </div>
           </form>
