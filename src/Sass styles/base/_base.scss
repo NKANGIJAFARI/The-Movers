@@ -38,6 +38,9 @@ body {
   font-weight: 300;
   background-color: #87cefa;
   overflow-x: hidden !important;
+
+  animation: fadeIn !important;
+  animation-duration: 2s !important;
 }
 
 body,

@@ -8,6 +8,30 @@
   opacity: 0.6px;
 }
 
+.submitAdFormWrapper {
+  padding: 4rem 5rem 10rem 5rem;
+  font-size: 1.6rem;
+  display: flex;
+  justify-self: center;
+  max-width: 1200px !important;
+
+  @include respond(tab-port) {
+    padding: 4rem 5rem 6rem 5rem;
+  }
+
+  @include respond(phone-large) {
+    padding: 4rem 5rem 6rem 5rem;
+  }
+
+  @include respond(phone) {
+    padding: 4rem 5rem 6rem 5rem;
+  }
+  h1 {
+    margin-bottom: 2rem;
+    color: $color-primary;
+  }
+}
+
 // .goToSignIn {
 //   width: 50%;
 //   margin: 0px auto;

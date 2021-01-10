@@ -4,13 +4,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChatRoom</title>
 </head>
-<body>
+<body class="chat__body">
     
   <!--Place the navigation below-->
   <nav class="navbar navbar-expand-xlg navbar-light sticky-top" style='background-color: #e3f2fd'> 
     <div class="container-fluid navigation">
-      <a class="navbar-brand"><h2 class="logo">GO-Nyumba</h2></a>
+      <a class="navbar-brand"><h2 class="logo">GO-<span class="logo__span">Nyumba</span></h2></a>
   
+      <div class="navbar__appdownload">
+        <!-- <p class="appsDescription">Download App on</p> -->
+        <a href="#"><img src="images/applestore2.a91717284c8e616bacdb54081057fe3f.png" style="width: 10rem;" alt="applestore"></a>
+        <a href="#"><img src="images/playstore.d56dbab1c46b35be9a89ba16c5093835.png"  style="width: 10rem;" alt="playstore"></a>
+      </div>  
   
     <div class="navbar__right ">
       <div class="activeUser messageIcon ">
@@ -146,7 +151,7 @@
                 </div>
                 <div class="srch_bar chat__left--searchBar">
                   <div classs="stylish-input-group chat__left--searchBar-inputWrap">
-                    <input type="text" class="search-bar  chat__left--searchBar-input"  placeholder="Search messages" >
+                    <input type="text"  autocomplete="off" class="search-bar  chat__left--searchBar-input"  placeholder="Search messages" >
                     <span class="input-group-addon  chat__left--searchBar-icon">
                       <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
                     </span> 
@@ -154,9 +159,9 @@
                 </div>
                 <div>
                   <button class="btn-outline-secondary addNewMessageBtn chat__left--addMsgBtn">New chat</button>
-                  <form class="hide addNewMessageForm">
+                  <form class="hide addNewMessageForm" autocomplete="off">
                     <div class="input-group mb-2 mr-sm-2">
-                      <input type="email" class="form-control form__input addNewMessageFormInput" id="enterEmailAddress" placeholder="Enter Email Address">
+                      <input type="email" autocomplete="off" class="form-control form__input addNewMessageFormInput" id="enterEmailAddress" placeholder="Enter Email Address">
                       <div class="input-group-prepend">
                         <button type="submit" class="btn btn-success">Add</button>
                         <button type="reset" class="btn btn-danger">Cancel</button>
@@ -176,7 +181,7 @@
               
                <div class="chat__right--header">
 
-                <!-- Add the cjhat head here -->
+                <!-- Add the chat head here -->
                </div>
                 <div class="mesagesList">
 
@@ -218,33 +223,20 @@
                 </div>
     
               <div class="sendMessageFormWrapper">
-                <form class="type_msg sendMessageForm">
+                <form class="type_msg sendMessageForm" autocomplete="off">
                   <div class="input_msg_write">
-                    <!-- <input type="text" id="new-msg-input" class="new-chat" placeholder="Type a message" /> -->
-                    <textarea class="new-chat form__input"  id="new-msg-input"  placeholder="Type a message" rows="1"></textarea>
-                    <button class="msg_send_btn" type="submit"><i class="far fa-paper-plane"></i></i></button>
+                    <!-- <input type="text"  autocomplete="off" id="new-msg-input" class="new-chat" placeholder="Type a message" /> -->
+                    <textarea class="new-chat form__input"  id="new-msg-input"  placeholder="Type a message" rows="2" cols="3"></textarea>
+                    <button class="msg_send_btn" type="submit"><i class="far fa-paper-plane"></i></button>
                   </div>
                 </form>
 
                 <div class="attachmentWrapper">
-                  <label for="file-input">
-                    <img class="attachmentIcon"  src="images/attachment image.f44bbc5eec102a7c3c42aa3d8027f2a0.png"/>
-                  </label>
-                  <input id="file-input" type="file"/>    
-
                   <label for="image-input">
                     <img class="imageIcon"  src="images/image icon.459900bb2921d2c15fa1be0dcd1c5645.png"/>
                   </label>
-                  <input id="image-input" type="file" multiple/> 
-                  <img class="voiceIcon" src="images/voice icon.0efdb2b1cc19865017710deaaa91350e.png">           
+                  <input id="image-input" type="file" multiple/>         
                 </div>
-
-                <!-- <div class="image-upload">
-                  <label for="file-input">
-                    <img  src="./images/voice icon.png">/>
-                  </label>
-                  <input id="file-input" type="file" />
-                </div> -->
             </div>
             </div>
           

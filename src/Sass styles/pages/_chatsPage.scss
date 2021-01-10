@@ -14,14 +14,14 @@ button {
 }
 
 .chatWrapper {
-  max-width: 1170px;
+  max-width: 1200px;
   margin: 0px auto;
-  padding-right: 3px;
-  padding-left: 3px;
+  padding-right: 1px;
+  padding-left: 1px;
   position: relative;
-  height: 90%;
+  height: 99.9%;
   overflow: hidden;
-  background-color: blueviolet;
+  background-color: $color-primary;
   /* max-height: 88%;
     overflow: hidden;   */
 }
@@ -30,14 +30,19 @@ button {
   clear: both;
   height: 100%;
 
+  &__body {
+    display: flex;
+    flex-direction: column;
+    height: 99.9%;
+  }
   &__left {
     background: #f8f8f8 none repeat scroll 0 0;
     float: left;
-    height: 100%;
+    height: 99.8%;
     width: 40%;
-    border-right: 1px solid #c4c4c4;
+    border-right: 1px solid $color-secondary;
 
-    @include respond(tab-port) {
+    @include respond(phone-large) {
       width: 100%;
       float: none;
 
@@ -157,6 +162,8 @@ button {
 
   &__right {
     background-color: $color-tertiary;
+    display: flex;
+    flex-direction: column;
     color: #05728f;
     position: relative;
     float: left;
@@ -164,7 +171,7 @@ button {
     width: 60%;
     height: 100%;
     z-index: 1;
-    @include respond(tab-port) {
+    @include respond(phone-large) {
       width: 100%;
       float: none;
 
@@ -226,6 +233,7 @@ button {
         left: 20%;
         position: relative;
         display: inline-block;
+        margin-left: 4rem;
 
         &--name {
           font-size: 18px;
@@ -259,7 +267,7 @@ button {
 // }
 .mesagesList {
   width: 100%;
-  height: 83%;
+  height: 72%;
   overflow-y: auto;
   padding: 2px 5px 3px 5px;
 
@@ -371,11 +379,17 @@ button {
 .sendMessageForm {
   border: 1px solid #c4c4c4;
   position: relative;
-  width: 70%;
+  width: 75%;
   padding: 0px 0px 0px 0px;
   margin: 0px 0px 0px 0px;
   border-radius: 20px;
   background-color: #faf7f7;
+  display: flex;
+  flex-direction: column;
+
+  & text-area {
+    width: 70% !important;
+  }
 }
 .sendMessageForm input {
   background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
@@ -402,6 +416,7 @@ button {
   top: 3px;
   width: 33px;
   margin-right: 3px;
+  z-index: 1080;
 }
 
 .attachmentWrapper {
@@ -447,4 +462,8 @@ button {
 
 .displayBeforeMsgs__paragraph {
   color: $color-secondary;
+}
+
+.input_msg_write {
+  flex: 0.8;
 }

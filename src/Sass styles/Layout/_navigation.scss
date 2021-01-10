@@ -5,6 +5,16 @@
       flex-direction: row;
     }
   }
+
+  &-brand {
+    cursor: pointer;
+  }
+
+  &__appdownload {
+    @include respond(phone-large) {
+      display: none;
+    }
+  }
   &__wrapper {
     position: absolute;
     top: 100%;
@@ -224,14 +234,14 @@
 .logo {
   font-size: 2.7rem;
   margin: 0;
-  color: rgba(25, 129, 226, 0.911);
+  color: $color-primary;
   border: 0.3rem white solid;
   border-radius: 10px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
     'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
-  & span {
-    color: $color-primary;
+  &__span {
+    color: rgba(25, 129, 226, 0.911);
   }
 }
 

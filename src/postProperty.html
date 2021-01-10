@@ -11,8 +11,13 @@
  
   <nav class="navbar navbar-expand-xlg navbar-light sticky-top" style='background-color: #e3f2fd'> 
     <div class="container-fluid navigation">
-      <a class="navbar-brand"><h2 class="logo">GO-Nyumba</h2></a>
+      <a class="navbar-brand"><h2 class="logo">GO-<span class="logo__span">Nyumba</span></h2></a>
   
+      <div class="navbar__appdownload">
+        <!-- <p class="appsDescription">Download App on</p> -->
+        <a href="#"><img src="images/applestore2.png" style="width: 10rem;" alt="applestore"></a>
+        <a href="#"><img src="images/playstore.png"  style="width: 10rem;" alt="playstore"></a>
+      </div>  
   
     <div class="navbar__right ">
       <div class="activeUser messageIcon ">
@@ -117,26 +122,25 @@
 
   <!--POST AN AD BELOW-->
     <div class="container submitAdFormWrapper owner" style="display: none;">
-        <form id="submitAdForm" class="same submitAdForm form">
-          <h1 class="suh text-center text-dark">Post a Property</h1>   
+        <form id="submitAdForm" class="same submitAdForm form" autocomplete="off">
+          <h1 class="text-center text-dark">Post a Property</h1>   
           <div class="alert alert-success wrongInfo fadeInUp" id="submitPostingsuccessfull" style="display: none;" role="alert" ></div>
           
           <div class="form-row text-center">
-            <div class="form__group col-md-6 col-lg-4">
+            <div class="form__group col-sm-6 col-md-4 col-lg-4">
               <input name="rooms" type="number" class=" form__input" id="rooms" placeholder="Number of rooms" required>
               <label for="rooms" class="form__label"><b>Number of rooms</b></label> 
             </div>
-            <div class="form__group col-md-6 col-lg-4">
+            <div class="form__group col-sm-6 col-md-4 col-lg-4">
               <input name="price" type="number" class="form__input" id="price" placeholder="Price in UgX " required>
               <label for="price" class="form__label"><b>Price(UG Shs)</b></label>
             </div>
-            <div class="form-group col-md-6 col-lg-4">
+            <div class="form-group col-sm-6 col-md-4 col-lg-4">
               <input name="location" type="text" class="form__input" id="location" placeholder="Location" required>
               <label for="location" class=" form__label"><b>Location</b></label>
             </div>
-          </div>
-          <div class="form-row text-center">
-              <div class="form__group col-md-6 col-lg-4">
+
+              <div class="form__group col-sm-6 col-md-4 col-lg-4">
                 <select name="propertyUsage" class=" form__input" id="propertyUsage" aria-placeholder="dfghj">
                     <option disabled selected value>Select</option>
                     <option>Residential</option>
@@ -144,7 +148,7 @@
                 </select>
                 <label for="propertyUsage" class="form__label"><b>propertyUsage</b></label>
             </div>
-            <div class="form-group col-md-6 col-lg-4">
+            <div class="form__group col-sm-6 col-md-4 col-lg-4">
                 <select name="status" class="form__input" id="propertyStatus">
                     <option disabled selected value>Select</option>
                     <option value="For-rent">For-Rent</option>
@@ -152,7 +156,7 @@
                 </select>
                 <label for="category" class="form__label"><b>Property Category</b></label>
             </div>
-            <div class="form-group col-md-6 col-lg-4">
+            <div class="form__group col-sm-6 col-md-4 col-lg-4">
               <select name="propertyDescription" class="form__input" id="propertyDescription">
                   <option disabled selected value>Select</option>
                   <option value="singleRoom">Single Room</option>
@@ -166,10 +170,9 @@
               </select>
               <label for="propertyDescription" class="form__label"><b>Property Description</b></label>
           </div>
-          </div>
 
-        <div class="form-row text-center">
-          <div class="form-group col-md-7">
+
+          <div class="form__group col-md-7">
             <textarea name="description" class="form__input" id="description" rows="3" placeholder=" " required> </textarea>
             <label for="description" class="form__label"><b>Property Info</b></label>
           </div>
@@ -177,73 +180,89 @@
                 <input name="addimage" type="file" class="form__input" id="imageUpload" required>
                 <label for="addimage" class="form__label"><b>Add Display Image</b></label>
           </div>
-        </div>
+          </div>
+
           <div class="text-center">
             <button type="submit" class="button button--main button-small">Submit</button>
           </div>
         </form>        
-    </img>
+      </div>
 
     <!--Footer details below-->
-<footer class="container-fluid footer">
-  <div class="footer__wrapper">
-    <div class="footer__desc ">
-      <h3 class="footerLogo footer__logo">GO-Nyumba</h3>
-      <p class="siteDescription footer__desc--para paragraph">
-        Your solution in finding your next home; Due to a busy town, 
-        finding a house seems expensive, tiresome and insecure due to the 
-        many third parties associated with the process. With the innovation
-        of GO-Nyumba, you contact the Landlord directly.
-      </p>
-    </div>
-    <div class="footer__content">     
-      <div class=" footer__content--inner footer__content--inner-1  ">
-        <h3 class="footer__heading heading"> Contact Us</h3>
-        <div class="footer__social">
-          <p class="footer__paragraph footer__para">+256702139042</p>
-          <p class="footer__paragraph footer__para" >info@GO-Nyumba.com</p>
-          <p  class="footer__paragraph footer__para">Social Media: @GO-Nyumba</p>
-        </div>
-        <div class="footer__content--social u-margin-bottom-small u-margin-top-small">
-          <img class="footer__content--social-icon" src="./images/instagramlogo.png" alt="">
-          <img class="footer__content--social-icon" src="./images/facebooklogo.png" alt="">
-          <img class="footer__content--social-icon" src="./images/twitterlogo.png" alt="">
-          <img class="footer__content--social-icon" src="./images/linkedInlogo.png" alt="">
-        </div>
-        <a href="#termsAndConditions" class="footer__link">Frequently Asked Questions</a>
-      </div>
-
-      <div class="footer__content--innerWrap footer__content--inner-2" >
-        <h3 class="heading footer__heading u-margin-bottom-small">Download Apps</h3>
-        
-        <div>
-          <img src="images/playstore.png"  class="mb-4 footer__appLogo" alt="android logo">
-          <img src="images/applestore.png" class="mb-4 footer__appLogo" alt="Apple store">
-        </div>
-        <p class="paragraph footer__para">
-          Enjoy our well equiped applications on all phones.
+  <footer class="container-fluid footer">
+    <div class="footer__wrapper">
+      <div class="footer__desc ">
+        <h3 class="footerLogo footer__logo">GO-Nyumba</h3>
+        <p class="siteDescription footer__desc--para paragraph">
+          Your solution in finding your next home; Due to a busy town, 
+          finding a house seems expensive, tiresome and insecure due to the 
+          many third parties associated with the process. With the innovation
+          of GO-Nyumba, you contact the Landlord directly.
         </p>
       </div>
-      
-      <div class=" footer__content--inner footer__content--inner-3">
-        <div class="importantlinks">
-          <h3 class="heading footer__heading">Important Links</h3>
-          <a href="#newPostings" class="footer__link">New Postings</a><br>
-          <a href="#newPostings" class="footer__link">Mostly Visited</a><br>
-          <a href="#newPostings" class="footer__link">Kampala Surburbs</a><br>
-          <a href="#newPostings" class="footer__link">Mostly Visited</a>
-        <div>
-          <form >
-            <label for="newsletter">Register for News and Updates:</label>
-            <div class="form__group" style="display: flex;">
-              <input type="email" id="newsletter" class="form__input" placeholder="  Enter Your Email" required>
-              <input type="submit" value="Submit">
-            </div>
-          </form>
+      <div class="footer__content">     
+        <div class=" footer__content--inner footer__content--inner-1  ">
+          <h3 class="footer__heading heading"> Contact Us</h3>
+          <div class="footer__social">
+            <p class="footer__paragraph footer__para">+256702139042</p>
+            <p class="footer__paragraph footer__para" >info@GO-Nyumba.com</p>
+            <p  class="footer__paragraph footer__para">Social Media: @GO-Nyumba</p>
+          </div>
+          <div class="footer__content--social u-margin-bottom-small u-margin-top-small">
+            <img class="footer__content--social-icon" src="./images/instagramlogo.png" alt="">
+            <img class="footer__content--social-icon" src="./images/facebooklogo.png" alt="">
+            <img class="footer__content--social-icon" src="./images/twitterlogo.png" alt="">
+            <img class="footer__content--social-icon" src="./images/linkedInlogo.png" alt="">
+          </div>
+          <a href="#termsAndConditions" class="footer__link">Frequently Asked Questions</a>
+        </div>
+
+        <div class="footer__content--innerWrap footer__content--inner-2" >
+          <h3 class="heading footer__heading u-margin-bottom-small">Download Apps</h3>
+          
+          <div>
+            <img src="images/playstore.png"  class="mb-4 footer__appLogo" alt="android logo">
+            <img src="images/applestore.png" class="mb-4 footer__appLogo" alt="Apple store">
+          </div>
+          <p class="paragraph footer__para">
+            Enjoy our well equiped applications on all phones.
+          </p>
+        </div>
+        
+        <div class=" footer__content--inner footer__content--inner-3">
+          <div class="importantlinks">
+            <h3 class="heading footer__heading">Important Links</h3>
+            <a href="#newPostings" class="footer__link">New Postings</a><br>
+            <a href="#newPostings" class="footer__link">Mostly Visited</a><br>
+            <a href="#newPostings" class="footer__link">Kampala Surburbs</a><br>
+            <a href="#newPostings" class="footer__link">Mostly Visited</a>
+          <div>
+            <form autocomplete="off">
+              <label for="newsletter">Register for News and Updates:</label>
+              <div class="form__group" style="display: flex;">
+                <input type="email" autocomplete="off" id="newsletter" class="form__input" placeholder="  Enter Your Email" required>
+                <input type="submit" value="Submit">
+              </div>
+            </form>
+          </div>
+        </div>
         </div>
       </div>
+  </footer>
+
+<!--AFTER FOORTER DETAILS-->
+  <div class="lastFooter container-fluid justify-content-center">
+    <div class="row text-center py-2"> 
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <p>©2020 <span>GO-Nyumba</span></p>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <p>Built with <img width="20px" src="images/heart.gif"> by Nkangi Jafari</span></p>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <p>Get Social with GO-Nyumba</span></p>
       </div>
     </div>
-</footer>
+  </div> 
   </body>
 </html>

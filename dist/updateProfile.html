@@ -13,7 +13,7 @@
  <!-- NAVIGATION BAR BELOW-->
  <nav class="navbar navbar-expand-xlg navbar-light sticky-top" style='background-color: #e3f2fd'> 
   <div class="container-fluid navigation">
-    <a class="navbar-brand"><h2 class="logo">GO-Nyumba</h2></a>
+    <a class="navbar-brand"><h2 class="logo">GO-<span class="logo__span">Nyumba</span></h2></a>
 
 
   <div class="navbar__right ">
@@ -181,9 +181,9 @@
                   <br>
                   <p>Current Email is: <span id="currentEmail">nkangi jafari@gmail.com</span></p>
                   <br>
-                  <input type="email" class="form-control" id="emailUpdate" value="Enter New Email">
+                  <input type="email" autocomplete="off" class="form-control" id="emailUpdate" value="Enter New Email">
                   <br>
-                  <input type="email" class="form-control" id="confirmEmailUpdate" value="Confirm New Email">
+                  <input type="email" autocomplete="off" class="form-control" id="confirmEmailUpdate" value="Confirm New Email">
                 </div>
             </form>	
         </div>
@@ -284,10 +284,10 @@
           <a href="#newPostings" class="footer__link">Kampala Surburbs</a><br>
           <a href="#newPostings" class="footer__link">Mostly Visited</a>
         <div>
-          <form >
+          <form autocomplete="off">
             <label for="newsletter">Register for News and Updates:</label>
             <div class="form__group" style="display: flex;">
-              <input type="email" id="newsletter" class="form__input" placeholder="  Enter Your Email" required>
+              <input type="email" autocomplete="off" id="newsletter" class="form__input" placeholder="  Enter Your Email" required>
               <input type="submit" value="Submit">
             </div>
           </form>

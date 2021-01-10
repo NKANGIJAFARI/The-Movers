@@ -5,7 +5,7 @@ import { db, auth } from './firebaseConfig';
 
 import './googleMaps';
 
-import { getLikedPosts } from './cardsFunctionality';
+import { chatFunctionality, getLikedPosts } from './cardsFunctionality';
 import pic from "../images/star2.png";
 
 const postedProperties = document.querySelector('.postedProperties');
@@ -254,7 +254,10 @@ const domManipulation = async()=>{
     spinner.style.display ="none"
     await otherFunctions();
     filterBtn.style.display = "block";
-    await getLikedPosts(propertyArray);
+    if(propertiesList.docs.length > 0){
+      chatFunctionality()
+      getLikedPosts(propertyArray);
+    }
 }
 
 domManipulation()

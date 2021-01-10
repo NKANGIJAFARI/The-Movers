@@ -390,8 +390,8 @@ const uploadImages = async() =>{
             
         }).then(()=>{        
             //After uploading, go to the view post to check new updates
-             //localStorage.setItem("propIdToBeViewed", propId);
-             //window.location.pathname = "/propertyDetails.html"
+             localStorage.setItem("propIdToBeViewed", propId);
+             window.location.pathname = "/propertyDetails.html"
             console.log('UPDATED SUCCESSFULLY')
         }).catch(err=> console.log(err.message));
 

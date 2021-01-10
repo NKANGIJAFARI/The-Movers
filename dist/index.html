@@ -8,12 +8,17 @@
 
 </head>
 
-<body>
+<body style="z-index: 1">
   <!--Place the navigation below-->
   <nav class="navbar navbar-expand-xlg navbar-light sticky-top" style='background-color: #e3f2fd'> 
     <div class="container-fluid navigation">
-      <a class="navbar-brand"><h2 class="logo">GO-Nyumba</h2></a>
+      <a class="navbar-brand"><h2 class="logo">GO-<span class="logo__span">Nyumba</span></h2></a>
   
+      <div class="navbar__appdownload">
+        <!-- <p class="appsDescription">Download App on</p> -->
+        <a href="#"><img src="images/applestore2.a91717284c8e616bacdb54081057fe3f.png" style="width: 10rem;" alt="applestore"></a>
+        <a href="#"><img src="images/playstore.d56dbab1c46b35be9a89ba16c5093835.png"  style="width: 10rem;" alt="playstore"></a>
+      </div>
   
     <div class="navbar__right ">
       <div class="activeUser messageIcon ">
@@ -124,10 +129,10 @@
         </button>
       </div>
       <div class="modal-body">
-        <form class="sendMessageForm type_msg">
+        <form class="sendMessageForm type_msg" autocomplete="off">
             <!-- <label for="message-text" class="col-form-label">Message:</label> -->
             <textarea id="new-msg-input" rows="4" class=" form-control form__input new-chat" placeholder="Type your message here..." required></textarea>
-            <!-- <input type="text" id="new-msg-input" class=" form-control new-chat" placeholder="Type a message"> -->
+            <!-- <input type="text"  autocomplete="off" id="new-msg-input" class=" form-control new-chat" placeholder="Type a message"> -->
 
           <div class="form-group text-right">
             <button type="submit" style="font-size: 1.6rem;
@@ -271,36 +276,6 @@
         <button class="button button--main button-small" href="/propertyListing.html" class="active" role="button" aria-pressed="true">View all properties</button>
       </div>
     </div>
-
-    
-    <!-- <div class="row justify-content-center">
-      <div class="col-xs-4 col-sm-4 col-lg-3 col-md-3 p-1"> 
-        <form class="posts__form buyRent">
-          <div class="form-group ">
-            <select class="form-control selectRentBuy" id="rentSale">
-              <option selected>Choose to Rent/Buy</option>
-              <option value="rent">Rent</option>
-              <option value="buy">Buy</option>
-            </select>
-          </div>
-        </form>
-      </div>
-
-      <div class="col-xs-4 col-sm-4 col-lg-3 col-md-3 p-1"> 
-        <form class="options m-0 p-0">
-          <div class="form-group">
-            <select class="form-control select priceSelect" id="rentSale">
-              <option>Preffered Price range</option>
-              <option id="800001" value="800001">800,001 +</option>
-              <option value="500001">500,001 - 800,000</option>
-              <option value="300001">300,001 - 500,000</option>
-              <option value="150001">150,001 - 300,000</option>
-              <option value="0">Below 150,000</option>
-            </select>
-          </div>
-        </form>   
-      </div> 
-    </div> -->
 
     </div>  
 </section>
@@ -706,13 +681,13 @@
         </div>
         <div class="col-lg-6 text-center doneDeal__formside">
           <h2 class="heading u-margin-bottom-big heading__darkPurple">Any Questions, Dont hesitate</h2>
-          <form class="form form__questions doneDeal__form">
+          <form class="form form__questions doneDeal__form" autocomplete="off">
             <div class="form-group u-margin-bottom-small">
-              <input type="text" name="fullname" id="name" class="form__input " placeholder="Enter Full Name">
+              <input type="text"  autocomplete="off" name="fullname" id="name" class="form__input " placeholder="Enter Full Name">
               <label for="email" class="form__label">Full Name</label>
             </div>
             <div class="form-group u-margin-bottom-small">
-              <input type="email" name="email" id="questionEmail" class="form__input " placeholder="Enter You email">
+              <input type="email" autocomplete="off" name="email" id="questionEmail" class="form__input " placeholder="Enter You email">
               <label for="email" class="form__label"> Email Address</label>
             </div>
             <div class="form-group">
@@ -783,10 +758,10 @@
           <a href="#newPostings" class="footer__link">Kampala Surburbs</a><br>
           <a href="#newPostings" class="footer__link">Mostly Visited</a>
         <div>
-          <form >
+          <form autocomplete="off">
             <label for="newsletter">Register for News and Updates:</label>
             <div class="form__group" style="display: flex;">
-              <input type="email" id="newsletter" class="form__input" placeholder="  Enter Your Email" required>
+              <input type="email" autocomplete="off" id="newsletter" class="form__input" placeholder="  Enter Your Email" required>
               <input type="submit" value="Submit">
             </div>
           </form>

@@ -1,54 +1,52 @@
 import { db, auth } from './firebaseConfig';
 import * as firebase from 'firebase/app';
 import Chatroom from '../scripts/chatScripts/chats';
-import { Button } from 'bootstrap';
+// import { Button } from 'bootstrap';
 
-setTimeout(()=>{
-
-    // Below is a function to view properties, if the view props button is 
-    //Clicked, we get its id which is the property ID both on Front
-    // and backend
-    const propertyDetailsBtns = document.querySelectorAll('.viewDetailsBtn');
-    if(propertyDetailsBtns.length === 0){
-        const failedPropertyLoad = document.querySelector('.failedPropertyLoad');
-        //failedPropertyLoad.style.display = "block";
-        
-        // window.location = 'propertyListing.html';
-    }else{ propertyDetailsBtns.forEach(btn =>{
-        btn.addEventListener('click', (e)=>{
-            e.preventDefault();
-            console.log(btn);
-            const propertyId = e.target.parentElement.getAttribute('id');
-            if(propertyId){
-                localStorage.setItem("propIdToBeViewed", propertyId)
-                window.location = "propertyDetails.html"
-            }
-        })
+export const chatFunctionality = () =>{
+        // Below is a function to view properties, if the view props button is 
+        //Clicked, we get its id which is the property ID both on Front
+        // and backend
+        const propertyDetailsBtns = document.querySelectorAll('.viewDetailsBtn');
+        propertyDetailsBtns.forEach(btn =>{
+            btn.addEventListener('click', (e)=>{
+                e.preventDefault();
+                console.log("Clicked On button", btn);
+                const propertyId = e.target.parentElement.getAttribute('id');
+                if(propertyId){
+                    localStorage.setItem("propIdToBeViewed", propertyId);
+                    window.location = "propertyDetails.html"
+                }
+            })
+        }) 
     
-    })} 
+        const contactBtns = document.querySelectorAll('.landLordContactBtn');
+        console.log("First upload",contactBtns);
 
-    try {
-        auth.onAuthStateChanged(user=>{
+        auth.onAuthStateChanged(user=> {
             if(user){
-                //Class Instances
-                const chatroom = new Chatroom(auth.currentUser.uid);
-                const contactBtns = document.querySelectorAll('.landLordContactBtn');
-    
+
                 contactBtns.forEach(btn=>{
-                
+            
                     btn.addEventListener('click', async(e)=>{
                     e.preventDefault();
+                    
+                    //Class Instances
+                    const chatroom = new Chatroom(auth.currentUser.uid);
 
+                    console.log(e.target);
                     const senderId = auth.currentUser.uid;
                     const receiverId = e.currentTarget.getAttribute("id");
                         
-                    errorHandling({
-                        type: "Can",
-                        msg: "You cant send a message to yourself",
-                        solution: "Please try contacting other landlords"
-                    });
                     if(receiverId === auth.currentUser.uid){
-                        throw new Error("You can't send email to your self")
+                        errorHandling({
+                            type: "Can",
+                            msg: "You cant send a message to yourself",
+                            solution: "Please try contacting other landlords"
+                        });
+                        
+                        return;
+                        //throw new Error("You can't send email to your self");
                     }
 
                     $('#messageModal').modal('show')
@@ -93,37 +91,28 @@ setTimeout(()=>{
                     });
                 })
                 })  
+
             }else{
-                // contactBtns.forEach(btn => {
-                //     btn.addEventListener('click', (e)=>{
-                //         e.preventDefault();
-                //         errorHandling({
-                //             msg: "You're not logged In",
-                //             solution: "PLease Login to send a message to landlord",
-                //             link: "/signInPage.html", 
-                //             type: "Un Authorised Access"
-                //         })
-                //         return;
-                //     })
-                // })
-              
+                contactBtns.forEach(btn => {
+                    btn.addEventListener('click', (e)=>{
+                        e.preventDefault();
+                        errorHandling({
+                            msg: "You're not logged In",
+                            solution: "PLease Login to send a message to landlord",
+                            link: "/signInPage.html", 
+                            type: "Un Authorised Access"
+                        })
+                        return;
+                    })
+                })
+                
                 console.log("Please sign in to send messages");
             }
             });
-    } catch (error) {
-        console.erro(error.message);
-    }  
-
-}, 5000);
-
-// Chat functionality
-const chatFunction = async() =>{
-
-   
-
 }
 
-export const getLikedPosts = async(propertyArray) =>{
+
+export const getLikedPosts = (propertyArray) =>{
     const likeBtns = document.querySelectorAll('.bi-heart');
 
 
@@ -197,8 +186,6 @@ export const getLikedPosts = async(propertyArray) =>{
             }
         })     
     }
-
-
 
 const errorHandling = ({msg, solution, type, link}) =>{
     console.log('Got an error', msg)
