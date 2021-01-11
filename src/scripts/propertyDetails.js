@@ -1,14 +1,13 @@
 import 'bootstrap';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/propertyListings.css';
-// import '../styles/main.css'
+
 import '../Sass styles/main.scss'
-//import '../styles/propertyDetails.css'
+
 import { db, database, auth } from './firebaseConfig';
 
 import pic from "../images/star2.png";
-import { getLikedPosts } from './cardsFunctionality';
+import { getLikedPosts, LikeChatViewDetailsFunctionality } from './cardsFunctionality';
 
 
 const propertyArray = [];
@@ -229,11 +228,9 @@ const renderPropertyDetails =(data)=>{
         .where("propertyDetails.uid", "==", propUID).limit(1).get();
       
         if(relatedPostByUid.docs.length === 0){
-          console.log("Found none by Uid");
           times = times + 1
         }else{
           relatedPostByUid.docs.forEach(doc=>{
-          console.log("This is BY Uid ",doc.data());
           relatedPosts.push(doc);
         });
       };
@@ -244,12 +241,10 @@ const renderPropertyDetails =(data)=>{
       .where("propertyDetails.propertyLocation", "==", location).limit(1).get()
 
     if(relatedPostByLocation.docs.length === 0){
-      console.log("Found none by Location");
        times = times + 1;
     }else{
       relatedPostByLocation.docs.forEach(doc=>{
         relatedPosts.push(doc);
-        console.log("This is BY Location ",doc.data())
       });
     }
 
@@ -260,9 +255,9 @@ const renderPropertyDetails =(data)=>{
     const relatedPostByUsage = await db.collection('housePostings')
       .where("propertyDetails.propertyUsage", "==", usage).limit(times).get()
 
-      console.log("This is for the usage", relatedPostByUsage.docs)
+     
       if(relatedPostByUsage.docs.length === 0){
-          console.log("Found none by Usage")
+
           times = times + 1
       }else{
           relatedPostByUsage.docs.forEach(doc=>{
@@ -305,7 +300,7 @@ const renderPropertyDetails =(data)=>{
                   <i class="fas fa-map-marked-alt"></i>
                   <span class="text-black">MAP</span>
                 </a>
-                <a class="card__icons--item button landLordContactBtn" data-toggle="modal" data-target="#messageModal" id="${data.uid}">
+                <a class="card__icons--item button landLordContactBtn" id="${data.uid}">
                   <i class="far fa-comment-alt"></i>
                   CHAT
                 </a>
@@ -324,7 +319,7 @@ const renderPropertyDetails =(data)=>{
                 </a>
               </span>
       
-              <!-- <a href="#landlordContacts" data-toggle="modal" data-target="#messageModal" data-uid="${data.uid}" class="card__body--ContactBtn">CONTACT LANDLORD</a> -->
+              <!-- <a href="#landlordContacts"  data-uid="${data.uid}" class="card__body--ContactBtn">CONTACT LANDLORD</a> -->
             </div>
             <div class="card__body--postedByDetails">
               <img src="${data.postedByImg}" alt="Posted By" class="card__body--postedByImg">
@@ -342,7 +337,8 @@ const renderPropertyDetails =(data)=>{
   const allFunctions = async() =>{
     await postIt()
     await showRelatedPosts()
-    await getLikedPosts(relatedPosts, auth.currentUser.uid);
+    getLikedPosts(relatedPosts);
+    LikeChatViewDetailsFunctionality()
   }
 
   allFunctions();

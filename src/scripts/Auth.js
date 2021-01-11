@@ -80,7 +80,7 @@ const distiguishUserUI = async() =>{
         if(window.location.pathname === "/postProperty.html" || window.location.pathname === "/editPost.html" ){
             window.location = 'index.html'
         }else{
-            console.log("not post")
+            console.log("")
         }
     }
 

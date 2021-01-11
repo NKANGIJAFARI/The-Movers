@@ -83,7 +83,6 @@ auth.onAuthStateChanged(user=>{
         const chatBackButton = document.querySelector('.chatBackButton');
         
         chatBackButton.addEventListener('click', (e)=>{
-          console.log(e.currentTarget.classList.contains('chatBackButton'))
           if(e.currentTarget.classList.contains('chatBackButton')){
             //Give the chatlist a ting 
             chatRight.classList.add('inactive');

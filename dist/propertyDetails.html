@@ -114,6 +114,47 @@
       </div>
   </nav>
 
+    <!-- Send message modal -->
+<div class="modal fade " id="messageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content messageModal text-center justify-content-center">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Message to: 
+          <span class="messageReceiver"></span>
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="sendMessageForm type_msg" autocomplete="off">
+            <!-- <label for="message-text" class="col-form-label">Message:</label> -->
+            <textarea id="new-msg-input" rows="4" class=" form-control form__input new-chat" placeholder="Type your message here..." required></textarea>
+            <!-- <input type="text"  autocomplete="off" id="new-msg-input" class=" form-control new-chat" placeholder="Type a message"> -->
+
+          <div class="form-group text-right">
+            <button type="submit" style="font-size: 1.6rem;
+            margin-top: 10px; margin-right: 20px;" class="btn btn-primary btn-large msg_send_button">Send message</button>
+            <!-- <button type="button" class="btn btn-danger btn-large" data-dismiss="modal">Cancel</button> -->
+          </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<!-- Error handling modal -->
+<div class="modal fade bd-example-modal-sm errorHandlingModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+      <div class="modal-content error-modal-content">
+          <h2 class="errorMessage">${msg}</h2>
+          <p class="errorSolution"> ${solution} </p>
+          <div id="errorForwardLink"></div>
+      </div>
+  </div>
+  </div>
+
    <main>
      <div class="container-fluid">
        <div class="row">
@@ -155,14 +196,19 @@
      </div>
 
      <div class="container-fluid">
-       <div class="row landlordDetailsWrapper">
+       <div class="row landlordDetailsWrapper postCardWrapper">
+
+        <!-- postCardWrapper class is to add event listeners to the like button -->
+
         <!-- Insert Landlord details in this div by Javascript -->
        
        </div>   
      </div>
 
      <div class="container-fluid">
-      <div class="row relatedPosts">
+      <div class="row relatedPosts postCardWrapper">
+        <!-- postCardWrapper class is to add event listeners to the cards -->
+
       <!-- Insert related Posts in this div by Javascript -->
       
       </div>    

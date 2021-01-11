@@ -243,7 +243,6 @@ auth.onAuthStateChanged((user)=> {
                         type: 'image/jpeg',
                         lastModified: Date.now()
                     });
-                    console.log("COMPRESSED",file);
                 }, 'image/jpeg', 1);
 
                 

@@ -63,10 +63,8 @@ let autocomplete;
 
  //A function to addMarkers to the map
   const addMarkers = () => {
-    console.log(markersArray)
     markersArray.forEach((marker) => {
       addMarker(marker);
-      console.log(marker);
     })
   };
 
@@ -96,7 +94,7 @@ let autocomplete;
                 <i class="fas fa-map-marked-alt"></i>
                 <span class="text-black">MAP</span>
               </a>
-              <a class="card__icons--item button landLordContactBtn" data-toggle="modal" data-target="#messageModal" id="${data.uid}">
+              <a class="card__icons--item button landLordContactBtn" id="${data.uid}">
                 <i class="far fa-comment-alt"></i>
                 CHAT
               </a>
@@ -115,7 +113,6 @@ let autocomplete;
               </a>
             </span>
     
-            <!-- <a href="#landlordContacts" data-toggle="modal" data-target="#messageModal" data-uid="${data.uid}" class="card__body--ContactBtn">CONTACT LANDLORD</a> -->
           </div>
           <div class="card__body--postedByDetails">
             <img src="${data.postedByImg}" alt="Posted By" class="card__body--postedByImg">
@@ -133,10 +130,8 @@ let autocomplete;
 const getFromDatabase = async () =>{
   try {
     database.ref('locationsCoords/').once('value').then((snapshot)=>{
-      console.log('PROPERTIES ARE GOT')
       snapshot.forEach(snap =>{
         const data = snap.val();
-        console.log(data);
         const iconImageSrc = `<img src="./images/iconpng.png" alt=""></img>`
         const propertyLocationObject = {
           propertyId : data.propertyId,
@@ -176,7 +171,6 @@ getFromDatabase();
   const geolocate = () => {
       if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition((position) => {
-            console.log(position.coords.latitude)
 
           const lat = position.coords.latitude;
           const lng = position.coords.longitude;
@@ -372,7 +366,6 @@ const showPropertyOnClickedMarker = async(propId) =>{
   const showPropertyDetails = document.querySelector('.showPropDetails')
 
   const property =  await db.collection('housePostings').doc(propId).get();
-  console.log(property.data());
   const data = property.data().propertyDetails;
   showPropertyDetails.innerHTML = postingCard(data);
   if( showPropDetailsWrapper.classList.contains('active')){

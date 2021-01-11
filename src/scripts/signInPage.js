@@ -44,7 +44,6 @@ const signInForm = document.querySelector(".signInForm");
             auth.signInWithEmailAndPassword(email, password).then(()=>{
                 signInForm.reset();
                 window.location = "index.html";
-                console.log(`User ${email} is signed in`);
             }).catch(err=> console.log(err));
         });
     
@@ -76,7 +75,7 @@ toggleSignInUpBtns.forEach(btn =>{
         e.preventDefault();
 
         const btnType = e.currentTarget.getAttribute("id");
-        console.log(btnType);
+
 
         if(btnType === "signUp"){
             logInRegisterWrapper.classList.add("right-panel-active");

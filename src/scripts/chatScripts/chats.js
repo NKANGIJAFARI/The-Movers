@@ -38,8 +38,6 @@ import { data } from 'jquery';
 
     async addChat(message, chatID, receiverId){
         // format a chat object
-        console.log("This is the chat id", chatID);
-        console.log("rECIEVER ID", receiverId)
 
         const now = new Date();
         const chat = {
@@ -68,7 +66,6 @@ import { data } from 'jquery';
 //WILL BE USED TO SEND MESSAGE IN HOMEPAGE AND PROPERTY PAGE
     async addChat2(message, receiverId, chatID){
         // format a chat object
-        console.log(message)
         const now = new Date();
         const chat = {
             chat_Id: chatID,
@@ -162,7 +159,7 @@ import { data } from 'jquery';
                             callback(change.doc.data());
                         }
                         if (change.type === "modified") {
-                            console.log(change.doc.data())
+                        
                         }
                     });
                 });
