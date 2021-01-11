@@ -4,8 +4,6 @@ import 'bootstrap';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// import '../styles/main.css';
-// import '../styles/editPost.css'
 
 import '../Sass styles/main.scss';
 
@@ -48,10 +46,9 @@ let newPropertyDetails = { }
 
 const hideAddImagesInput = () =>{
     if(usedSlots.length === 6){
-        console.log("mORE THAN 6", usedSlots.length);
+
          addImagesInput.style.display = "none";
-        // addImagesInput.classList.add("hide");
-        console.log(addImagesInput)
+
     }else if(usedSlots.length < 6){
         // document.querySelector('#imagesAllowed').innerContent = (6 - usedSlots.length)
          addImagesInput.style.display = "block";
@@ -83,12 +80,11 @@ const imageToBeUploadedCard = (image) =>{
 
 const showPropToBeEdited = async() =>{
     const property = await db.collection('housePostings').doc(propId).get();
-    console.log(property.data())
+
 
     const editedDetails = document.querySelector(".editedDetails");
     const data = property.data().propertyDetails;
 
-    console.log(data)
     const imagesFromDB = property.data().imagesFiles;
 
     const htmlForm = `
@@ -196,7 +192,6 @@ const showPropToBeEdited = async() =>{
     }
 
     Object.entries(imagesFromDB).forEach((image, index) =>{
-        console.log('From db', image)
         numberFromDB = numberFromDB + 1;
         const [key, value] = image;
         usedSlots.push(key);
@@ -220,7 +215,6 @@ const removePic = async() =>{
             for(let i=0; i < imageWraps.length; i++){
                 const imageWrapId = imageWraps[i].getAttribute('id');
                 if(imageWrapId === btnId){
-                    console.log('FOund a match')
                     imageWraps[i].style.display = "none";
                     arrayOfimagesFromDB =  arrayOfimagesFromDB.filter(image => image.imageNumber !== imageWrapId );
                     arrayOfImagesFromUpload =  arrayOfImagesFromUpload.filter(image => image.imageNumber !== imageWrapId );
@@ -237,10 +231,9 @@ const removePic = async() =>{
 const fileUploadCompressor = async() => {
     //Check File API support
     if(window.File && window.FileList && window.FileReader){
-        console.log('yOU CAN UPLOAD');
+
         const getImagesInput = document.querySelector('.insertImage');    
         getImagesInput.addEventListener("change", (e) => {
-            console.log("Got the pics")
 
         //We have an array with images from database and for that reason,
         //We can only add few pics to make it 6. Each property can only have 6pics
@@ -360,7 +353,6 @@ playThem()
 let fileName = "";
 
 const uploadImages = async() =>{
-    console.log("Uploading....")
     if(arrayOfImagesFromUpload.length === 0){
         imagesToBeDeletedFromStorage.forEach(image =>{
             var deleteImgRef = storage.ref().child(`housePostings/${propId}/${image}`);

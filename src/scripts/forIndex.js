@@ -1,8 +1,7 @@
 // import 'bootstrap';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import '../styles/styleforIndex.css';
-// import '../styles/main.css'
+
 import pic from "../images/star2.png";
 
 import { db, auth } from './firebaseConfig';
@@ -12,8 +11,8 @@ import "../Sass styles/main.scss"
 import '../scripts/tabs';
 
 
-import { getLikedPosts } from './cardsFunctionality';
-import { chatFunctionality } from './cardsFunctionality';
+import { getLikedPosts, LikeChatViewDetailsFunctionality } from './cardsFunctionality';
+import {  } from './cardsFunctionality';
 
 
 
@@ -69,7 +68,6 @@ const fetchPostsToHome = async(divToPutPostings)=>{
             </a>
           </span>
   
-          <!-- <a href="#landlordContacts" data-toggle="modal" data-target="#messageModal" data-uid="${data.uid}" class="card__body--ContactBtn">CONTACT LANDLORD</a> -->
         </div>
         <div class="card__body--postedByDetails">
           <img src="${data.postedByImg}" alt="Posted By" class="card__body--postedByImg">
@@ -215,7 +213,7 @@ const fetchPostsToHome = async(divToPutPostings)=>{
                 <i class="fas fa-map-marked-alt"></i>
                 <span class="text-black">MAP</span>
             </a>
-            <a class="card__icons--item button landLordContactBtn" data-toggle="modal" data-target="#messageModal" id="${data.uid}">
+            <a class="card__icons--item button landLordContactBtn" id="${data.uid}">
                 <i class="far fa-comment-alt"></i>
                 CHAT
             </a>
@@ -247,7 +245,6 @@ const fetchPostsToHome = async(divToPutPostings)=>{
   const MultiCarousel = document.querySelector('.MultiCarousel-inner')
 const allFunctions = async()=>{
     const posts = await fetchPostsToHome(MultiCarousel);
-    console.log(posts.docs.length)
     spinner.style.display ="none";
  
     // await chatFunction()
@@ -260,8 +257,8 @@ const allFunctions = async()=>{
     });
 
     if(posts.docs.length > 0){
-        chatFunctionality();
         getLikedPosts(propertyArray);
+        LikeChatViewDetailsFunctionality();
     }
     
 }

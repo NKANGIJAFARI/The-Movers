@@ -1,9 +1,6 @@
 import 'bootstrap';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/fromolx.css';
- //import '../styles/userProfile.css';
-import '../styles/main.css';
 
 import '../Sass styles/main.scss';
 
@@ -142,11 +139,9 @@ const categorySelection = (data)=>{
   const categorySelection = document.querySelector('#categorySelection');
   const postings = document.querySelectorAll('.portfolio-item');
   categorySelection.addEventListener('change', (e)=>{
-    console.log("found", e.target.value, data.category);
+  
     if(e.target.value != data.category){
-      console.log('this is a category', e.target.value)
       postings.forEach(post=>{
-        console.log(post)
         post.classList.add('hide');
       })
     }
@@ -158,8 +153,6 @@ const categorySelection = (data)=>{
   
   //Fetching UserPostings
   const fetchUserPostings =async()=>{
-    console.log("Func started")
-
 
     const spinner = document.querySelector('.spin')
 
@@ -174,7 +167,6 @@ const categorySelection = (data)=>{
       throw new error('Reload the page');
     }
 
-    console.log(editPostBtn);
     editPostBtn.forEach(button=>{
       button.addEventListener('click', (e)=>{
         e.preventDefault()
@@ -251,22 +243,6 @@ const categorySelection = (data)=>{
       })
   }
 
-// document.getElementById('ownerPosts').addEventListener('click', e=>{
-//   e.preventDefault();
-//   if(e.target.tagName === 'BUTTON'){
-//     const key = e.target.getAttribute('data-propId');
-//     const action = e.target.getAttribute('data-propAvailability');
-//     console.log(e.target.parentElement);
-//     //Delete from UI
-//     document.getElementById('ownerPosts').removeChild(e.target.parentElement);
-//     //Delete from database
-//     db.collection("housePostings").doc(key).delete().then(()=>{
-//       console.log("Deleted from firebase", key);
-//     }).catch(error =>{
-//       console.log(error, error.message);
-//     });
-//   }
-// })
 
 
 
@@ -286,33 +262,3 @@ const categorySelection = (data)=>{
       }
     }
   }
-
-
-
-
-
-//HomePageCategoySelection
-
-// function selectCategory() {
-//   // var categoryOnHomepage = document.getElementById(`homePageCategorySelection`);
-//   // categoryOnHomepage.options[categoryOnHomepage.selectedIndex].value;
-//   var selectCategory = document.getElementById(`homePageCategorySelection`);
-//   selectCategory.options[selectCategory.selectedIndex].value;
-//   var categoryDivs =document.getElementsByClassName(`category`);
-
-//   for(i=0 ;i<categoryDivs.length ;i++){
-//     // console.log(categoryDivs[i].innerHTML);
-//     if(selectCategory.options[selectCategory.selectedIndex].value === `All Categories`){
-//       categoryDivs[i].parentElement.parentElement.parentElement.style.display="";
-//     }
-//     else if(selectCategory.options[selectCategory.selectedIndex].value === `${categoryDivs[i].innerHTML}`){
-//       // console.log(categoryDivs[i].innerHTML)
-//       categoryDivs[i].parentElement.parentElement.parentElement.style.display="";
-//     }
-//     else{
-//       categoryDivs[i].parentElement.parentElement.parentElement.style.display="none";
-//     }
-//   }
-// }
-  
-

@@ -3,115 +3,116 @@ import * as firebase from 'firebase/app';
 import Chatroom from '../scripts/chatScripts/chats';
 // import { Button } from 'bootstrap';
 
-export const chatFunctionality = () =>{
-        // Below is a function to view properties, if the view props button is 
-        //Clicked, we get its id which is the property ID both on Front
-        // and backend
-        const propertyDetailsBtns = document.querySelectorAll('.viewDetailsBtn');
-        propertyDetailsBtns.forEach(btn =>{
-            btn.addEventListener('click', (e)=>{
-                e.preventDefault();
-                console.log("Clicked On button", btn);
-                const propertyId = e.target.parentElement.getAttribute('id');
-                if(propertyId){
-                    localStorage.setItem("propIdToBeViewed", propertyId);
-                    window.location = "propertyDetails.html"
-                }
-            })
-        }) 
+// export const chatFunctionality = () =>{
+//         // Below is a function to view properties, if the view props button is 
+//         //Clicked, we get its id which is the property ID both on Front
+//         // and backend
+//         const propertyDetailsBtns = document.querySelectorAll('.viewDetailsBtn');
+//         propertyDetailsBtns.forEach(btn =>{
+//             btn.addEventListener('click', (e)=>{
+//                 e.preventDefault();
+//                 console.log("Clicked On button", btn);
+//                 const propertyId = e.target.parentElement.getAttribute('id');
+//                 if(propertyId){
+//                     localStorage.setItem("propIdToBeViewed", propertyId);
+//                     window.location = "propertyDetails.html"
+//                 }
+//             })
+//         }) 
     
-        const contactBtns = document.querySelectorAll('.landLordContactBtn');
-        console.log("First upload",contactBtns);
+//         const contactBtns = document.querySelectorAll('.landLordContactBtn');
+//         console.log("First upload",contactBtns);
 
-        auth.onAuthStateChanged(user=> {
-            if(user){
+//         auth.onAuthStateChanged(user=> {
+//             if(user){
 
-                contactBtns.forEach(btn=>{
+//                 contactBtns.forEach(btn=>{
             
-                    btn.addEventListener('click', async(e)=>{
-                    e.preventDefault();
+//                     btn.addEventListener('click', async(e)=>{
+//                     e.preventDefault();
                     
-                    //Class Instances
-                    const chatroom = new Chatroom(auth.currentUser.uid);
+//                     //Class Instances
+//                     const chatroom = new Chatroom(auth.currentUser.uid);
 
-                    console.log(e.target);
-                    const senderId = auth.currentUser.uid;
-                    const receiverId = e.currentTarget.getAttribute("id");
+//                     console.log(e.target);
+//                     const senderId = auth.currentUser.uid;
+//                     const receiverId = e.currentTarget.getAttribute("id");
                         
-                    if(receiverId === auth.currentUser.uid){
-                        errorHandling({
-                            type: "Can",
-                            msg: "You cant send a message to yourself",
-                            solution: "Please try contacting other landlords"
-                        });
+//                     if(receiverId === auth.currentUser.uid){
+//                         errorHandling({
+//                             type: "Can",
+//                             msg: "You cant send a message to yourself",
+//                             solution: "Please try contacting other landlords"
+//                         });
                         
-                        return;
-                        //throw new Error("You can't send email to your self");
-                    }
+//                         return;
+//                         //throw new Error("You can't send email to your self");
+//                     }
 
-                    $('#messageModal').modal('show')
+//                     $('#messageModal').modal('show')
                     
-                    const users = await db.collection('users').where("userId", "==", receiverId).get();
-                    let receiverInfo;
-                    users.forEach(user =>{
-                        receiverInfo = user;
-                    })  
+//                     const users = await db.collection('users').where("userId", "==", receiverId).get();
+//                     let receiverInfo;
+//                     users.forEach(user =>{
+//                         receiverInfo = user;
+//                     })  
     
-                    let combinedUserId = "";
+//                     let combinedUserId = "";
     
-                    if(senderId < receiverId){
-                        combinedUserId = senderId +"-"+ receiverId;
-                    }else{
-                        combinedUserId = receiverId +"-"+ senderId;
-                        }
+//                     if(senderId < receiverId){
+//                         combinedUserId = senderId +"-"+ receiverId;
+//                     }else{
+//                         combinedUserId = receiverId +"-"+ senderId;
+//                         }
                     
-                    chatroom.addChatroom(receiverInfo.data(), combinedUserId);
+//                     chatroom.addChatroom(receiverInfo.data(), combinedUserId);
     
-                    const sendMessageForm = document.querySelector('.sendMessageForm');
-                    console.log(sendMessageForm);
+//                     const sendMessageForm = document.querySelector('.sendMessageForm');
+//                     console.log(sendMessageForm);
     
-                    sendMessageForm.addEventListener('submit', async(e)=> {
-                        e.preventDefault();
-                        const message = sendMessageForm['new-msg-input'].value.trim();
-                        try {
-                            await chatroom.addChat2(message, receiverId, combinedUserId);
-                            const doc = await db.collection('users').doc(auth.currentUser.uid).get();
-                            await chatroom.addChatInRecieverChatRoom2(doc.data(), receiverId, combinedUserId);
+//                     sendMessageForm.addEventListener('submit', async(e)=> {
+//                         e.preventDefault();
+//                         const message = sendMessageForm['new-msg-input'].value.trim();
+//                         try {
+//                             await chatroom.addChat2(message, receiverId, combinedUserId);
+//                             const doc = await db.collection('users').doc(auth.currentUser.uid).get();
+//                             await chatroom.addChatInRecieverChatRoom2(doc.data(), receiverId, combinedUserId);
                             
-                            //Show a message sent here
-                            //
+//                             //Show a message sent here
+//                             //
     
-                            //After adding the chat, the form will be reset and closed
-                            sendMessageForm.reset();
-                            $('#messageModal').modal('hide');
-                        } catch (error) {
-                            console.log(error.message);
+//                             //After adding the chat, the form will be reset and closed
+//                             sendMessageForm.reset();
+//                             $('#messageModal').modal('hide');
+//                         } catch (error) {
+//                             console.log(error.message);
                             
-                        }
-                    });
-                })
-                })  
+//                         }
+//                     });
+//                 })
+//                 })  
 
-            }else{
-                contactBtns.forEach(btn => {
-                    btn.addEventListener('click', (e)=>{
-                        e.preventDefault();
-                        errorHandling({
-                            msg: "You're not logged In",
-                            solution: "PLease Login to send a message to landlord",
-                            link: "/signInPage.html", 
-                            type: "Un Authorised Access"
-                        })
-                        return;
-                    })
-                })
+//             }else{
+//                 contactBtns.forEach(btn => {
+//                     btn.addEventListener('click', (e)=>{
+//                         e.preventDefault();
+//                         errorHandling({
+//                             msg: "You're not logged In",
+//                             solution: "PLease Login to send a message to landlord",
+//                             link: "/signInPage.html", 
+//                             type: "Un Authorised Access"
+//                         })
+//                         return;
+//                     })
+//                 })
                 
-                console.log("Please sign in to send messages");
-            }
-            });
-}
+//                 console.log("Please sign in to send messages");
+//             }
+//             });
+// }
 
 
+//Get the liked buttons on the load of the page
 export const getLikedPosts = (propertyArray) =>{
     const likeBtns = document.querySelectorAll('.bi-heart');
 
@@ -145,50 +146,176 @@ export const getLikedPosts = (propertyArray) =>{
                         //    btn.classList.remove('bi-heartClicked'); 
                         }
                     });
-            
-            //Add an eventListener to each button so whenever a user clicks it, they
-            //like or unlike that post.
-                    btn.addEventListener('click', async(e)=>{
-                        btn.classList.toggle('bi-heartClicked');
-                        const postId = e.target.getAttribute('id');
-                    
-                        //Each time a user clicks on the button, read the user info from the 
-                        //Database which will have all their liked posts, if the clicked post
-                        //doesnt  exists, like it else unlike it and remove it from the database.
-                        
-                        //This doesnt seem as the best way to do, hopefully may slow application
-                        //but will be changed if better option is got.
-                        const updatedUserInfo = await db.collection('users').doc(auth.currentUser.uid).get();
-                        const likedPosts = updatedUserInfo.data().likedPosts;
-                        
-                        if(likedPosts && likedPosts.includes(postId)){
-                            db.collection("users").doc(auth.currentUser.uid).update({
-                                likedPosts: firebase.firestore.FieldValue.arrayRemove(postId)
-                            });
-                        }else{
-                            db.collection("users").doc(auth.currentUser.uid).update({
-                                likedPosts: firebase.firestore.FieldValue.arrayUnion(postId)
-                            });
-                        }
-                    })
                 })
             }else{
                 likeBtns.forEach(btn =>{
                     btn.addEventListener('click', (e)=>{
                         e.preventDefault();
-                        errorHandling({
-                            msg: "You're not logged In",
-                            solution: "PLease Login to save posts and many more of benefit", 
-                            type: "Un Authorised Access"
-                         })
+        
                     })
                 })
             }
         })     
     }
 
+
+export const LikeChatViewDetailsFunctionality = () =>{
+
+    const postCardWrappers = document.querySelectorAll('.postCardWrapper');
+
+                //Add an eventListener to each button so whenever a user clicks it, they
+            //like or unlike that post.
+            
+            postCardWrappers.forEach(wrapper=>{
+                wrapper.addEventListener('click', async(e)=>{
+
+                    e.preventDefault();
+    
+
+                    //Check if the clicked is the like button and do what it should do
+                    if(e.target.classList.contains('bi-heart')){
+                        auth.onAuthStateChanged( async(user) =>{
+                            if(user){
+                                e.target.classList.toggle('bi-heartClicked');
+                                const postId = e.target.getAttribute('id');
+        
+                                
+                                //Each time a user clicks on the button, read the user info from the 
+                                //Database which will have all their liked posts, if the clicked post
+                                //doesnt  exists, like it else unlike it and remove it from the database.
+                                
+                                //This doesnt seem as the best way to do, hopefully may slow application
+                                //but will be changed if better option is got.
+                                const updatedUserInfo = await db.collection('users').doc(auth.currentUser.uid).get();
+                                const likedPosts = updatedUserInfo.data().likedPosts;
+                            
+                                if(likedPosts && likedPosts.includes(postId)){
+                                    db.collection("users").doc(auth.currentUser.uid).update({
+                                        likedPosts: firebase.firestore.FieldValue.arrayRemove(postId)
+                                    });
+                                }else{
+                                    db.collection("users").doc(auth.currentUser.uid).update({
+                                        likedPosts: firebase.firestore.FieldValue.arrayUnion(postId)
+                                    });
+                                }                                
+                            }else{
+                                errorHandling({
+                                    msg: "You're not logged In",
+                                    solution: "PLease Login to save posts and many more of benefit", 
+                                    type: "Un Authorised Access"
+                                 })
+                            }
+                        })
+                    }
+                       
+                    if(e.target.classList.contains('viewDetailsBtn') || 
+                     e.target.parentElement.classList.contains('viewDetailsBtn')){
+                          // Below is a function to view properties, if the view props button is 
+                            //Clicked, we get its id which is the property ID both on Front
+                            // and backend
+
+    
+                            let propertyId = e.target.getAttribute('id');
+                        //Whenever a user clicks and the target is the child element, id will be null
+                            if(propertyId === null){
+                                propertyId = e.target.parentElement.getAttribute('id');
+                            }
+
+                            if(propertyId){
+                                localStorage.setItem("propIdToBeViewed", propertyId);
+                                window.location = "propertyDetails.html"
+                            }
+                    }
+                    
+                    //Check if they clicked on the chat button and then apply the functions
+                    if(e.target.classList.contains('landLordContactBtn') || 
+                        e.target.parentElement.classList.contains('landLordContactBtn')){
+    
+                        auth.onAuthStateChanged((user) => {
+                            if(user){
+                            
+                                //Class Instances is a class that manages chats
+                                const chatroom = new Chatroom(auth.currentUser.uid);
+
+                                const senderId = auth.currentUser.uid;
+                                let receiverId = e.target.getAttribute("id");
+
+                                if(receiverId === null){
+                                    receiverId = e.target.parentElement.getAttribute('id');
+                                }
+                                    
+                                if(receiverId === auth.currentUser.uid){
+                                    errorHandling({
+                                        type: "same user",
+                                        msg: "You cant send a message to yourself",
+                                        solution: "Please try contacting other landlords"
+                                    });
+                                    
+                                    return;
+                                    //throw new Error("You can't send email to your self");
+                                }
+            
+                                $('#messageModal').modal('show')
+                                
+                                db.collection('users').where("userId", "==", receiverId).get().then((users)=>{
+                                    let receiverInfo;
+
+                                    users.forEach(user =>{
+                                        receiverInfo = user;
+                                    })  
+                    
+                                    let combinedUserId = "";
+
+                                    if(senderId < receiverId){
+                                        combinedUserId = senderId +"-"+ receiverId;
+                                    }else{
+                                        combinedUserId = receiverId +"-"+ senderId;
+                                        }
+
+                                    chatroom.addChatroom(receiverInfo.data(), combinedUserId);
+            
+                                    const sendMessageForm = document.querySelector('.sendMessageForm');
+                                    console.log(sendMessageForm);
+
+                                    sendMessageForm.addEventListener('submit', async(e)=> {
+                                        e.preventDefault();
+                                        const message = sendMessageForm['new-msg-input'].value.trim();
+                                        try {
+                                            await chatroom.addChat2(message, receiverId, combinedUserId);
+                                            const doc = await db.collection('users').doc(auth.currentUser.uid).get();
+                                            await chatroom.addChatInRecieverChatRoom2(doc.data(), receiverId, combinedUserId);
+                                            
+                                            //Show a message sent here
+                                            //
+                    
+                                            //After adding the chat, the form will be reset and closed
+                                            sendMessageForm.reset();
+                                            $('#messageModal').modal('hide');
+                                        } catch (error) {
+                                            console.log(error.message);
+                                        }
+                                    });
+                                })                    
+                            }else{
+                                errorHandling({
+                                    msg: "You're not logged In",
+                                    solution: "PLease Login to send a message to landlord",
+                                    link: "/signInPage.html", 
+                                    type: "Un Authorised Access"
+                                })
+                            }
+                            });
+                    }
+                    
+                })
+            })
+
+
+
+}
+
 const errorHandling = ({msg, solution, type, link}) =>{
-    console.log('Got an error', msg)
+
     const errorSolution = document.querySelector('.errorSolution');
     const errorMessage = document.querySelector('.errorMessage');
     const errorModalContent = document.querySelector('.error-modal-content')

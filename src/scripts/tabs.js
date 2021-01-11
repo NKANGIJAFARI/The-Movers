@@ -7,10 +7,8 @@ tabButtons.forEach(btn =>{
       const forLandLord = document.querySelector('#forLandLord');
 
         if(e.target.getAttribute('id') === "forTenant"){
-            console.log("This are cards");
          
             if(tenantContent.classList.contains('active')){
-                console.log("ALREADY IS ACTIVE")
                 return
             }
 
@@ -27,9 +25,9 @@ tabButtons.forEach(btn =>{
             }
 
         }else if(e.target.getAttribute('id') === "forLandLord"){
-            console.log('This are maps');
+
             if(landLordContent.classList.contains("active")){
-                console.log("Already on maps")
+
                 return
             }
 

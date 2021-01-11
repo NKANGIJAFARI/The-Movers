@@ -17,8 +17,6 @@ module.exports = {
         forChatRoom: './src/scripts/chatScripts/chatFiles',
         postProperty: './src/scripts/postProperty.js',
         userProfile: './src/scripts/userProfile.js',
-        congrats: './src/scripts/congrats.js',
-        updateProfile: './src/scripts/updateProfile.js',
         authentication: './src/scripts/Auth.js',
         propertyDetails: './src/scripts/propertyDetails.js',
         editPost: './src/scripts/editPost.js'
@@ -142,21 +140,6 @@ module.exports = {
             filename: 'userProfile.html',
             template: './src/userProfile.html',
             chunks: ['main','userProfile', 'authentication']
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'congrats.html',
-            template: './src/congrats.html',
-            chunks: ['main', 'congrats']
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'test.html',
-            template: './src/test.html',
-            chunks: ['main', 'authentication']
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'updateProfile.html',
-            template: './src/updateProfile.html',
-            chunks: ['main', 'updateProfile']
         }),
         new HtmlWebpackPlugin({
             filename: 'propertyDetails.html',

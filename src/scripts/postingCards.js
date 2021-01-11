@@ -24,7 +24,7 @@
 //                 <i class="fas fa-map-marked-alt"></i>
 //                 <span class="text-black">MAP</span>
 //               </a>
-//               <a class="card__icons--item button landLordContactBtn" data-toggle="modal" data-target="#messageModal" id="${data.uid}">
+//               <a class="card__icons--item button landLordContactBtn" id="${data.uid}">
 //                 <i class="far fa-comment-alt"></i>
 //                 CHAT
 //               </a>
@@ -43,7 +43,7 @@
 //               </a>
 //             </span>
     
-//             <!-- <a href="#landlordContacts" data-toggle="modal" data-target="#messageModal" data-uid="${data.uid}" class="card__body--ContactBtn">CONTACT LANDLORD</a> -->
+//             <!-- <a href="#landlordContacts" data-uid="${data.uid}" class="card__body--ContactBtn">CONTACT LANDLORD</a> -->
 //           </div>
 //           <div class="card__body--postedByDetails">
 //             <img src="${data.postedByImg}" alt="Posted By" class="card__body--postedByImg">

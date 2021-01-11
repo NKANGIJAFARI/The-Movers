@@ -23,8 +23,6 @@ const navClosureBtn = document.querySelector('.navbar__closure-btn');
 
 navOpenCloseBtn.addEventListener('click', (e)=>{
     e.preventDefault();
-    console.log(navOpenCloseBtn)
-    console.log(navBarWrapper)
     navBarWrapper.classList.toggle('active');
 });
 
